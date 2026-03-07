@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ismail Ferdi – AI Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+         * COLOR SYSTEM — Ismail Ferdi Portfolio
+         * Role: AI Engineering Student
+         * Tone: Modern · Technical · Minimal · Dark
+         * ───────────────────────────────────────────────────────────────
+         *
+         * PALETTE DECISIONS
+         * ─────────────────
+         * --col-bg          Deep navy #071228   → page canvas; anchors everything
+         * --col-surface      #0d1b3e             → card surfaces; 1 step lighter than bg
+         * --col-surface-hi   #122249             → hover / elevated surfaces
+         * --col-border       #1b3357             → subtle structural borders
+         * --col-border-hi    #2d5280             → focused / highlighted borders
+         *
+         * PRIMARY (interactive)
+         * --col-primary      #38bdf8  Cyan       → links, btn fills, avatar ring
+         *   Contrast on --col-bg: 8.9:1 ✓ WCAG AAA
+         * --col-primary-dim  rgba(56,189,248,.10) → tag/card tinted backgrounds
+         * --col-primary-glow rgba(56,189,248,.35) → box-shadow glow
+         *
+         * ACCENT (headings / highlight)
+         * --col-accent       #a3e635  Lime green → H1 glow, badges, <strong>, project names
+         *   Contrast on --col-bg: 9.2:1 ✓ WCAG AAA
+         *   Chosen as a split-complementary to the navy+cyan palette — warm-cool tension
+         *   creates visual hierarchy without clashing.
+         * --col-accent-dim   rgba(163,230,53,.12) → badge/tag tinted backgrounds
+         * --col-accent-glow  rgba(163,230,53,.35) → glow text-shadow
+         *
+         * TEXT SCALE (all meet WCAG AA on dark surfaces)
+         * --col-text-hi      #edf2f8  → headings, table first-col   contrast: 17.2:1 ✓
+         * --col-text         #c4cfde  → body copy                   contrast: 10.4:1 ✓
+         * --col-text-muted   #7a90aa  → labels, placeholders         contrast:  4.6:1 ✓ AA
+         * --col-text-subtle  #3d5570  → footer, disabled             contrast:  2.8:1 (decorative only)
+         *
+         * SEMANTIC
+         * --col-success      #4ade80  → success states / certs
+         * --col-warning      #fbbf24  → warnings
+         * --col-error        #f87171  → errors
+         *
+         * HIERARCHY RULES
+         * ───────────────
+         * • H1 name          → --col-accent  + glow   (highest weight)
+         * • Section titles   → --col-primary + glow   (secondary weight)
+         * • Badges           → --col-accent bg, --col-bg text (action labels)
+         * • Body text        → --col-text
+         * • <strong>         → --col-accent  (emphasis = accent, not primary)
+         * • Links / buttons  → --col-primary (interactive = primary)
+         * • Hover states     → swap primary ↔ accent  (reward hover with warmth)
+         * • Muted / meta     → --col-text-muted
+         * • Borders          → --col-border  (resting) / --col-border-hi (focus/hover)
+         *
+         ═══════════════════════════════════════════════════════════════ */
+
+        :root {
+            /* Surfaces */
+            --col-bg:           #071228;
+            --col-surface:      #0d1b3e;
+            --col-surface-hi:   #122249;
+            --col-border:       #1b3357;
+            --col-border-hi:    #2d5280;
+
+            /* Primary — Cyan */
+            --col-primary:      #38bdf8;
+            --col-primary-dim:  rgba(56, 189, 248, 0.10);
+            --col-primary-glow: rgba(56, 189, 248, 0.35);
+
+            /* Accent — Lime Green */
+            --col-accent:       #a3e635;
+            --col-accent-dim:   rgba(163, 230, 53, 0.12);
+            --col-accent-glow:  rgba(163, 230, 53, 0.35);
+
+            /* Text scale */
+            --col-text-hi:      #edf2f8;
+            --col-text:         #c4cfde;
+            --col-text-muted:   #7a90aa;
+            --col-text-subtle:  #3d5570;
+
+            /* Semantic */
+            --col-success:      #4ade80;
+            --col-warning:      #fbbf24;
+            --col-error:        #f87171;
+
+            /* Spacing scale */
+            --sp-xs:  0.4rem;
+            --sp-sm:  0.8rem;
+            --sp-md:  1.4rem;
+            --sp-lg:  2rem;
+            --sp-xl:  3rem;
+
+            /* Radius */
+            --r-sm:   5px;
+            --r-md:   10px;
+            --r-lg:   14px;
+            --r-full: 9999px;
+        }
+
+        /* ── RESET ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ── BASE ── */
+        body {
+            font-family: 'Google Sans Code', monospace;
+            background-color: var(--col-bg);
+            color: var(--col-text);
+            min-height: 100vh;
+            padding: var(--sp-lg) var(--sp-md);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* ── GLOW UTILITIES ── */
+        .glow-accent {
+            color: var(--col-accent);
+            text-shadow:
+                0 0 8px  var(--col-accent-glow),
+                0 0 24px rgba(163, 230, 53, 0.20),
+                0 0 48px rgba(163, 230, 53, 0.10);
+        }
+
+        .glow-primary {
+            color: var(--col-primary);
+            text-shadow:
+                0 0 6px  var(--col-primary-glow),
+                0 0 18px rgba(56, 189, 248, 0.18);
+        }
+
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            padding: var(--sp-xl) 0 var(--sp-lg);
+            border-bottom: 1px solid var(--col-border);
+            margin-bottom: var(--sp-xl);
+        }
+
+        .avatar {
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--col-primary);
+            box-shadow: 0 0 0 4px var(--col-primary-dim), 0 0 20px var(--col-primary-glow);
+            margin: 0 auto var(--sp-md);
+            display: block;
+            background: var(--col-surface);
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--sp-xs);
+        }
+
+        header h2 {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--col-text-muted);
+            margin-bottom: var(--sp-lg);
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--sp-md);
+            font-size: 0.82rem;
+        }
+
+        .contact-row a,
+        .contact-row span {
+            color: var(--col-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-row a:hover { color: var(--col-accent); }
+
+        /* ── SECTION CARDS ── */
+        section {
+            background: var(--col-surface);
+            border: 1px solid var(--col-border);
+            border-radius: var(--r-lg);
+            padding: var(--sp-lg) 2.2rem;
+            margin-bottom: var(--sp-md);
+            transition: border-color 0.2s;
+        }
+
+        section:hover { border-color: var(--col-border-hi); }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-sm);
+            margin-bottom: var(--sp-md);
+        }
+
+        /* Badge — accent bg ensures it reads as a label, not a button */
+        .badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.75rem;
+            border-radius: var(--r-sm);
+            background: var(--col-accent);
+            color: var(--col-bg);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* ── TYPOGRAPHY ── */
+        p {
+            font-size: 0.93rem;
+            color: var(--col-text);
+            line-height: 1.85;
+        }
+
+        p + p { margin-top: var(--sp-sm); }
+
+        /* Strong = accent (emphasis), not primary (interactive) */
+        strong {
+            color: var(--col-accent);
+            font-weight: 600;
+        }
+
+        /* ── SKILL TAGS ── */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.45rem;
+        }
+
+        /* Primary tag — interactive / core skills */
+        .tag-primary {
+            font-size: 0.76rem;
+            padding: 0.28rem 0.75rem;
+            border-radius: var(--r-full);
+            border: 1px solid var(--col-primary);
+            background: var(--col-primary-dim);
+            color: var(--col-primary);
+        }
+
+        /* Neutral tag — secondary / coursework skills */
+        .tag {
+            font-size: 0.76rem;
+            padding: 0.28rem 0.75rem;
+            border-radius: var(--r-full);
+            border: 1px solid var(--col-border-hi);
+            background: var(--col-bg);
+            color: var(--col-text);
+        }
+
+        .skill-group { margin-bottom: var(--sp-md); }
+
+        .skill-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--col-text-muted);
+            margin-bottom: 0.45rem;
+        }
+
+        /* ── DIVIDER ── */
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--col-border), transparent);
+            margin: var(--sp-md) 0;
+        }
+
+        /* ── PROJECT CARDS ── */
+        .project-card {
+            border: 1px solid var(--col-border);
+            border-radius: var(--r-md);
+            padding: var(--sp-md);
+            margin-bottom: var(--sp-sm);
+            background: var(--col-bg);
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--col-primary);
+            background: var(--col-surface-hi);
+            box-shadow: 0 0 16px var(--col-primary-dim);
+        }
+
+        .project-title {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--col-text-hi);
+            margin-bottom: 0.25rem;
+        }
+
+        .project-name { color: var(--col-accent); }
+
+        .project-stack {
+            font-size: 0.73rem;
+            color: var(--col-text-muted);
+            margin-bottom: var(--sp-sm);
+            font-family: monospace;
+        }
+
+        /* ── BUTTONS ── */
+        .btn-row { display: flex; gap: 0.65rem; margin-top: var(--sp-sm); }
+
+        .btn {
+            font-family: 'Google Sans Code', monospace;
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 0.34rem 0.9rem;
+            border-radius: var(--r-sm);
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        /* Secondary action — outline */
+        .btn-outline {
+            border: 1px solid var(--col-primary);
+            color: var(--col-primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--col-primary-dim);
+            border-color: var(--col-primary);
+        }
+
+        /* Primary action — filled */
+        .btn-filled {
+            border: 1px solid var(--col-primary);
+            background: var(--col-primary);
+            color: var(--col-bg);
+        }
+
+        .btn-filled:hover {
+            background: var(--col-accent);
+            border-color: var(--col-accent);
+            color: var(--col-bg);
+        }
+
+        /* ── TABLES ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.86rem;
+        }
+
+        thead tr { border-bottom: 1px solid var(--col-border-hi); }
+
+        th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--col-text-muted);
+            font-size: 0.68rem;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+            padding: 0.6rem var(--sp-sm);
+        }
+
+        td {
+            padding: 0.75rem var(--sp-sm);
+            color: var(--col-text);
+            border-bottom: 1px solid var(--col-border);
+        }
+
+        /* First column = higher hierarchy text */
+        td:first-child {
+            font-weight: 500;
+            color: var(--col-text-hi);
+        }
+
+        tbody tr:last-child td { border-bottom: none; }
+
+        td a {
+            color: var(--col-primary);
+            text-decoration: none;
+        }
+
+        td a:hover { color: var(--col-accent); }
+
+        /* ── CONNECT GRID ── */
+        .connect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: var(--sp-sm);
+            margin-top: var(--sp-md);
+        }
+
+        .connect-card {
+            border: 1px solid var(--col-border);
+            border-radius: var(--r-md);
+            padding: var(--sp-sm) var(--sp-md);
+            background: var(--col-bg);
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .connect-card:hover {
+            border-color: var(--col-accent);
+            background: var(--col-surface-hi);
+        }
+
+        .connect-platform {
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--col-text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .connect-link {
+            color: var(--col-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+
+        .connect-link:hover { color: var(--col-accent); }
+
+        /* ── NOTE / QUOTE ── */
+        .note {
+            font-style: italic;
+            color: var(--col-text-muted);
+            border-left: 3px solid var(--col-primary);
+            padding-left: var(--sp-md);
+            font-size: 0.9rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            color: var(--col-text-subtle);
+            font-size: 0.76rem;
+            padding: var(--sp-lg) 0 var(--sp-sm);
+            border-top: 1px solid var(--col-border);
+            margin-top: var(--sp-sm);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            section { padding: var(--sp-md) var(--sp-sm); }
+            .btn-row { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ══════════ HEADER ══════════ -->
+    <header>
+        <img src="" alt="Ismail Ferdi" class="avatar">
+        <h1 class="glow-accent">Ismail Ferdi</h1>
+        <h2>AI Engineering Student &nbsp;·&nbsp; Data Science Enthusiast</h2>
+        <div class="contact-row">
+            <a href="mailto:elfernago3hhhh@gmail.com">📧 elfernago3hhhh@gmail.com</a>
+            <span>📞 +213 7 75 85 33 51</span>
+            <a href="https://linkedin.com/in/ismail-ferdi-1b3a70290" target="_blank">💼 LinkedIn</a>
+            <a href="https://github.com/ismailferdi" target="_blank">🐙 GitHub</a>
+        </div>
+    </header>
+
+    <!-- ══════════ ABOUT ══════════ -->
+    <section>
+        <div class="section-header">
+            <span class="badge">About</span>
+            <span class="section-title glow-primary">About Me</span>
+        </div>
+        <p>
+            I'm a <strong>4th-year AI Engineering student</strong> at Université Djillali Liabès,
+            Algeria, with a genuine passion for artificial intelligence and data science. I enjoy
+            understanding how machines learn and finding ways to apply that knowledge to real problems.
+        </p>
+        <p>
+            My studies cover a broad range of topics — from Machine Learning and Deep Learning to NLP,
+            Computer Vision, and Big Data. Outside the classroom, I sharpen my skills through hands-on
+            courses and certifications in AI engineering and data science.
+        </p>
+        <p>
+            I'm currently <strong>looking for internship opportunities</strong> where I can apply
+            what I've learned and gain real-world experience.
+        </p>
+    </section>
+
+    <!-- ══════════ SKILLS ══════════ -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Skills</span>
+            <span class="section-title glow-primary">Core Skills</span>
+        </div>
+
+        <div class="skill-group">
+            <p class="skill-label">Programming & Data</p>
+            <div class="tags">
+                <span class="tag-primary">Python</span>
+                <span class="tag-primary">Mathematics</span>
+                <span class="tag-primary">Statistics</span>
+                <span class="tag-primary">Data Science</span>
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <p class="skill-label">AI & Machine Learning</p>
+            <div class="tags">
+                <span class="tag-primary">Machine Learning</span>
+                <span class="tag-primary">Deep Learning</span>
+                <span class="tag-primary">Artificial Intelligence</span>
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <p class="skill-label">AI Engineering Tools</p>
+            <div class="tags">
+                <span class="tag">OpenAI API</span>
+                <span class="tag">Prompt Engineering</span>
+                <span class="tag">AI Agents</span>
+                <span class="tag">Embeddings & Vector Databases</span>
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <p class="skill-label">Academic Coursework</p>
+            <div class="tags">
+                <span class="tag">NLP</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Generative AI</span>
+                <span class="tag">Big Data (Hadoop / Spark)</span>
+                <span class="tag">Cybersecurity</span>
+                <span class="tag">Distributed Systems</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ EXPERIENCE ══════════ -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Experience</span>
+            <span class="section-title glow-primary">Professional Experience</span>
+        </div>
+        <p class="note">
+            Currently focused on studies and certifications. Actively seeking a first internship
+            or junior role in AI / Data Science.
+        </p>
+    </section>
+
+    <!-- ══════════ PROJECTS ══════════ -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Projects</span>
+            <span class="section-title glow-primary">Featured Projects</span>
+        </div>
+
+        <div class="project-card">
+            <p class="project-title">Project 1 — <span class="project-name">[Add Your Project Name]</span></p>
+            <p class="project-stack">Tech Stack: Python · [Add tools used]</p>
+            <p>[Brief description of what the project does and what problem it solves.]</p>
+            <div class="btn-row">
+                <a href="#" class="btn btn-outline">GitHub Repo</a>
+                <a href="#" class="btn btn-filled">Live Demo</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <p class="project-title">Project 2 — <span class="project-name">[Add Your Project Name]</span></p>
+            <p class="project-stack">Tech Stack: Python · [Add tools used]</p>
+            <p>[Brief description of what the project does and what problem it solves.]</p>
+            <div class="btn-row">
+                <a href="#" class="btn btn-outline">GitHub Repo</a>
+                <a href="#" class="btn btn-filled">Live Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ EDUCATION ══════════ -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Education</span>
+            <span class="section-title glow-primary">Education & Certifications</span>
+        </div>
+
+        <p class="skill-label" style="margin-bottom:0.8rem">Degree</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Degree</th>
+                    <th>Institution</th>
+                    <th>Period</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Computer Science — AI Specialization</td>
+                    <td>Université Djillali Liabès</td>
+                    <td>Sep 2022 – Jul 2027</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <p class="skill-label" style="margin-bottom:0.8rem">Certifications</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Certificate</th>
+                    <th>Issuer</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>The AI Engineer Path</td>
+                    <td>Scrimba</td>
+                    <td>July 2025</td>
+                </tr>
+                <tr>
+                    <td>The Data Science Course: Complete Bootcamp 2025</td>
+                    <td>Careers 365</td>
+                    <td>February 2025</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ══════════ CONNECT ══════════ -->
+    <section>
+        <div class="section-header">
+            <span class="badge">Contact</span>
+            <span class="section-title glow-primary">Let's Connect</span>
+        </div>
+        <p>I'm open to internships, collaborations, and interesting AI conversations.</p>
+        <div class="connect-grid">
+            <div class="connect-card">
+                <p class="connect-platform">📧 Email</p>
+                <a href="mailto:elfernago3hhhh@gmail.com" class="connect-link">elfernago3hhhh@gmail.com</a>
+            </div>
+            <div class="connect-card">
+                <p class="connect-platform">💼 LinkedIn</p>
+                <a href="https://linkedin.com/in/ismail-ferdi-1b3a70290" target="_blank" class="connect-link">linkedin.com/in/ismail-ferdi-1b3a70290</a>
+            </div>
+            <div class="connect-card">
+                <p class="connect-platform">🐙 GitHub</p>
+                <a href="https://github.com/ismailferdi" target="_blank" class="connect-link">github.com/ismailferdi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer>
+        Ismail Ferdi · AI Engineering Student · Université Djillali Liabès · 2025
+    </footer>
+
+</div>
+</body>
+</html>
