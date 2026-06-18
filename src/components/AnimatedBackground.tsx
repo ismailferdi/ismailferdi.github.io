@@ -13,6 +13,8 @@ const AnimatedBackground: React.FC = () => {
     let animationFrameId: number;
     let time = 0;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -20,6 +22,35 @@ const AnimatedBackground: React.FC = () => {
 
     window.addEventListener('resize', resize);
     resize();
+
+    const drawStatic = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const gridSize = 40;
+      const rows = Math.ceil(canvas.height / gridSize) + 2;
+      const cols = Math.ceil(canvas.width / gridSize) + 2;
+
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(0, 245, 255, 0.15)';
+      ctx.lineWidth = 1;
+
+      for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+          const x = j * gridSize;
+          const y = i * gridSize;
+          if (j === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+      }
+      for (let j = 0; j < cols; j++) {
+        for (let i = 0; i < rows; i++) {
+          const x = j * gridSize;
+          const y = i * gridSize;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+      }
+      ctx.stroke();
+    };
 
     const draw = () => {
       time += 0.01;
@@ -38,19 +69,14 @@ const AnimatedBackground: React.FC = () => {
           const x = j * gridSize;
           const y = i * gridSize;
 
-          // Wave logic
           const dist = Math.sqrt(Math.pow(x - canvas.width / 2, 2) + Math.pow(y - canvas.height / 2, 2));
           const wave = Math.sin(dist * 0.01 - time * 2) * 15;
           const wave2 = Math.cos(x * 0.005 + time) * 10;
 
-          const finalX = x;
           const finalY = y + wave + wave2;
 
-          if (j === 0) {
-            ctx.moveTo(finalX, finalY);
-          } else {
-            ctx.lineTo(finalX, finalY);
-          }
+          if (j === 0) ctx.moveTo(x, finalY);
+          else ctx.lineTo(x, finalY);
         }
       }
 
@@ -63,28 +89,23 @@ const AnimatedBackground: React.FC = () => {
           const wave = Math.sin(dist * 0.01 - time * 2) * 15;
           const wave2 = Math.cos(x * 0.005 + time) * 10;
 
-          const finalX = x;
           const finalY = y + wave + wave2;
 
-          if (i === 0) {
-            ctx.moveTo(finalX, finalY);
-          } else {
-            ctx.lineTo(finalX, finalY);
-          }
+          if (i === 0) ctx.moveTo(x, finalY);
+          else ctx.lineTo(x, finalY);
         }
       }
       ctx.stroke();
 
-      // Add some glowing particles
       const particlesCount = 20;
       for (let i = 0; i < particlesCount; i++) {
         const px = (Math.sin(time * 0.5 + i) * 0.5 + 0.5) * canvas.width;
         const py = (Math.cos(time * 0.3 + i * 2) * 0.5 + 0.5) * canvas.height;
-        
+
         const gradient = ctx.createRadialGradient(px, py, 0, px, py, 100);
         gradient.addColorStop(0, 'rgba(0, 245, 255, 0.05)');
         gradient.addColorStop(1, 'transparent');
-        
+
         ctx.fillStyle = gradient;
         ctx.fillRect(px - 100, py - 100, 200, 200);
       }
@@ -92,7 +113,11 @@ const AnimatedBackground: React.FC = () => {
       animationFrameId = requestAnimationFrame(draw);
     };
 
-    draw();
+    if (prefersReducedMotion) {
+      drawStatic();
+    } else {
+      draw();
+    }
 
     return () => {
       window.removeEventListener('resize', resize);
@@ -103,6 +128,7 @@ const AnimatedBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true" role="presentation"
       className="fixed inset-0 -z-10 pointer-events-none opacity-40"
       style={{ background: '#0A0A0B' }}
     />

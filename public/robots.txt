@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ismailferdi.github.io/sitemap.xml
