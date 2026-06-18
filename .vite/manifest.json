@@ -1,0 +1,22 @@
+{
+  "_client-DAFwJ4rl.js": {
+    "file": "assets/client-DAFwJ4rl.js",
+    "name": "client",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
+  "index.html": {
+    "file": "assets/app-DuWSEDQa.js",
+    "name": "app",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "_client-DAFwJ4rl.js"
+    ],
+    "css": [
+      "assets/app-C5fiB_G3.css"
+    ]
+  }
+}
