@@ -1,4 +1,4 @@
-import { Mail, Phone, Linkedin, Github, Code2, BrainCircuit, Wrench, Database, Eye, Sparkles, MessageSquare } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Code2, BrainCircuit, Wrench, Database, Eye, Sparkles } from 'lucide-react';
 import AnimatedBackground from './components/AnimatedBackground';
 
 const DetailedSkillCard = ({ title, icon: Icon, items, accent }: { title: string, icon: any, items: { skill: string, desc: string, tag?: 'basics' | 'learning' }[], accent?: boolean }) => (
@@ -45,80 +45,28 @@ const ContactCard = ({ icon: Icon, label, value, href }: { icon: any, label: str
   );
 };
 
-const PipelineFlow = () => (
-  <svg viewBox="0 0 480 36" className="w-full max-w-md h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="88" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="48" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Data</text>
-    <path d="M96 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
-    <polygon points="108,18 102,14 102,22" fill="rgba(0,245,255,0.25)" />
-    <rect x="112" y="6" width="88" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="156" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Model</text>
-    <path d="M204 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
-    <polygon points="216,18 210,14 210,22" fill="rgba(0,245,255,0.25)" />
-    <rect x="220" y="6" width="88" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="264" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">API</text>
-    <path d="M312 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
-    <polygon points="324,18 318,14 318,22" fill="rgba(0,245,255,0.25)" />
-    <rect x="328" y="6" width="88" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="372" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Docker</text>
-  </svg>
-);
-
-const RAGFlow = () => (
+const ChurnOpsFlow = () => (
   <svg viewBox="0 0 480 36" className="w-full max-w-md h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="4" y="6" width="64" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="36" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">PDF</text>
+    <text x="36" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">User</text>
     <path d="M72 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
     <polygon points="84,18 78,14 78,22" fill="rgba(0,245,255,0.25)" />
     <rect x="88" y="6" width="80" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="128" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Chunks</text>
+    <text x="128" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">FastAPI</text>
     <path d="M172 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
     <polygon points="184,18 178,14 178,22" fill="rgba(0,245,255,0.25)" />
-    <rect x="188" y="6" width="96" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="236" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Vector DB</text>
-    <path d="M288 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
-    <polygon points="300,18 294,14 294,22" fill="rgba(0,245,255,0.25)" />
-    <rect x="304" y="6" width="60" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="334" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">LLM</text>
-    <path d="M368 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
-    <polygon points="380,18 374,14 374,22" fill="rgba(0,245,255,0.25)" />
-    <rect x="384" y="6" width="80" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
-    <text x="424" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Answer</text>
+    <rect x="188" y="6" width="80" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="228" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Model</text>
+    <path d="M272 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="284,18 278,14 278,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="288" y="6" width="72" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="324" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">SQLite</text>
+    <path d="M364 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="376,18 370,14 370,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="380" y="6" width="88" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="424" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Monitor</text>
   </svg>
 );
-
-const KernelGrid = () => {
-  const gaussian = [[1,2,1],[2,4,2],[1,2,1]];
-  const sobel = [[-1,0,1],[-2,0,2],[-1,0,1]];
-  const cellW = 32, cellH = 22, gap = 4;
-  const renderGrid = (data: number[][], ox: number, oy: number) =>
-    data.flatMap((row, i) =>
-      row.map((val, j) => {
-        const x = ox + j * (cellW + gap);
-        const y = oy + i * (cellH + gap);
-        let fill: string;
-        if (val < 0) fill = 'rgba(255,107,107,0.85)';
-        else if (val === 0) fill = 'rgba(255,255,255,0.45)';
-        else fill = 'rgba(0,245,255,0.85)';
-        return (
-          <g key={`${ox}-${i}-${j}`}>
-            <rect x={x} y={y} width={cellW} height={cellH} rx="3" stroke="rgba(255,255,255,0.12)" strokeWidth="0.75" />
-            <text x={x + cellW/2} y={y + cellH/2 + 4} textAnchor="middle" fill={fill} fontSize="12" fontFamily="monospace" fontWeight="600">{val}</text>
-          </g>
-        );
-      })
-    );
-  return (
-    <svg viewBox="0 0 260 110" className="w-full max-w-[260px]" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text x="50" y="14" textAnchor="middle" fill="rgba(0,245,255,0.7)" fontSize="10" fontFamily="monospace" fontWeight="700" letterSpacing="2">GAUSSIAN</text>
-      {renderGrid(gaussian, 4, 24)}
-      <line x1="124" y1="8" x2="124" y2="82" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-      <text x="185" y="14" textAnchor="middle" fill="rgba(0,245,255,0.7)" fontSize="10" fontFamily="monospace" fontWeight="700" letterSpacing="2">SOBEL X</text>
-      {renderGrid(sobel, 130, 24)}
-      <text x="130" y="104" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace">3&times;3 convolution kernels</text>
-    </svg>
-  );
-};
 
 export default function App() {
   return (
@@ -135,25 +83,26 @@ export default function App() {
               </h1>
               
               <p className="text-lg md:text-xl font-bold text-accent animate-fade-in animate-delay-1">
-                AI Engineering Student | NLP &amp; Computer Vision | PyTorch &amp; Hugging Face
+                AI Engineering Student | MLOps &amp; Backend | Python &amp; FastAPI
               </p>
 
               <div className="space-y-6 text-lg text-white/70 leading-relaxed max-w-3xl animate-fade-in animate-delay-2">
                 <p>
-                  I'm a 4th-year AI Engineering student at <span className="text-accent font-semibold">Université Djillali Liabès, Algeria</span>, building toward a career in applied machine learning. My focus is on <span className="text-accent font-semibold">Natural Language Processing</span> and <span className="text-accent font-semibold">Computer Vision</span> — turning research into working systems.
+                  I'm a 4th-year AI Engineering student at <span className="text-accent font-semibold">Université Djillali Liabès, Algeria</span>. I build production-oriented machine learning systems — from training pipelines and experiment tracking to containerized REST APIs with automated monitoring and CI/CD.
                 </p>
 
                 <div className="space-y-3">
                   <p className="text-white font-bold">What I bring:</p>
                   <ul className="list-disc list-inside space-y-1">
-                    <li>Strong foundation in classical ML and deep learning from coursework and hands-on certifications</li>
-                    <li>Experience implementing core algorithms from scratch to understand the math behind the frameworks</li>
-                    <li>Active learner currently building end-to-end projects with PyTorch, Hugging Face, and modern NLP pipelines</li>
+                    <li>End-to-end MLOps: FastAPI, scikit-learn, MLflow, Docker, GitHub Actions</li>
+                    <li>Data drift monitoring using statistical methods (PSI, Jensen-Shannon divergence)</li>
+                    <li>Structured logging, automated Slack alerts, and prediction logging for production observability</li>
+                    <li>Clean, tested Python code with CI verification</li>
                   </ul>
                 </div>
 
                 <p>
-                  <span className="text-white font-bold">Looking for:</span> AI/ML Engineering internships and junior roles where I can ship models that solve real problems.
+                  <span className="text-white font-bold">Looking for:</span> AI/ML Engineering internships and junior roles where I can contribute to production ML systems.
                 </p>
               </div>
 
@@ -206,97 +155,58 @@ export default function App() {
           <h2 className="text-xs font-bold text-accent uppercase tracking-widest mb-8">Technical Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <DetailedSkillCard 
-              title="Languages & Core" 
+              title="Languages" 
               icon={Code2}
               items={[
-                { skill: 'Python', desc: 'primary language for ML/DL development' },
-                { skill: 'SQL', desc: 'data querying and manipulation', tag: 'basics' },
-                { skill: 'Bash/Linux', desc: 'CLI workflows, scripting, server management' },
+                { skill: 'Python', desc: 'primary language for all ML and backend code' },
               ]}
             />
             <DetailedSkillCard 
-              title="Data Science Fundamentals" 
-              icon={Database}
+              title="Backend & API" 
+              icon={Wrench}
               items={[
-                { skill: 'NumPy', desc: 'numerical computing, array operations, linear algebra' },
-                { skill: 'pandas', desc: 'data manipulation, ETL pipelines' },
-                { skill: 'Matplotlib / Seaborn', desc: 'data visualization and model performance plots' },
-                { skill: 'Exploratory Data Analysis (EDA)', desc: 'pattern discovery, data quality assessment' },
-                { skill: 'Feature Engineering', desc: 'transformation, selection, encoding' },
-                { skill: 'Data Preprocessing', desc: 'cleaning, normalization, handling missing data' },
+                { skill: 'FastAPI', desc: 'REST API with /predict, /predict_batch, /health, /metrics endpoints' },
+                { skill: 'Pydantic', desc: 'request validation with CustomerFeatures and Settings models' },
+                { skill: 'Uvicorn', desc: 'ASGI server for the FastAPI application' },
               ]}
             />
             <DetailedSkillCard 
               title="Machine Learning" 
               icon={BrainCircuit}
               items={[
-                { skill: 'scikit-learn', desc: 'classical ML: SVM, Random Forest, PCA, clustering, regression' },
-                { skill: 'Supervised Learning', desc: 'classification, regression, ensemble methods' },
-                { skill: 'Unsupervised Learning', desc: 'clustering, dimensionality reduction' },
-                { skill: 'Model Evaluation', desc: 'accuracy, precision, recall, F1, ROC-AUC, cross-validation' },
-                { skill: 'Hyperparameter Tuning', desc: 'grid search, random search, Bayesian optimization' },
+                { skill: 'scikit-learn', desc: 'RandomForestClassifier, LogisticRegression, ColumnTransformer, StandardScaler, OneHotEncoder' },
+                { skill: 'MLflow', desc: 'experiment tracking for parameters, metrics, and model artifacts' },
               ]}
             />
             <DetailedSkillCard 
-              title="Deep Learning" 
-              icon={BrainCircuit}
+              title="Data & Storage" 
+              icon={Database}
               items={[
-                { skill: 'PyTorch', desc: 'primary DL framework; building and training CNNs, RNNs, Transformers' },
-                { skill: 'TensorFlow / Keras', desc: 'familiar; used in coursework and tutorials' },
-                { skill: 'Neural Networks', desc: 'MLPs, activation functions, backpropagation' },
-                { skill: 'CNNs', desc: 'convolution, pooling, batch normalization, dropout' },
-                { skill: 'RNNs / LSTMs', desc: 'sequence modeling, time series, text generation' },
-                { skill: 'Transformers', desc: 'self-attention, multi-head attention, positional encoding' },
-                { skill: 'Optimization', desc: 'SGD, Adam, RMSprop, learning rate scheduling' },
-                { skill: 'Regularization', desc: 'L1/L2, Dropout, Early Stopping, Data Augmentation' },
+                { skill: 'pandas', desc: 'CSV loading, DataFrame manipulation, feature engineering' },
+                { skill: 'NumPy', desc: 'numerical operations, histogram computation for drift detection' },
+                { skill: 'joblib', desc: 'model and preprocessor serialization' },
+                { skill: 'SQLite', desc: 'append-only prediction log with all input features' },
+                { skill: 'Hugging Face Hub', desc: 'model artifact storage and automatic download on startup' },
               ]}
             />
             <DetailedSkillCard 
-              title="Natural Language Processing" 
-              icon={MessageSquare}
-              items={[
-                { skill: 'Hugging Face Transformers', desc: 'fine-tuning BERT, GPT-2; model hub and pipelines' },
-                { skill: 'spaCy', desc: 'tokenization, NER, text preprocessing, dependency parsing' },
-                { skill: 'NLTK', desc: 'text analysis, stemming, stopword removal, corpus handling' },
-                { skill: 'Text Classification', desc: 'sentiment analysis, topic labeling, spam detection' },
-                { skill: 'Named Entity Recognition (NER)', desc: 'extracting entities from unstructured text' },
-                { skill: 'Word Embeddings', desc: 'Word2Vec, GloVe, contextual embeddings' },
-                { skill: 'Prompt Engineering', desc: 'structured prompting, chain-of-thought, few-shot learning' },
-                { skill: 'Large Language Models (LLMs)', desc: 'architecture understanding, fine-tuning basics' },
-              ]}
-            />
-            <DetailedSkillCard 
-              title="Computer Vision" 
+              title="Monitoring & Observability" 
               icon={Eye}
               items={[
-                { skill: 'OpenCV', desc: 'image preprocessing, feature detection, contour analysis' },
-                { skill: 'Pillow', desc: 'image manipulation and format handling' },
-                { skill: 'Image Processing', desc: 'filtering, thresholding, edge detection, segmentation' },
-                { skill: 'Classical CV Algorithms', desc: '2D convolution, Gaussian/Sobel/Laplacian filters, Otsu thresholding, morphological operations' },
+                { skill: 'PSI Drift Detection', desc: 'Population Stability Index for numeric feature drift' },
+                { skill: 'Jensen-Shannon Divergence', desc: 'drift detection for categorical features' },
+                { skill: 'Structured JSON Logging', desc: 'python-json-logger with typed event fields' },
+                { skill: 'Slack Alerts', desc: 'webhook notifications when drift reaches ALERT level' },
               ]}
             />
             <DetailedSkillCard 
-              title="MLOps & Engineering Tools" 
-              icon={Wrench}
-              items={[
-                { skill: 'Git & GitHub', desc: 'version control, branching, collaborative workflows' },
-                { skill: 'Docker', desc: 'containerizing ML apps', tag: 'basics' },
-                { skill: 'FastAPI', desc: 'building REST APIs for model serving', tag: 'learning' },
-                { skill: 'Streamlit', desc: 'rapid prototyping of ML dashboards and demos' },
-                { skill: 'Jupyter Notebook / VS Code', desc: 'development environment' },
-                { skill: 'Google Colab / Kaggle', desc: 'cloud training, GPU experimentation' },
-              ]}
-            />
-            <DetailedSkillCard 
-              title="Currently Learning" 
+              title="DevOps & Frontend" 
               icon={Sparkles}
-              accent
               items={[
-                { skill: 'LangChain', desc: 'building RAG systems, document Q&A chains' },
-                { skill: 'ChromaDB', desc: 'vector storage and semantic search for LLM applications' },
-                { skill: 'FastAPI + Docker', desc: 'production-ready model deployment' },
-                { skill: 'MLflow / Weights & Biases', desc: 'experiment tracking and model versioning' },
-                { skill: 'AWS / Hugging Face Spaces', desc: 'cloud model hosting' },
+                { skill: 'Docker', desc: 'containerized deployment with Docker Compose (API + MLflow)' },
+                { skill: 'GitHub Actions', desc: 'CI pipeline: lint, test, Docker build on push' },
+                { skill: 'Streamlit', desc: 'interactive dashboard with customer form and drift report' },
+                { skill: 'Plotly', desc: 'gauge chart for churn probability visualization' },
               ]}
             />
           </div>
@@ -337,145 +247,79 @@ export default function App() {
           </div>
         </section>
 
-        {/* Featured Projects */}
+        {/* Featured Project */}
         <section id="projects">
-          <h2 className="text-xs font-bold text-accent uppercase tracking-widest mb-8">Featured Projects</h2>
+          <h2 className="text-xs font-bold text-accent uppercase tracking-widest mb-8">Featured Project</h2>
           <div className="grid grid-cols-1 gap-8">
 
-            {/* Project 1 */}
             <div className="glass-card p-8 space-y-6">
-              <PipelineFlow />
+              <ChurnOpsFlow />
               <div className="flex items-start justify-between gap-4 flex-wrap">
-                <h3 className="text-2xl font-bold tracking-tight">Arabic-French Sentiment Analysis API</h3>
-                <span className="px-3 py-1 text-xs font-bold rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-wider flex-shrink-0">In Development</span>
+                <h3 className="text-2xl font-bold tracking-tight">ChurnOps — Customer Churn Prediction Pipeline</h3>
+                <span className="px-3 py-1 text-xs font-bold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider flex-shrink-0">Shipped</span>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {['Python', 'Hugging Face Transformers', 'PyTorch', 'FastAPI', 'Docker'].map(t => (
+                {['Python', 'FastAPI', 'scikit-learn', 'MLflow', 'Docker', 'Streamlit', 'GitHub Actions'].map(t => (
                   <span key={t} className="px-2.5 py-0.5 text-[11px] font-medium rounded-full border border-white/10 bg-white/5 text-white/50">{t}</span>
                 ))}
               </div>
 
               <p className="text-white/60 leading-relaxed text-sm">
-                Fine-tuning <code className="text-accent/80 text-xs px-1.5 py-0.5 rounded bg-accent/10">bert-base-multilingual-cased</code> on Arabic/French sentiment data. Building an end-to-end pipeline from data preprocessing to model training to REST API deployment.
+                End-to-end MLOps system for customer churn prediction. Trains Random Forest and Logistic Regression models with MLflow experiment tracking, serves predictions via a FastAPI REST API, and monitors data drift in production.
               </p>
 
-              <div>
-                <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Planned Deliverables</p>
-                <ul className="space-y-2 text-sm text-white/60">
-                  {[
-                    'Fine-tuned model published on Hugging Face Hub',
-                    'Live REST API endpoint for real-time sentiment prediction',
-                    'Docker container for reproducible deployment',
-                    'Benchmark results vs. baseline models',
-                  ].map(item => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-accent mt-1 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">API Endpoints</p>
+                  <ul className="space-y-2 text-sm text-white/60">
+                    {[
+                      'POST /predict — single prediction with Pydantic validation',
+                      'POST /predict_batch — batch inference',
+                      'GET /health — model and preprocessor status',
+                      'GET /metrics — drift report over recent predictions',
+                    ].map(item => (
+                      <li key={item} className="flex gap-3">
+                        <span className="text-accent mt-1 flex-shrink-0">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Key Features</p>
+                  <ul className="space-y-2 text-sm text-white/60">
+                    {[
+                      'FastAPI REST API with Pydantic request validation',
+                      'Streamlit dashboard with Plotly gauge chart',
+                      'MLflow model registry with versioned artifacts',
+                      'Docker Compose deployment (API + MLflow server)',
+                      'PSI and Jensen-Shannon drift detection',
+                      'Structured JSON logging to stdout',
+                      'Slack webhook alerts on drift ALERT status',
+                      'Hugging Face Hub artifact sync on startup',
+                      'SQLite append-only prediction log',
+                    ].map(item => (
+                      <li key={item} className="flex gap-3">
+                        <span className="text-accent mt-1 flex-shrink-0">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               <p className="text-sm text-white/50 italic border-l-2 border-accent/30 pl-4 leading-relaxed">
-                <strong className="text-white/60 not-italic">Why this project:</strong> Arabic/French multilingual NLP is underserved. This demonstrates end-to-end ML engineering — not just model training, but deployment and serving.
+                This project demonstrates production-oriented ML engineering: a trainable model, a containerized API, automated CI, and observability beyond accuracy metrics. Built from scratch with no boilerplate generators.
               </p>
-              <div className="pt-4 border-t border-white/5">
-                <a href="https://github.com/ismailferdi/arabic-french-sentiment-api" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3" title="Repository will be published when project is complete">
+              <div className="pt-4 border-t border-white/5 flex flex-wrap gap-6">
+                <a href="https://github.com/ismailferdi/ChurnOps" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3">
                   <Github size={12} />
-                  <span>GitHub Repo <span className="italic">(coming soon)</span></span>
+                  <span>GitHub Repository</span>
                 </a>
-              </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className="glass-card p-8 space-y-6">
-              <RAGFlow />
-              <div className="flex items-start justify-between gap-4 flex-wrap">
-                <h3 className="text-2xl font-bold tracking-tight">RAG-Powered Document Q&A</h3>
-                <span className="px-3 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 uppercase tracking-wider flex-shrink-0">Planned</span>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {['Python', 'LangChain', 'ChromaDB', 'OpenAI API / Llama 3', 'Streamlit'].map(t => (
-                  <span key={t} className="px-2.5 py-0.5 text-[11px] font-medium rounded-full border border-white/10 bg-white/5 text-white/50">{t}</span>
-                ))}
-              </div>
-
-              <p className="text-white/60 leading-relaxed text-sm">
-                Building a Retrieval-Augmented Generation system for querying PDF documents with source attribution and conversational memory.
-              </p>
-
-              <div>
-                <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Planned Features</p>
-                <ul className="space-y-2 text-sm text-white/60">
-                  {[
-                    'PDF ingestion with semantic text chunking',
-                    'Embedding-based retrieval with ChromaDB',
-                    'Conversational Q&A with cited source passages',
-                    'Deployed Streamlit demo for live testing',
-                  ].map(item => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-accent mt-1 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <p className="text-sm text-white/50 italic border-l-2 border-accent/30 pl-4 leading-relaxed">
-                <strong className="text-white/60 not-italic">Why this project:</strong> RAG is the dominant applied LLM pattern in 2026. This proves understanding of embeddings, retrieval, and generation — not just API calls.
-              </p>
-              <div className="pt-4 border-t border-white/5">
-                <a href="https://github.com/ismailferdi/rag-document-qa" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3" title="Repository will be published when project is complete">
-                  <Github size={12} />
-                  <span>GitHub Repo <span className="italic">(coming soon)</span></span>
-                </a>
-              </div>
-            </div>
-
-            {/* Project 3 */}
-            <div className="glass-card p-8 space-y-6">
-              <div className="flex items-start justify-between gap-4 flex-wrap">
-                <h3 className="text-2xl font-bold tracking-tight">Classical Computer Vision Algorithms</h3>
-                <span className="px-3 py-1 text-xs font-bold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider flex-shrink-0">Academic Foundation</span>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {['TypeScript', 'NumPy'].map(t => (
-                  <span key={t} className="px-2.5 py-0.5 text-[11px] font-medium rounded-full border border-white/10 bg-white/5 text-white/50">{t}</span>
-                ))}
-              </div>
-
-              <p className="text-white/60 leading-relaxed text-sm">
-                Implemented classical computer vision algorithms from scratch to understand the fundamentals before using deep learning frameworks.
-              </p>
-
-              <div>
-                <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Implemented</p>
-                <ul className="space-y-2 text-sm text-white/60">
-                  {[
-                    '2D convolution with custom kernel support (mean, Gaussian, Sobel, Prewitt, Laplacian)',
-                    'Point operations: brightness/contrast, histogram computation & equalization',
-                    "Otsu's automatic thresholding for image binarization",
-                    'Morphological operations: dilation, erosion, opening, closing',
-                    'Zhang-Suen skeletonization for thinning binary images',
-                  ].map(item => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-accent mt-1 flex-shrink-0">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <p className="text-sm text-white/50 italic border-l-2 border-accent/30 pl-4 leading-relaxed">
-                <strong className="text-white/60 not-italic">What I learned:</strong> How low-level image operations work under the hood — essential foundation before applying PyTorch CNNs to real problems.
-              </p>
-              <div className="pt-4 border-t border-white/5">
-                <a href="https://github.com/ismailferdi/classical-cv-algorithms" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3" title="Repository will be published when project is complete">
-                  <Github size={12} />
-                  <span>GitHub Repo <span className="italic">(coming soon)</span></span>
+                <a href="https://ismailferdi-churnops.streamlit.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3">
+                  <Sparkles size={12} />
+                  <span>Streamlit Dashboard</span>
                 </a>
               </div>
             </div>
