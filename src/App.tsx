@@ -68,6 +68,29 @@ const ChurnOpsFlow = () => (
   </svg>
 );
 
+const RAGFlow = () => (
+  <svg viewBox="0 0 480 36" className="w-full max-w-md h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4" y="6" width="64" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="36" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Docs</text>
+    <path d="M72 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="84,18 78,14 78,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="88" y="6" width="80" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="128" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Chunk</text>
+    <path d="M172 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="184,18 178,14 178,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="188" y="6" width="80" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="228" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Embed</text>
+    <path d="M272 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="284,18 278,14 278,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="288" y="6" width="88" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="332" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">ChromaDB</text>
+    <path d="M380 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="392,18 386,14 386,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="396" y="6" width="72" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="432" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">LLM</text>
+  </svg>
+);
+
 export default function App() {
   return (
     <div className="min-h-screen selection:bg-accent/30 selection:text-accent">
@@ -176,6 +199,8 @@ export default function App() {
               items={[
                 { skill: 'scikit-learn', desc: 'RandomForestClassifier, LogisticRegression, ColumnTransformer, StandardScaler, OneHotEncoder' },
                 { skill: 'MLflow', desc: 'experiment tracking for parameters, metrics, and model artifacts' },
+                { skill: 'RAG (Retrieval-Augmented Generation)', desc: 'document Q&A systems with retrieval-augmented generation pipelines' },
+                { skill: 'LLM Integration', desc: 'OpenAI API, embeddings, and grounded answer generation with citation' },
               ]}
             />
             <DetailedSkillCard 
@@ -187,6 +212,7 @@ export default function App() {
                 { skill: 'joblib', desc: 'model and preprocessor serialization' },
                 { skill: 'SQLite', desc: 'append-only prediction log with all input features' },
                 { skill: 'Hugging Face Hub', desc: 'model artifact storage and automatic download on startup' },
+                { skill: 'Vector Databases', desc: 'ChromaDB for semantic document search and retrieval in RAG pipelines' },
               ]}
             />
             <DetailedSkillCard 
@@ -320,6 +346,75 @@ export default function App() {
                 <a href="https://ismailferdi-churnops.streamlit.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3">
                   <Sparkles size={12} />
                   <span>Streamlit Dashboard</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="glass-card p-8 space-y-6">
+              <RAGFlow />
+              <div className="flex items-start justify-between gap-4 flex-wrap">
+                <h3 className="text-2xl font-bold tracking-tight">RAGNar — RAG-Powered Document Q&A System</h3>
+                <span className="px-3 py-1 text-xs font-bold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider flex-shrink-0">Shipped</span>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {['Python', 'FastAPI', 'ChromaDB', 'OpenAI', 'Streamlit', 'Docker', 'GitHub Actions'].map(t => (
+                  <span key={t} className="px-2.5 py-0.5 text-[11px] font-medium rounded-full border border-white/10 bg-white/5 text-white/50">{t}</span>
+                ))}
+              </div>
+
+              <p className="text-white/60 leading-relaxed text-sm">
+                Full-stack retrieval-augmented generation system for document Q&A. Upload PDFs or text files and ask questions, get grounded, cited answers powered by a FastAPI + ChromaDB backend and OpenAI embeddings. Includes an automated evaluation suite (retrieval recall@5: 97%, grounding accuracy: 100%), Docker deployment, and CI/CD via GitHub Actions.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Pipeline Stages</p>
+                  <ul className="space-y-2 text-sm text-white/60">
+                    {[
+                      'PDF/text ingestion with automatic chunking',
+                      'OpenAI embedding generation for semantic search',
+                      'ChromaDB vector storage and similarity retrieval',
+                      'LLM grounded answer generation with citations',
+                      'Automated evaluation suite for RAG quality',
+                    ].map(item => (
+                      <li key={item} className="flex gap-3">
+                        <span className="text-accent mt-1 flex-shrink-0">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Key Features</p>
+                  <ul className="space-y-2 text-sm text-white/60">
+                    {[
+                      'Streamlit UI for document upload and Q&A',
+                      'FastAPI backend with ChromaDB vector store',
+                      'OpenAI embeddings and LLM integration',
+                      'Docker Compose with multi-service deployment',
+                      'CI/CD via GitHub Actions',
+                    ].map(item => (
+                      <li key={item} className="flex gap-3">
+                        <span className="text-accent mt-1 flex-shrink-0">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-white/50 italic border-l-2 border-accent/30 pl-4 leading-relaxed">
+                Full-stack RAG system that demonstrates production-ready retrieval-augmented generation — from document ingestion to grounded, cited answers. Built with automated evaluation, Docker deployment, and CI/CD.
+              </p>
+              <div className="pt-4 border-t border-white/5 flex flex-wrap gap-6">
+                <a href="https://github.com/ismailferdi/RAGNar" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3">
+                  <Github size={12} />
+                  <span>GitHub Repository</span>
+                </a>
+                <a href="https://ismailferdi-ragnar.streamlit.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3">
+                  <Sparkles size={12} />
+                  <span>Live Demo</span>
                 </a>
               </div>
             </div>
