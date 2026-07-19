@@ -2,14 +2,14 @@
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/prop-types/index.js?commonjs-es-import": [],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/prop-types/index.js?commonjs-module": [],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react-dom/cjs/react-dom-client.production.js?commonjs-exports": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react-dom/cjs/react-dom.production.js?commonjs-exports": [],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react-dom/client.js?commonjs-es-import": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react-dom/client.js?commonjs-module": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react-dom/index.js?commonjs-es-import": [],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react-dom/index.js?commonjs-module": [],
@@ -20,10 +20,10 @@
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react/jsx-runtime.js?commonjs-es-import": [],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/react/jsx-runtime.js?commonjs-module": [],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/scheduler/cjs/scheduler.production.js?commonjs-exports": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "\u0000/home/runner/work/ismailferdi.github.io/ismailferdi.github.io/node_modules/scheduler/index.js?commonjs-module": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "\u0000commonjsHelpers.js": [],
   "\u0000vite/modulepreload-polyfill.js": [],
@@ -47,11 +47,11 @@
   "node_modules/prop-types/index.js": [],
   "node_modules/prop-types/lib/ReactPropTypesSecret.js": [],
   "node_modules/react-dom/cjs/react-dom-client.production.js": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "node_modules/react-dom/cjs/react-dom.production.js": [],
   "node_modules/react-dom/client.js": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "node_modules/react-dom/index.js": [],
   "node_modules/react/cjs/react-jsx-runtime.production.js": [],
@@ -59,10 +59,10 @@
   "node_modules/react/index.js": [],
   "node_modules/react/jsx-runtime.js": [],
   "node_modules/scheduler/cjs/scheduler.production.js": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "node_modules/scheduler/index.js": [
-    "/assets/client--i6tFf3F.js"
+    "/assets/client-BvORjMi6.js"
   ],
   "node_modules/vite-react-ssg/dist/client/single-page.mjs": [],
   "node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C6pK7rvr.mjs": [],
