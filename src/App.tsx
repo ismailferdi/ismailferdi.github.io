@@ -1,4 +1,4 @@
-import { Mail, Phone, Linkedin, Github, Code2, BrainCircuit, Wrench, Database, Eye, Sparkles } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Code2, BrainCircuit, Wrench, Database, Eye, Sparkles, Package } from 'lucide-react';
 import AnimatedBackground from './components/AnimatedBackground';
 
 const DetailedSkillCard = ({ title, icon: Icon, items, accent }: { title: string, icon: any, items: { skill: string, desc: string, tag?: 'basics' | 'learning' }[], accent?: boolean }) => (
@@ -88,6 +88,25 @@ const RAGFlow = () => (
     <polygon points="392,18 386,14 386,22" fill="rgba(0,245,255,0.25)" />
     <rect x="396" y="6" width="72" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
     <text x="432" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">LLM</text>
+  </svg>
+);
+
+const ETLFlow = () => (
+  <svg viewBox="0 0 480 36" className="w-full max-w-md h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4" y="6" width="100" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="54" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Extract</text>
+    <path d="M108 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="122,18 116,14 116,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="126" y="6" width="124" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="188" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Transform</text>
+    <path d="M254 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="268,18 262,14 262,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="272" y="6" width="80" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="312" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Load</text>
+    <path d="M356 18h10" stroke="rgba(0,245,255,0.25)" strokeWidth="1.5" />
+    <polygon points="374,18 368,14 368,22" fill="rgba(0,245,255,0.25)" />
+    <rect x="378" y="6" width="98" height="24" rx="6" stroke="rgba(0,245,255,0.3)" strokeWidth="1.5" />
+    <text x="427" y="22" textAnchor="middle" fill="rgba(0,245,255,0.5)" fontSize="11" fontFamily="monospace">Query</text>
   </svg>
 );
 
@@ -233,6 +252,17 @@ export default function App() {
                 { skill: 'GitHub Actions', desc: 'CI pipeline: lint, test, Docker build on push' },
                 { skill: 'Streamlit', desc: 'interactive dashboard with customer form and drift report' },
                 { skill: 'Plotly', desc: 'gauge chart for churn probability visualization' },
+              ]}
+            />
+            <DetailedSkillCard 
+              title="Data Engineering & Testing" 
+              icon={Package}
+              items={[
+                { skill: 'ETL Pipeline Design', desc: 'extract → transform → load → query stages with cached exchange rates' },
+                { skill: 'BeautifulSoup', desc: 'tabular web scraping with the lxml parser' },
+                { skill: 'Requests', desc: 'live REST integration with graceful fallback to a cached CSV' },
+                { skill: 'pytest', desc: 'hermetic 24-test suite with fixtures and mocked HTTP (responses, pytest-mock)' },
+                { skill: 'argparse + pyproject', desc: 'installable CLI entry points with run and query subcommands' },
               ]}
             />
           </div>
@@ -415,6 +445,72 @@ export default function App() {
                 <a href="https://ismailferdi-ragnar.streamlit.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3">
                   <Sparkles size={12} />
                   <span>Live Demo</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="glass-card p-8 space-y-6">
+              <ETLFlow />
+              <div className="flex items-start justify-between gap-4 flex-wrap">
+                <h3 className="text-2xl font-bold tracking-tight">Banks ETL — Largest-Banks Data Pipeline</h3>
+                <span className="px-3 py-1 text-xs font-bold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider flex-shrink-0">Shipped</span>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {['Python', 'pandas', 'BeautifulSoup', 'Requests', 'SQLite', 'pytest', 'Docker', 'GitHub Actions'].map(t => (
+                  <span key={t} className="px-2.5 py-0.5 text-[11px] font-medium rounded-full border border-white/10 bg-white/5 text-white/50">{t}</span>
+                ))}
+              </div>
+
+              <p className="text-white/60 leading-relaxed text-sm">
+                Portfolio-grade rebuild of IBM's "largest banks" ETL assignment as a real installable Python package — archived-Wikipedia extraction, USD→GBP/EUR/INR conversion, CSV and SQLite loads, and currency queries, with logging, tests, CI, and Docker.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Pipeline Stages</p>
+                  <ul className="space-y-2 text-sm text-white/60">
+                    {[
+                      'Extract — scrape the archived Wikipedia table of largest banks by market cap',
+                      'Transform — convert USD market cap to GBP/EUR/INR via a live rates API with CSV fallback',
+                      'Load — write CSV and SQLite (Largest_banks table, replaced each run)',
+                      'Query — three SQL queries answering London/GBP, Berlin/EUR, and New Delhi/INR rankings',
+                    ].map(item => (
+                      <li key={item} className="flex gap-3">
+                        <span className="text-accent mt-1 flex-shrink-0">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-3">Key Features</p>
+                  <ul className="space-y-2 text-sm text-white/60">
+                    {[
+                      'Installable CLI: banks-etl full run plus banks-etl-cli run / query --city subcommands',
+                      'Live Frankfurter exchange-rate API with graceful fallback to a cached CSV',
+                      'Structured logging to logs/code_log.txt and stdout',
+                      'Hermetic pytest suite: 24 tests with fixtures and mocked HTTP, flake8 clean',
+                      'GitHub Actions CI: lint, test, and coverage on push and pull request',
+                      'Dockerized with named volumes persisting the database and logs',
+                      'Modular typed package with single-source config in banks_etl/config.py',
+                    ].map(item => (
+                      <li key={item} className="flex gap-3">
+                        <span className="text-accent mt-1 flex-shrink-0">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-white/50 italic border-l-2 border-accent/30 pl-4 leading-relaxed">
+                This project demonstrates classic data-engineering fundamentals — reliable extraction, reproducible transforms, and tested loads — packaged the way production Python ships: CLI, CI, containers, and docs.
+              </p>
+              <div className="pt-4 border-t border-white/5 flex flex-wrap gap-6">
+                <a href="https://github.com/ismailferdi/banks-etl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-accent/80 transition-colors py-3">
+                  <Github size={12} />
+                  <span>GitHub Repository</span>
                 </a>
               </div>
             </div>
