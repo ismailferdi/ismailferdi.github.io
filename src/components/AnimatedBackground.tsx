@@ -30,7 +30,7 @@ const AnimatedBackground: React.FC = () => {
       const cols = Math.ceil(canvas.width / gridSize) + 2;
 
       ctx.beginPath();
-      ctx.strokeStyle = 'rgba(0, 245, 255, 0.15)';
+      ctx.strokeStyle = '#223229';
       ctx.lineWidth = 1;
 
       for (let i = 0; i < rows; i++) {
@@ -61,7 +61,7 @@ const AnimatedBackground: React.FC = () => {
       const cols = Math.ceil(canvas.width / gridSize) + 2;
 
       ctx.beginPath();
-      ctx.strokeStyle = 'rgba(0, 245, 255, 0.15)';
+      ctx.strokeStyle = '#223229';
       ctx.lineWidth = 1;
 
       for (let i = 0; i < rows; i++) {
@@ -103,7 +103,7 @@ const AnimatedBackground: React.FC = () => {
         const py = (Math.cos(time * 0.3 + i * 2) * 0.5 + 0.5) * canvas.height;
 
         const gradient = ctx.createRadialGradient(px, py, 0, px, py, 100);
-        gradient.addColorStop(0, 'rgba(0, 245, 255, 0.05)');
+        gradient.addColorStop(0, 'rgba(127, 224, 169, 0.05)');
         gradient.addColorStop(1, 'transparent');
 
         ctx.fillStyle = gradient;
@@ -130,7 +130,7 @@ const AnimatedBackground: React.FC = () => {
       ref={canvasRef}
       aria-hidden="true" role="presentation"
       className="fixed inset-0 -z-10 pointer-events-none opacity-40"
-      style={{ background: '#0A0A0B' }}
+      style={{ background: '#0C1116' }}
     />
   );
 };
