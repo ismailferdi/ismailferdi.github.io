@@ -1,6 +1,6 @@
 {
-  "_client-C-TfFLfQ.js": {
-    "file": "assets/client-C-TfFLfQ.js",
+  "_client-D_FdGA_p.js": {
+    "file": "assets/client-D_FdGA_p.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,15 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-CgmvzOqs.js",
+    "file": "assets/app-DzBSeBeK.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-C-TfFLfQ.js"
+      "_client-D_FdGA_p.js"
     ],
     "css": [
-      "assets/app-D2a619cP.css"
+      "assets/app-C57-mnQH.css"
     ]
   }
 }
