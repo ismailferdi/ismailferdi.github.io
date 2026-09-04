@@ -26,7 +26,7 @@ Personal portfolio site for Ismail Ferdi, a 4th-year AI Engineering student spec
 | Styling | Tailwind CSS v4 (`@tailwindcss/vite`) |
 | SSG | `vite-react-ssg` (single-page mode) |
 | Icons | Lucide React |
-| Font | JetBrains Mono (Google Fonts) |
+| Font | Inter + Cormorant Garamond (Google Fonts), system mono fallback |
 | Analytics | Plausible |
 | CI/CD | GitHub Actions → GitHub Pages |
 | Image tools | ImageMagick |
@@ -65,10 +65,22 @@ npx serve dist
 │   └── sitemap.xml                    # Single-page sitemap
 ├── src/
 │   ├── main.tsx                # Entry point: imports CSS, mounts SSG root
-│   ├── App.tsx                 # Hero, Skills, Experience, Project, Education, Contact, Footer
+│   ├── App.tsx                 # Composition only: header/nav, hero, sections, footer
 │   ├── index.css               # Tailwind v4 config, custom theme, @keyframes, components
+│   ├── data/
+│   │   └── portfolio.ts        # Typed content: skills, projects, certs, contacts, footer
 │   └── components/
-│       └── AnimatedBackground.tsx  # Canvas grid wave + particles
+│       ├── SiteNav.tsx         # Top nav + mobile menu
+│       ├── Hero.tsx            # Hero section
+│       ├── SectionHeader.tsx   # Display-serif section heading
+│       ├── ProjectCard.tsx     # Case-study card + flow diagrams
+│       ├── SkillGroup.tsx      # Capability group card
+│       ├── Experience.tsx      # Experience section
+│       ├── Education.tsx       # Education section
+│       ├── Certifications.tsx  # Certifications section
+│       ├── Contact.tsx         # Contact CTA band
+│       ├── Footer.tsx          # Link-column footer
+│       └── AnimatedBackground.tsx  # Canvas grid wave
 └── dist/                       # Built output (gitignored)
 ```
 

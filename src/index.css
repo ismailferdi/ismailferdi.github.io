@@ -112,6 +112,51 @@
     @apply font-code;
   }
 
+  /* layout-container: page measure (~1200px), shared by nav, hero, main, footer */
+  .layout-container {
+    @apply mx-auto max-w-6xl px-6;
+  }
+
+  /* card-title: display-md role for card/section-sub headings (serif 400, never bold) */
+  .card-title {
+    @apply font-display font-normal text-4xl leading-[1.15] tracking-[-0.5px] text-on-dark;
+  }
+
+  /* card-label: small uppercase metadata label inside cards */
+  .card-label {
+    @apply text-xs font-bold text-on-dark-soft uppercase tracking-widest mb-3;
+  }
+
+  /* meta-chip: compact technology tag (card metadata) */
+  .meta-chip {
+    @apply px-3 py-1 text-[11px] font-medium rounded-full border border-hairline bg-surface-dark-soft text-on-dark-soft;
+  }
+
+  /* bullet-dot: accent marker for feature-list rows */
+  .bullet-dot {
+    @apply text-accent-teal mt-1 flex-shrink-0;
+  }
+
+  /* project flow diagrams: mint line-art on dark canvas (labels use code type) */
+  .flow-node {
+    fill: none;
+    stroke: rgba(127, 224, 169, 0.3);
+    stroke-width: 1.5;
+  }
+  .flow-edge {
+    fill: none;
+    stroke: rgba(127, 224, 169, 0.25);
+    stroke-width: 1.5;
+  }
+  .flow-head {
+    fill: rgba(127, 224, 169, 0.25);
+  }
+  .flow-label {
+    fill: rgba(127, 224, 169, 0.5);
+    font-size: 11px;
+    font-family: var(--font-code);
+  }
+
   /* button-primary: mint CTA, dark text, rounded-md, active press state */
   .btn-primary {
     @apply inline-flex items-center justify-center h-10 px-5 py-3 text-sm font-medium rounded-md bg-primary text-on-primary transition-colors active:bg-primary-active;

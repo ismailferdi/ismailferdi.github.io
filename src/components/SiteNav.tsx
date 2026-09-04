@@ -57,6 +57,16 @@ export default function SiteNav() {
     };
   }, [open ]);
 
+  useEffect(() => {
+    if (!open) return;
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) closeMenu();
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, [open ]);
+
   return (
     <>
       <a
@@ -69,7 +79,7 @@ export default function SiteNav() {
         aria-label="Primary"
         className="sticky top-0 z-40 border-b border-hairline bg-surface-dark"
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
+        <div className="layout-container flex h-16 items-center justify-between gap-4">
           <a
             href="#hero"
             className="text-base font-bold tracking-tight text-on-dark transition-colors hover:text-primary"
@@ -119,9 +129,9 @@ export default function SiteNav() {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="fixed inset-0 z-50 flex flex-col bg-surface-dark md:hidden"
+          className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-surface-dark md:hidden"
         >
-          <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
+          <div className="layout-container flex h-16 w-full items-center justify-between">
             <a
               href="#hero"
               onClick={closeMenu}
