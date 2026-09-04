@@ -97,19 +97,6 @@ const AnimatedBackground: React.FC = () => {
       }
       ctx.stroke();
 
-      const particlesCount = 20;
-      for (let i = 0; i < particlesCount; i++) {
-        const px = (Math.sin(time * 0.5 + i) * 0.5 + 0.5) * canvas.width;
-        const py = (Math.cos(time * 0.3 + i * 2) * 0.5 + 0.5) * canvas.height;
-
-        const gradient = ctx.createRadialGradient(px, py, 0, px, py, 100);
-        gradient.addColorStop(0, 'rgba(127, 224, 169, 0.05)');
-        gradient.addColorStop(1, 'transparent');
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(px - 100, py - 100, 200, 200);
-      }
-
       animationFrameId = requestAnimationFrame(draw);
     };
 
@@ -129,7 +116,7 @@ const AnimatedBackground: React.FC = () => {
     <canvas
       ref={canvasRef}
       aria-hidden="true" role="presentation"
-      className="fixed inset-0 -z-10 pointer-events-none opacity-40"
+      className="fixed inset-0 -z-10 pointer-events-none opacity-20"
       style={{ background: '#0C1116' }}
     />
   );

@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "StyreneB", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "Cormorant Garamond", "Tiempos Headline", Garamond, "Times New Roman", serif;
-  --font-display: "Cormorant Garamond", "Tiempos Headline", Garamond, "Times New Roman", serif;
+  --font-display: "Copernicus", "Tiempos Headline", "Cormorant Garamond", Georgia, serif;
+  --font-code: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* DESIGN-django.md colors: frontmatter mapped 1:1 */
   --color-primary: #7FE0A9;
@@ -16,17 +18,17 @@
   --color-muted-soft: #66766D;
   --color-hairline: #223229;
   --color-hairline-soft: #1A2620;
-  --color-bg-dark: #0C1116;
+  --color-canvas: #0C1116;
   --color-surface-soft: #12181A;
   --color-surface-card: #0F3D2A;
-  --color-surface-promo: #A6E8C4;
-  --color-surface-brand: #0C4B33;
-  --color-surface-brand-elevated: #146B44;
-  --color-surface-deep: #081C13;
+  --color-surface-cream-strong: #A6E8C4;
+  --color-surface-dark: #0C4B33;
+  --color-surface-dark-elevated: #146B44;
+  --color-surface-dark-soft: #081C13;
   --color-on-primary: #0B1F16;
   --color-on-dark: #F2F8F4;
   --color-on-dark-soft: #9FB3A9;
-  --color-accent: #2CB77E;
+  --color-accent-teal: #2CB77E;
   --color-accent-amber: #D9A441;
   --color-success: #3ECF8E;
   --color-warning: #D9A441;
@@ -53,11 +55,11 @@
 
 @layer base {
   body {
-    @apply bg-bg-dark text-body font-sans antialiased;
+    @apply bg-canvas text-body font-sans antialiased;
   }
 
   *:focus-visible {
-    outline: 2px solid #7FE0A9;
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
     box-shadow: 0 0 0 3px rgba(127, 224, 169, 0.15);
   }
@@ -87,26 +89,36 @@
 @layer components {
   /* feature-card: surface-card background, rounded-lg, hairline border */
   .glass-card {
-    @apply bg-surface-card border border-hairline rounded-lg transition-all duration-300;
+    @apply bg-surface-card border border-hairline rounded-lg transition-colors duration-300;
   }
 
   /* badge-pill: neutral tag — surface-card background, on-dark text */
   .pill-badge {
-    @apply px-3 py-1 text-xs font-medium rounded-full bg-surface-card text-on-dark;
+    @apply px-3 py-1 text-[13px] font-medium rounded-full bg-surface-card text-on-dark;
   }
 
   /* badge-brand: mint fill for emphasized status badges (e.g. "Shipped") */
   .badge-brand {
-    @apply px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-full bg-primary text-on-primary border border-transparent;
+    @apply px-3 py-1 text-xs font-medium uppercase tracking-[1.5px] rounded-full bg-primary text-on-primary border border-transparent;
   }
 
   /* text-link: inline body links in accent-teal, distinct from buttons */
   .text-link {
-    @apply text-accent hover:text-primary transition-colors;
+    @apply text-accent-teal hover:text-primary transition-colors;
+  }
+
+  /* code: JetBrains Mono — code-only contexts (inline code, terminal text) */
+  .code {
+    @apply font-code;
   }
 
   /* button-primary: mint CTA, dark text, rounded-md, active press state */
   .btn-primary {
     @apply inline-flex items-center justify-center h-10 px-5 py-3 text-sm font-medium rounded-md bg-primary text-on-primary transition-colors active:bg-primary-active;
+  }
+
+  /* button-secondary: canvas CTA with hairline outline, rounded-md, same height/padding as primary */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 h-10 px-5 py-3 text-sm font-medium rounded-md bg-canvas text-on-dark border border-hairline transition-colors hover:border-accent-teal/50 hover:text-primary;
   }
 }

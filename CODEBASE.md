@@ -70,15 +70,16 @@ Inline SVG components (`PipelineFlow`, `RAGFlow`, `KernelGrid`) are helper funct
 
 ```css
 @theme {
-  --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --color-accent: #00F5FF;
-  --color-bg-dark: #0A0A0B;
+  --font-sans: "StyreneB", "Inter", -apple-system, sans-serif;
+  --font-display: "Copernicus", "Tiempos Headline", "Cormorant Garamond", Georgia, serif;
+  --color-accent-teal: #2CB77E;
+  --color-canvas: #0C1116;
 }
 ```
 
-- Font: JetBrains Mono (monospace)
-- Accent: Cyan `#00F5FF`
-- Background: `#0A0A0B`
+- Font: Inter (sans) for UI/body, Cormorant Garamond fallback in `--font-display` for headings, JetBrains Mono for code
+- Accent: Teal `#2CB77E` (inline links); Mint `#7FE0A9` (primary CTAs)
+- Background: `#0C1116` (canvas)
 - Utility class `.glass-card` for glassmorphism
 - No CSS modules or styled-components — all Tailwind classes inline
 
@@ -129,7 +130,7 @@ All other components (`DetailedSkillCard`, `ContactCard`, `PipelineFlow`, `RAGFl
 
 ## 8. Dark Theme
 
-**Hardcoded — not toggleable.** No theme switcher, no `prefers-color-scheme` media query, no CSS class toggling. The background is always `#0A0A0B`, text is always white.
+**Hardcoded — not toggleable.** No theme switcher, no `prefers-color-scheme` media query, no CSS class toggling. The background is always `#0C1116`, text is always light.
 
 ---
 

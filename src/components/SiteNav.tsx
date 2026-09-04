@@ -67,9 +67,9 @@ export default function SiteNav() {
       </a>
       <nav
         aria-label="Primary"
-        className="sticky top-0 z-40 border-b border-hairline bg-surface-brand"
+        className="sticky top-0 z-40 border-b border-hairline bg-surface-dark"
       >
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-6">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
           <a
             href="#hero"
             className="text-base font-bold tracking-tight text-on-dark transition-colors hover:text-primary"
@@ -93,7 +93,7 @@ export default function SiteNav() {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-10 items-center gap-2 rounded-md border border-on-dark/20 px-4 text-sm font-medium text-on-dark transition-colors hover:border-primary/60 hover:text-primary"
+              className="btn-secondary"
             >
               <Github size={16} aria-hidden="true" />
               <span>GitHub</span>
@@ -119,9 +119,9 @@ export default function SiteNav() {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="fixed inset-0 z-50 flex flex-col bg-surface-brand md:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-surface-dark md:hidden"
         >
-          <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6">
+          <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
             <a
               href="#hero"
               onClick={closeMenu}
@@ -156,7 +156,7 @@ export default function SiteNav() {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center gap-2 rounded-md border border-on-dark/20 px-4 text-sm font-medium text-on-dark transition-colors hover:border-primary/60 hover:text-primary"
+                className="btn-secondary"
               >
                 <Github size={16} aria-hidden="true" />
                 <span>GitHub</span>

@@ -5,7 +5,7 @@ Personal portfolio site for Ismail Ferdi, a 4th-year AI Engineering student spec
 ## Features
 
 - **Static site generation** — full HTML pre-rendered at build time (no server required), React hydrates client-side for interactivity
-- **Tailwind CSS v4** — utility-first atomic CSS with custom theme (`#00F5FF` accent, `#0A0A0B` background)
+- **Tailwind CSS v4** — utility-first atomic CSS with custom theme (`#7FE0A9` mint primary, `#0C4B33` forest-green surfaces, `#0C1116` canvas)
 - **CSS-only animations** — entrance animations via `@keyframes fade-in` with staggered delays (no animation library dependency)
 - **Animated background** — Canvas-based grid wave animation with glow particles; respects `prefers-reduced-motion`
 - **Accessibility** — semantic HTML, `aria-hidden` on decorative elements, focus-visible outlines
@@ -84,9 +84,10 @@ Custom theme values defined in `src/index.css`:
 
 ```css
 @theme {
-  --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --color-accent: #00F5FF;
-  --color-bg-dark: #0A0A0B;
+  --font-sans: "StyreneB", "Inter", -apple-system, sans-serif;
+  --font-display: "Copernicus", "Tiempos Headline", "Cormorant Garamond", Georgia, serif;
+  --color-accent-teal: #2CB77E;
+  --color-canvas: #0C1116;
 }
 ```
 
