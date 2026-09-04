@@ -217,9 +217,14 @@ export default function App() {
               icon={BrainCircuit}
               items={[
                 { skill: 'scikit-learn', desc: 'RandomForestClassifier, LogisticRegression, ColumnTransformer, StandardScaler, OneHotEncoder' },
+                { skill: 'TensorFlow & Keras', desc: 'neural network design, training, and transfer learning with pretrained models' },
+                { skill: 'Deep Learning Architectures', desc: 'CNNs, RNNs, LSTM/GRU, Transformers with attention, and hyperparameter tuning' },
                 { skill: 'MLflow', desc: 'experiment tracking for parameters, metrics, and model artifacts' },
                 { skill: 'RAG (Retrieval-Augmented Generation)', desc: 'document Q&A systems with retrieval-augmented generation pipelines' },
                 { skill: 'LLM Integration', desc: 'OpenAI API, embeddings, and grounded answer generation with citation' },
+                { skill: 'Prompt Engineering & RLHF', desc: 'instruction prompting, model evaluation, and reinforcement learning from human feedback' },
+                { skill: 'Computer Vision', desc: 'image classification and visual recognition with CNNs and transfer learning' },
+                { skill: 'Time Series Forecasting', desc: 'sequence modeling and forecasting with recurrent networks' },
               ]}
             />
             <DetailedSkillCard 
@@ -575,6 +580,21 @@ export default function App() {
                       <td className="py-6 font-bold text-white/90">Machine Learning Specialization</td>
                       <td className="py-6 text-white/60">DeepLearning.AI</td>
                       <td className="py-6 text-white/50">2025</td>
+                    </tr>
+                    <tr className="border-b border-white/5 even:bg-white/[0.02]">
+                      <td className="py-6 font-bold text-white/90">Generative AI with Large Language Models</td>
+                      <td className="py-6 text-white/60">DeepLearning.AI</td>
+                      <td className="py-6 text-white/50">August 2026</td>
+                    </tr>
+                    <tr className="border-b border-white/5 even:bg-white/[0.02]">
+                      <td className="py-6 font-bold text-white/90">TensorFlow Developer Professional Certificate</td>
+                      <td className="py-6 text-white/60">DeepLearning.AI</td>
+                      <td className="py-6 text-white/50">August 2026</td>
+                    </tr>
+                    <tr className="border-b border-white/5 even:bg-white/[0.02]">
+                      <td className="py-6 font-bold text-white/90">Deep Learning Specialization</td>
+                      <td className="py-6 text-white/60">DeepLearning.AI</td>
+                      <td className="py-6 text-white/50">August 2026</td>
                     </tr>
                   </tbody>
                 </table>
