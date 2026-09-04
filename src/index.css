@@ -2,18 +2,64 @@
 
 @theme {
   --font-sans: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --color-accent: #00F5FF;
-  --color-bg-dark: #0A0A0B;
+  --font-serif: "Cormorant Garamond", "Tiempos Headline", Garamond, "Times New Roman", serif;
+  --font-display: "Cormorant Garamond", "Tiempos Headline", Garamond, "Times New Roman", serif;
+
+  /* DESIGN-django.md colors: frontmatter mapped 1:1 */
+  --color-primary: #7FE0A9;
+  --color-primary-active: #5BC98C;
+  --color-primary-disabled: #33443C;
+  --color-ink: #0B1F16;
+  --color-body: #C9D6CE;
+  --color-body-strong: #EAF3EE;
+  --color-muted: #8FA098;
+  --color-muted-soft: #66766D;
+  --color-hairline: #223229;
+  --color-hairline-soft: #1A2620;
+  --color-bg-dark: #0C1116;
+  --color-surface-soft: #12181A;
+  --color-surface-card: #0F3D2A;
+  --color-surface-promo: #A6E8C4;
+  --color-surface-brand: #0C4B33;
+  --color-surface-brand-elevated: #146B44;
+  --color-surface-deep: #081C13;
+  --color-on-primary: #0B1F16;
+  --color-on-dark: #F2F8F4;
+  --color-on-dark-soft: #9FB3A9;
+  --color-accent: #2CB77E;
+  --color-accent-amber: #D9A441;
+  --color-success: #3ECF8E;
+  --color-warning: #D9A441;
+  --color-error: #D14343;
+
+  /* DESIGN-django.md rounded: scale (overrides Tailwind defaults where they differ) */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* DESIGN-django.md spacing: scale */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-section: 96px;
 }
 
 @layer base {
   body {
-    @apply bg-bg-dark text-white font-sans antialiased;
+    @apply bg-bg-dark text-body font-sans antialiased;
   }
 
   *:focus-visible {
-    outline: 2px solid #00F5FF;
+    outline: 2px solid #7FE0A9;
     outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(127, 224, 169, 0.15);
   }
 }
 
@@ -39,11 +85,28 @@
 .animate-delay-3 { animation-delay: 0.3s; }
 
 @layer components {
+  /* feature-card: surface-card background, rounded-lg, hairline border */
   .glass-card {
-    @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl transition-all duration-300;
+    @apply bg-surface-card border border-hairline rounded-lg transition-all duration-300;
   }
-  
+
+  /* badge-pill: neutral tag — surface-card background, on-dark text */
   .pill-badge {
-    @apply px-3 py-1 text-xs font-medium rounded-full border border-accent/30 bg-accent/5 text-accent/90;
+    @apply px-3 py-1 text-xs font-medium rounded-full bg-surface-card text-on-dark;
+  }
+
+  /* badge-brand: mint fill for emphasized status badges (e.g. "Shipped") */
+  .badge-brand {
+    @apply px-3 py-1 text-xs font-medium uppercase tracking-wider rounded-full bg-primary text-on-primary border border-transparent;
+  }
+
+  /* text-link: inline body links in accent-teal, distinct from buttons */
+  .text-link {
+    @apply text-accent hover:text-primary transition-colors;
+  }
+
+  /* button-primary: mint CTA, dark text, rounded-md, active press state */
+  .btn-primary {
+    @apply inline-flex items-center justify-center h-10 px-5 py-3 text-sm font-medium rounded-md bg-primary text-on-primary transition-colors active:bg-primary-active;
   }
 }
