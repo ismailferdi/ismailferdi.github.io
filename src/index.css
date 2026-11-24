@@ -27,10 +27,13 @@ body {
   align-items: center;
 }
 
-@media (any-pointer: coarse) {
-  a, button, [role="button"] {
-    min-block-size: calc(var(--spacing-10) + var(--spacing-1));
-  }
+a, button, [role="button"] {
+  min-block-size: calc(var(--spacing-10) + var(--spacing-1));
+}
+
+a.astryx-link {
+  display: inline-flex;
+  align-items: center;
 }
 
 /* project flow diagrams: token-painted line art, readable in both themes */
