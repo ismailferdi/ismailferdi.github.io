@@ -14,6 +14,10 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@astryxdesign/core": "0.7.17",
+    "@astryxdesign/theme-matcha": "0.7.17",
+    "@astryxdesign/theme-neutral": "0.7.17",
+    "@stylexjs/stylex": "^0.19.2",
     "@vitejs/plugin-react": "^5.0.4",
     "lucide-react": "^0.546.0",
     "react": "^19.0.0",
@@ -21,6 +25,7 @@
     "vite-react-ssg": "^0.9.1-beta.1"
   },
   "devDependencies": {
+    "@astryxdesign/cli": "0.7.17",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^22.14.0",
     "@types/react": "^19.2.14",
