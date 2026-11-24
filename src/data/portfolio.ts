@@ -4,6 +4,7 @@ import {
   Github,
   Linkedin,
   Mail,
+  Phone,
   Sparkles,
   Wrench,
   type LucideIcon,
@@ -238,6 +239,12 @@ export const contacts: ContactEntry[] = [
     label: 'Email',
     value: 'ismailferdi10042004@gmail.com',
     href: 'mailto:ismailferdi10042004@gmail.com',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+213 775 85 33 51',
+    href: 'tel:+213775853351',
   },
   {
     icon: Linkedin,

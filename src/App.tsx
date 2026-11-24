@@ -62,10 +62,7 @@ export default function App() {
           <Experience />
           <Education />
           <Certifications />
-
-          <div className="layout-container pb-24">
-            <Contact />
-          </div>
+          <Contact />
         </Layout>
       </AppShell>
     </Theme>

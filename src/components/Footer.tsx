@@ -1,46 +1,50 @@
+import { Divider } from '@astryxdesign/core/Divider';
+import { Grid } from '@astryxdesign/core/Grid';
+import { LayoutFooter } from '@astryxdesign/core/Layout';
+import { List, ListItem } from '@astryxdesign/core/List';
+import { Text } from '@astryxdesign/core/Text';
+import { VStack } from '@astryxdesign/core/VStack';
 import { footerGroups } from '../data/portfolio';
 
 export default function Footer() {
   return (
-    <footer id="footer" className="mt-24 bg-surface-dark-elevated">
-      <div className="layout-container py-16">
-        <div className="mb-12">
-          <p className="text-lg font-bold text-on-dark">Ismail Ferdi</p>
-          <p className="mt-2 text-sm text-on-dark">
+    <LayoutFooter id="footer" hasDivider padding={6}>
+      <VStack gap={8}>
+        <VStack gap={2}>
+          <Text type="large" weight="bold">
+            Ismail Ferdi
+          </Text>
+          <Text type="supporting">
             AI/ML engineering — production-oriented machine learning systems.
-          </p>
-        </div>
-        <nav aria-label="Footer" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {footerGroups.map((group) => (
-            <div key={group.label}>
-              <p className="text-sm font-bold text-on-dark mb-4">{group.label}</p>
-              <ul className="space-y-1">
-                {group.links.map((link) => {
-                  const external = link.href.startsWith('http');
-                  return (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                        className="block py-2 text-sm text-on-dark underline-offset-4 transition-colors hover:underline"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </nav>
-      </div>
-      <div className="bg-surface-dark-soft">
-        <div className="layout-container py-6">
-          <p className="text-xs text-on-dark">
-            &copy; {new Date().getFullYear()} Ismail Ferdi
-          </p>
-        </div>
-      </div>
-    </footer>
+          </Text>
+        </VStack>
+
+        <VStack as="nav" aria-label="Footer" gap={6}>
+          <Grid columns={{ minWidth: 140, max: 4 }} gap={6} align="start">
+            {footerGroups.map((group) => (
+              <VStack key={group.label} gap={2}>
+                <Text type="label" weight="bold" color="secondary">
+                  {group.label}
+                </Text>
+                <List density="compact" edge="flush">
+                  {group.links.map((link) => (
+                    <ListItem
+                      key={link.href}
+                      href={link.href}
+                      label={link.label}
+                      {...(link.href.startsWith('http') ? { target: '_blank' } : {})}
+                    />
+                  ))}
+                </List>
+              </VStack>
+            ))}
+          </Grid>
+        </VStack>
+
+        <Divider />
+
+        <Text type="supporting">© {new Date().getFullYear()} Ismail Ferdi</Text>
+      </VStack>
+    </LayoutFooter>
   );
 }
