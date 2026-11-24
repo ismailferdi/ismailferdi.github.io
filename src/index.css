@@ -171,3 +171,9 @@
     @apply inline-flex items-center justify-center gap-2 h-10 px-5 py-3 text-sm font-medium rounded-md bg-canvas text-on-dark border border-hairline transition-colors hover:border-accent-teal/50 hover:text-primary;
   }
 }
+
+@layer utilities {
+  .section-anchor {
+    scroll-margin-top: var(--spacing-8);
+  }
+}
