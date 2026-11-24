@@ -8,4 +8,8 @@ export const portfolioTheme = defineTheme({
     '--font-family-heading':
       '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   },
+  localTokens: {
+    '--font-display':
+      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  },
 });

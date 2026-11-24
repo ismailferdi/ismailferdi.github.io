@@ -232,6 +232,13 @@ export const portfolioMatchaTheme = {
     "--shadow-inset-warning": "inset 0px 0px 0px 2px #f2c00050",
     "--shadow-inset-error": "inset 0px 0px 0px 2px #fd000050"
   },
+  localTokens: {
+    "--font-display": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+  },
+  __localTokenOwners: {
+    "--font-display": "portfolio-matcha"
+  },
+  __localTokenLineage: ["portfolio-matcha"],
   components: {
     "heading": {
       "level:1": {
