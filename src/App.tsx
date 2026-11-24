@@ -42,16 +42,24 @@ export default function App() {
             </VStack>
           </Section>
 
-          <div className="layout-container pb-24 space-y-24">
-            <section id="skills" aria-labelledby="skills-heading" className="scroll-mt-20">
+          <Section
+            id="skills"
+            aria-labelledby="skills-heading"
+            className="section-anchor"
+            paddingBlock={8}
+            dividers={['top']}
+          >
+            <VStack gap={8}>
               <SectionHeader id="skills-heading" title="Technical Skills" />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <VStack gap={8}>
                 {skillGroups.map((group) => (
                   <SkillGroup key={group.title} {...group} />
                 ))}
-              </div>
-            </section>
+              </VStack>
+            </VStack>
+          </Section>
 
+          <div className="layout-container pb-24 space-y-24">
             <Experience />
             <Education />
             <Certifications />

@@ -1,27 +1,32 @@
+import { Divider } from '@astryxdesign/core/Divider';
+import { Grid } from '@astryxdesign/core/Grid';
+import { Heading } from '@astryxdesign/core/Heading';
+import { HStack } from '@astryxdesign/core/HStack';
+import { Icon } from '@astryxdesign/core/Icon';
+import { Text } from '@astryxdesign/core/Text';
+import { Token } from '@astryxdesign/core/Token';
+import { VStack } from '@astryxdesign/core/VStack';
 import type { SkillGroupData } from '../data/portfolio';
 
-export default function SkillGroup({ title, icon: Icon, summary, items }: SkillGroupData) {
+export default function SkillGroup({ title, icon, summary, items }: SkillGroupData) {
   return (
-    <div className="glass-card p-8 flex flex-col gap-6">
-      <div className="flex items-center gap-3">
-        <div className="p-2 rounded-lg bg-accent-teal/10 text-accent-teal">
-          <Icon size={20} />
-        </div>
-        <h3 className="card-title">
-          {title}
-        </h3>
-      </div>
-      <p className="text-sm text-body leading-relaxed">{summary}</p>
-      <ul className="flex flex-wrap gap-2">
-        {items.map((item) => (
-          <li
-            key={item}
-            className="meta-chip"
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <VStack gap={6}>
+      <Divider />
+      <Grid columns={{ minWidth: 280, max: 2 }} gap={6} align="start">
+        <VStack gap={3}>
+          <HStack gap={3} align="center">
+            <Icon icon={icon} size="md" color="accent" />
+            <Heading level={3}>{title}</Heading>
+          </HStack>
+          <Text color="secondary">{summary}</Text>
+        </VStack>
+
+        <HStack gap={2} wrap="wrap">
+          {items.map((item) => (
+            <Token key={item} label={item} size="sm" />
+          ))}
+        </HStack>
+      </Grid>
+    </VStack>
   );
 }
