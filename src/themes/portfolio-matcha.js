@@ -419,7 +419,21 @@ export const portfolioMatchaTheme = {
         },
         "value": {
           "tokens": {
-            "--text-display-2-size": "var(--font-size-3xl)"
+            "--text-display-2-size": "var(--font-size-3xl)",
+            "--text-display-3-size": "var(--font-size-2xl)"
+          }
+        }
+      },
+      {
+        "when": {
+          "width": {
+            "below": "sm"
+          }
+        },
+        "value": {
+          "tokens": {
+            "--text-display-2-size": "var(--font-size-xl)",
+            "--text-display-3-size": "var(--font-size-xl)"
           }
         }
       }

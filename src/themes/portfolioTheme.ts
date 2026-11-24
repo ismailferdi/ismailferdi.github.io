@@ -19,6 +19,7 @@ export const portfolioTheme = defineTheme({
         value: {
           tokens: {
             '--text-display-2-size': 'var(--font-size-3xl)',
+            '--text-display-3-size': 'var(--font-size-2xl)',
           },
         },
       },
@@ -27,6 +28,7 @@ export const portfolioTheme = defineTheme({
         value: {
           tokens: {
             '--text-display-2-size': 'var(--font-size-xl)',
+            '--text-display-3-size': 'var(--font-size-xl)',
           },
         },
       },
