@@ -1,21 +1,19 @@
 # Ismail Ferdi — AI Engineering Portfolio
 
-Personal portfolio site for Ismail Ferdi, a 4th-year AI Engineering student specializing in NLP and Computer Vision. Built with React 19, Tailwind CSS v4, and Vite. Pre-rendered via `vite-react-ssg` for static hosting on GitHub Pages.
+Personal portfolio site for Ismail Ferdi, a 4th-year AI Engineering student specializing in NLP and Computer Vision. Built with React 19, Astryx (Meta's open-source design system, beta) and Vite 6. Pre-rendered with `vite-react-ssg` for static hosting on GitHub Pages.
 
 ## Features
 
-- **Static site generation** — full HTML pre-rendered at build time (no server required), React hydrates client-side for interactivity
-- **Tailwind CSS v4** — utility-first atomic CSS with custom theme (`#7FE0A9` mint primary, `#0C4B33` forest-green surfaces, `#0C1116` canvas)
-- **CSS-only animations** — entrance animations via `@keyframes fade-in` with staggered delays (no animation library dependency)
-- **Animated background** — Canvas-based grid wave animation with glow particles; respects `prefers-reduced-motion`
-- **Accessibility** — semantic HTML, `aria-hidden` on decorative elements, focus-visible outlines
-- **SEO** — meta tags, JSON-LD structured data, `robots.txt`, `sitemap.xml`
-- **Font optimization** — Google Fonts via `<link>` with `preconnect` hints
-- **Image optimization** — WebP with PNG fallback via `<picture>`
-- **Privacy-friendly analytics** — Plausible (self-hosted, no cookie banner)
-- **Dark theme** — JetBrains Mono monospace aesthetic throughout
+- **Static site generation** — the full HTML is pre-rendered at build time; React hydrates client-side for interactivity
+- **Astryx design system** — prebuilt component CSS, semantic tokens and the Matcha theme in dark mode; no StyleX compiler is needed for the published components
+- **Matcha theme** — dark olive/sage palette (body `#12140e`), chosen to carry the original dark mint/green identity; `theme-color` is kept in sync
+- **AppShell frame** — owns the skip link and the banner/main landmarks, with responsive mobile navigation
+- **Tailwind v4 (transitional)** — still used by sections not yet converted to Astryx; it will be removed when the conversion is complete
+- **Accessibility** — semantic landmarks, one `h1`, visible focus, AA contrast and reduced-motion support are checked during each conversion step
+- **SEO** — title, meta description, OG/Twitter cards, canonical, JSON-LD, `robots.txt` and `sitemap.xml` live in `index.html`
+- **Image optimization** — WebP with PNG fallback via `<picture>`; the WebP is preloaded
+- **Privacy-friendly analytics** — Plausible (no cookie banner)
 - **Responsive** — mobile-first layout
-- **Reduced motion support** — `prefers-reduced-motion: reduce` kills animations
 
 ## Tech Stack
 
@@ -23,109 +21,79 @@ Personal portfolio site for Ismail Ferdi, a 4th-year AI Engineering student spec
 |---|---|
 | Framework | React 19 |
 | Build | Vite 6 + `@vitejs/plugin-react` |
-| Styling | Tailwind CSS v4 (`@tailwindcss/vite`) |
+| Styling | Astryx core prebuilt CSS + Matcha theme CSS/fonts; Tailwind v4 during migration |
 | SSG | `vite-react-ssg` (single-page mode) |
-| Icons | Lucide React |
-| Font | Inter + Cormorant Garamond (Google Fonts), system mono fallback |
+| Design system packages | `@astryxdesign/core`, `@astryxdesign/theme-matcha`, `@astryxdesign/cli` — all pinned to `0.7.17` |
+| Icons | Lucide React (passed to Astryx `Icon`) |
 | Analytics | Plausible |
 | CI/CD | GitHub Actions → GitHub Pages |
-| Image tools | ImageMagick |
 
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Development server (HMR)
-npm run dev
-
-# Production build (static HTML to dist/)
-npm run build
-
-# Preview the build locally
-npx serve dist
+npm run dev        # dev server on :3000
+npm run typecheck
+npm run build      # vite-react-ssg build → dist/
+npm run preview
 ```
 
 ## Project Structure
 
 ```
 .
-├── index.html                  # HTML entry: meta tags, OG/Twitter cards, JSON-LD, fonts, Plausible
-├── vite.config.ts              # Vite config: React + Tailwind plugins, path alias, HMR toggle
-├── package.json                # Dependencies, scripts, homepage URL
-├── AGENTS.md                   # Instructions for AI coding agents
-├── .github/workflows/deploy.yml # CI/CD: build on push to main, deploy dist/ to gh-pages
-├── public/
-│   ├── profile-removebg-preview.webp  # Hero profile image (WebP)
-│   ├── profile-removebg-preview.png   # Fallback (PNG)
-│   ├── logo-removebg-preview.webp     # Favicon (WebP)
-│   ├── logo-removebg-preview.png      # Favicon fallback (PNG)
-│   ├── robots.txt                     # Crawler permissions
-│   └── sitemap.xml                    # Single-page sitemap
-├── src/
-│   ├── main.tsx                # Entry point: imports CSS, mounts SSG root
-│   ├── App.tsx                 # Composition only: header/nav, hero, sections, footer
-│   ├── index.css               # Tailwind v4 config, custom theme, @keyframes, components
-│   ├── data/
-│   │   └── portfolio.ts        # Typed content: skills, projects, certs, contacts, footer
-│   └── components/
-│       ├── SiteNav.tsx         # Top nav + mobile menu
-│       ├── Hero.tsx            # Hero section
-│       ├── SectionHeader.tsx   # Display-serif section heading
-│       ├── ProjectCard.tsx     # Case-study card + flow diagrams
-│       ├── SkillGroup.tsx      # Capability group card
-│       ├── Experience.tsx      # Experience section
-│       ├── Education.tsx       # Education section
-│       ├── Certifications.tsx  # Certifications section
-│       ├── Contact.tsx         # Contact CTA band
-│       ├── Footer.tsx          # Link-column footer
-│       └── AnimatedBackground.tsx  # Canvas grid wave
-└── dist/                       # Built output (gitignored)
+├── index.html                   # HTML entry: SEO/meta, OG/Twitter cards, JSON-LD, fonts, Plausible
+├── vite.config.ts               # React plugin (plus Tailwind during migration), base '/', HMR toggle
+├── package.json                 # Dependencies, scripts, homepage URL
+├── AGENTS.md                    # Agent notes incl. managed Astryx block
+├── .github/workflows/deploy.yml # CI/CD: build on push, publish dist/ to gh-pages
+├── public/                      # profile/favicon WebP + PNG, robots.txt, sitemap.xml
+└── src/
+    ├── main.tsx                 # Imports index.css first, mounts the SSG root
+    ├── App.tsx                  # Theme + AppShell composition only
+    ├── index.css                # Cascade layer order, Astryx core CSS imports, transitional Tailwind
+    ├── astryx-themes.ts         # Generated by `astryx theme add` — do not hand-edit
+    ├── data/
+    │   └── portfolio.ts         # Typed content: skills, projects, certs, contacts, footer
+    └── components/              # Section components (being converted to Astryx step by step)
 ```
 
-## Key Implementation Details
+## Theming and CSS
 
-### Static Site Generation
+`src/astryx-themes.ts` is generated by `astryx theme add matcha`; it imports Matcha's built module, `theme.css` and `fonts.css`. `App.tsx` wires it once:
 
-`vite-react-ssg` pre-renders the entire React tree to static HTML at build time. The output HTML contains the fully rendered page content (hero text, skills grid, project cards, etc.) plus a CSS link and JS bundle references. On page load, React hydrates the DOM to make interactive elements functional. This means the page is immediately visible even before JavaScript loads.
+```tsx
+import {Theme} from '@astryxdesign/core/theme';
+import {themes, defaultThemeSlug} from './astryx-themes';
 
-### Tailwind v4 Theme
+<Theme theme={themes[defaultThemeSlug]} mode="dark">
+  <AppShell>{/* page sections */}</AppShell>
+</Theme>
+```
 
-Custom theme values defined in `src/index.css`:
+`src/index.css` must declare the layer order before any import:
 
 ```css
-@theme {
-  --font-sans: "StyreneB", "Inter", -apple-system, sans-serif;
-  --font-display: "Copernicus", "Tiempos Headline", "Cormorant Garamond", Georgia, serif;
-  --color-accent-teal: #2CB77E;
-  --color-canvas: #0C1116;
-}
+@layer reset, theme, base, astryx-base, astryx-theme, components, utilities;
+
+@import "tailwindcss";                       /* remove with Tailwind */
+@import "@astryxdesign/core/reset.css";
+@import "@astryxdesign/core/astryx.css";
 ```
 
-### CSS Animations (No JS Library)
+## Verification
 
-The `motion` library was removed (~80KB savings). All entrance animations use pure CSS:
-
-```css
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
-.animate-delay-1 { animation-delay: 0.1s; }
-.animate-delay-2 { animation-delay: 0.2s; }
-.animate-delay-3 { animation-delay: 0.3s; }
+```bash
+npm run typecheck && npm run build
+grep -o 'data-astryx-theme="matcha"' dist/index.html
+npx --no-install @astryxdesign/cli doctor --built dist
 ```
+
+Playwright screenshots at 390/768/1440px and a keyboard walkthrough are used to check layout and focus behavior. The Playwright MCP's Chrome channel is unavailable in this environment; the Playwright CLI with its downloaded Chromium is used instead.
 
 ## Deployment
 
-Push to `main`/`master` triggers the GitHub Actions workflow (`.github/workflows/deploy.yml`) which:
-
-1. Checks out the repository
-2. Installs dependencies (`npm ci`)
-3. Builds the static site (`npm run build` → `vite-react-ssg build`)
-4. Publishes `dist/` to the `gh-pages` branch via `peaceiris/actions-gh-pages`
+Push to `main`/`master` triggers `.github/workflows/deploy.yml`: `npm ci` → `npm run build` → `peaceiris/actions-gh-pages` publishes `dist/` to `gh-pages`.
 
 ## License
 
