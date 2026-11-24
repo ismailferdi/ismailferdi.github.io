@@ -22,7 +22,7 @@ export default function App() {
   return (
     <Theme theme={portfolioMatchaTheme} mode="dark">
       <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />}>
-        <Layout height="auto" contentWidth={1152} footer={<Footer />}>
+        <Layout height="auto" contentWidth={1200} footer={<Footer />}>
           <Hero />
 
           <Section
