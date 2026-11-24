@@ -19,11 +19,13 @@ function ContactLink({ icon, label, value, href }: (typeof contacts)[number]) {
     <Link href={href} color="inherit" display="block" {...(isExternal ? { isExternalLink: true } : {})}>
       <HStack as="span" gap={3} align="center" paddingBlock={1.5}>
         <Icon icon={icon} size="md" />
-        <VStack as="span" gap={0}>
+        <VStack as="span" gap={0} style={{ minWidth: 0 }}>
           <Text type="label" weight="bold">
             {label}
           </Text>
-          <Text weight="medium">{value}</Text>
+          <Text weight="medium" wordBreak="break-word">
+            {value}
+          </Text>
         </VStack>
       </HStack>
     </Link>
