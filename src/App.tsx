@@ -24,7 +24,7 @@ export default function App() {
   const layoutPadding = isMobile ? 5 : 6;
   return (
     <Theme theme={portfolioMatchaTheme} mode="dark">
-      <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />}>
+      <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />} mobileNav={{ breakpoint: 'sm' }}>
         <Layout height="auto" contentWidth={1320} padding={layoutPadding} footer={<Footer />}>
           <Hero />
 
