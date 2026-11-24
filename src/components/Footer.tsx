@@ -8,7 +8,7 @@ import { footerGroups } from '../data/portfolio';
 
 export default function Footer() {
   return (
-    <LayoutFooter id="footer" hasDivider padding={6}>
+    <LayoutFooter id="footer" hasDivider padding={6} role="contentinfo">
       <VStack gap={8}>
         <VStack gap={2}>
           <Text type="large" weight="bold">
