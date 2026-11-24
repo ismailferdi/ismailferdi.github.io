@@ -13,11 +13,10 @@
 
 - React 19 + Vite 6 + `vite-react-ssg/single-page`. `base: '/'` is correct for the user Pages site; the `DISABLE_HMR` toggle in `vite.config.ts` is marked "Do not modify".
 - Astryx design system (Meta, beta): `@astryxdesign/core`, `@astryxdesign/theme-matcha`, `@astryxdesign/cli` are all pinned to **exactly 0.7.17**. `@stylexjs/stylex` is the core peer dependency. Pin every `@astryxdesign/*` package to the same exact version.
-- Chosen theme: **Matcha**, dark-first. Generated module `src/astryx-themes.ts` is managed by `astryx theme add/use/remove` — do not hand-edit. `App.tsx` wraps the app in `<Theme theme={themes[defaultThemeSlug]} mode="dark">`.
+- Theme: **Matcha**, dark-first, customized locally. `src/themes/portfolioTheme.ts` extends Matcha and is built to `src/themes/portfolio-matcha.{ts,css,d.ts,js}`; `App.tsx` wraps the app in `<Theme theme={portfolioMatchaTheme} mode="dark">` and imports the built theme CSS and Matcha fonts. `src/astryx-themes.ts` is the generated CLI module (managed by `astryx theme add/use/remove`) and is not the active app theme.
 - `AppShell` is the outermost frame: it owns the skip link, banner landmark and `main` landmark. Do not add a second skip link, `<header>` or `<main>`.
-- `src/index.css` declares the cascade layer order before any import, then loads Tailwind (transitional), `@astryxdesign/core/reset.css` and `@astryxdesign/core/astryx.css`. Theme CSS/fonts come from the generated theme module, which `App.tsx` imports after the CSS entry. Layer order is load-order sensitive — keep `main.tsx` importing `./index.css` first.
-- Tailwind v4 is still present only because the remaining sections have not been converted yet. The target is Astryx-only; remove Tailwind only after every section uses Astryx components. No StyleX/Vite plugin is needed while we do not author `stylex.create()` or scaffold a StyleX template.
-- `AnimatedBackground` was removed: the theme paints the page surface, and a custom canvas layer would bypass theme tokens.
+- `src/index.css` declares the cascade layer order before any import, then loads `@astryxdesign/core/reset.css` and `@astryxdesign/core/astryx.css`. It also contains token-based global rules: body background/text, reduced-motion, `.section-anchor` scroll offset, and project flow-diagram SVG styling. Keep `main.tsx` importing `./index.css` first; `App.tsx` imports theme CSS/fonts after.
+- Tailwind has been removed. Do not re-add Tailwind utilities or `@apply`; use Astryx components and `var(--color-*|--spacing-*|--radius-*|--font-*)` tokens.
 - SVG icons come from `lucide-react`; Astryx `Icon` accepts an SVG component directly. The three project flow SVGs are kept and must be painted with `var(--color-*)` tokens, never hardcoded colors.
 
 ## Content and metadata rules
