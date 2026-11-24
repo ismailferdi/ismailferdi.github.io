@@ -1,23 +1,42 @@
+import { Heading } from '@astryxdesign/core/Heading';
+import { HStack } from '@astryxdesign/core/HStack';
+import { Section } from '@astryxdesign/core/Section';
+import { Text } from '@astryxdesign/core/Text';
+import { VStack } from '@astryxdesign/core/VStack';
 import SectionHeader from './SectionHeader';
 
 export default function Education() {
   return (
-    <section id="education" aria-labelledby="education-heading" className="scroll-mt-20">
-      <SectionHeader id="education-heading" title="Education" />
-      <div className="glass-card p-8 space-y-3">
-        <div className="flex items-baseline justify-between gap-4 flex-wrap">
-          <h3 className="card-title">
-            Bachelor's in Computer Science — AI Specialization
-          </h3>
-          <p className="text-sm text-on-dark-soft">Sep 2022 – Jul 2027</p>
-        </div>
-        <p className="text-sm text-body">Université Djillali Liabès, Algeria</p>
-        <p className="text-sm text-on-dark-soft leading-relaxed">
-          <span className="font-semibold text-body">Relevant coursework:</span> Machine Learning,
-          Deep Learning, Natural Language Processing, Computer Vision, Big Data Analytics, Linear
-          Algebra, Probability &amp; Statistics, Algorithms &amp; Data Structures
-        </p>
-      </div>
-    </section>
+    <Section
+      id="education"
+      aria-labelledby="education-heading"
+      className="section-anchor"
+      paddingBlock={8}
+      dividers={['top']}
+    >
+      <VStack gap={8}>
+        <SectionHeader id="education-heading" title="Education" />
+
+        <VStack gap={3}>
+          <HStack justify="between" align="start" gap={4} wrap="wrap">
+            <Heading level={3} textWrap="balance">
+              Bachelor's in Computer Science — AI Specialization
+            </Heading>
+            <Text type="supporting">Sep 2022 – Jul 2027</Text>
+          </HStack>
+
+          <Text color="secondary">Université Djillali Liabès, Algeria</Text>
+
+          <Text>
+            <Text weight="semibold" display="inline">
+              Relevant coursework:
+            </Text>{' '}
+            Machine Learning, Deep Learning, Natural Language Processing, Computer Vision, Big Data
+            Analytics, Linear Algebra, Probability &amp; Statistics, Algorithms &amp; Data
+            Structures
+          </Text>
+        </VStack>
+      </VStack>
+    </Section>
   );
 }

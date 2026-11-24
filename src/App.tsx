@@ -59,10 +59,11 @@ export default function App() {
             </VStack>
           </Section>
 
-          <div className="layout-container pb-24 space-y-24">
-            <Experience />
-            <Education />
-            <Certifications />
+          <Experience />
+          <Education />
+          <Certifications />
+
+          <div className="layout-container pb-24">
             <Contact />
           </div>
         </Layout>
