@@ -2,6 +2,7 @@ import { Theme } from '@astryxdesign/core/theme';
 import { AppShell } from '@astryxdesign/core/AppShell';
 import { Layout } from '@astryxdesign/core/Layout';
 import { Section } from '@astryxdesign/core/Section';
+import { Grid } from '@astryxdesign/core/Grid';
 import { VStack } from '@astryxdesign/core/VStack';
 import { useMediaQuery } from '@astryxdesign/core';
 import { portfolioMatchaTheme } from './themes/portfolio-matcha';
@@ -21,6 +22,8 @@ import { projects, skillGroups } from './data/portfolio';
 
 export default function App() {
   const isMobile = useMediaQuery('(max-width: 767px)', true);
+  const isTablet = useMediaQuery('(min-width: 640px) and (max-width: 1023px)', false);
+  const isLaptop = useMediaQuery('(min-width: 1024px)', false);
   const layoutPadding = isMobile ? 5 : 6;
   return (
     <Theme theme={portfolioMatchaTheme} mode="dark">
@@ -54,11 +57,11 @@ export default function App() {
           >
             <VStack gap={8}>
               <SectionHeader id="skills-heading" title="Technical Skills" />
-              <VStack gap={8}>
+              <Grid columns={isLaptop ? 3 : isTablet ? 2 : 1} gap={8} align="start">
                 {skillGroups.map((group) => (
                   <SkillGroup key={group.title} {...group} />
                 ))}
-              </VStack>
+              </Grid>
             </VStack>
           </Section>
 
