@@ -3,6 +3,7 @@ import { AppShell } from '@astryxdesign/core/AppShell';
 import { Layout } from '@astryxdesign/core/Layout';
 import { Section } from '@astryxdesign/core/Section';
 import { VStack } from '@astryxdesign/core/VStack';
+import { useMediaQuery } from '@astryxdesign/core';
 import { portfolioMatchaTheme } from './themes/portfolio-matcha';
 import '@astryxdesign/theme-matcha/fonts.css';
 import './themes/portfolio-matcha.css';
@@ -19,10 +20,12 @@ import Footer from './components/Footer';
 import { projects, skillGroups } from './data/portfolio';
 
 export default function App() {
+  const isMobile = useMediaQuery('(max-width: 767px)', true);
+  const layoutPadding = isMobile ? 5 : 6;
   return (
     <Theme theme={portfolioMatchaTheme} mode="dark">
       <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />}>
-        <Layout height="auto" contentWidth={1200} footer={<Footer />}>
+        <Layout height="auto" contentWidth={1320} padding={layoutPadding} footer={<Footer />}>
           <Hero />
 
           <Section
