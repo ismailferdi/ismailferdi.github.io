@@ -566,6 +566,14 @@
   }
   }
 }
+
+@media (width < 640px) {
+  @scope ([data-astryx-theme="portfolio-matcha"]) to ([data-astryx-theme]) {
+    :scope {
+    --text-display-2-size: var(--font-size-xl);
+  }
+  }
+}
 }
 
 @layer astryx-theme {

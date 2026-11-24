@@ -22,6 +22,14 @@ export const portfolioTheme = defineTheme({
           },
         },
       },
+      {
+        when: { width: { below: 'sm' } },
+        value: {
+          tokens: {
+            '--text-display-2-size': 'var(--font-size-xl)',
+          },
+        },
+      },
     ],
   },
 });
