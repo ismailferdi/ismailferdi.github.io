@@ -559,6 +559,16 @@
 }
 
 @layer astryx-theme {
+@media (width < 768px) {
+  @scope ([data-astryx-theme="portfolio-matcha"]) to ([data-astryx-theme]) {
+    :scope {
+    --text-display-2-size: var(--font-size-3xl);
+  }
+  }
+}
+}
+
+@layer astryx-theme {
 @scope ([data-astryx-theme="portfolio-matcha"]) to ([data-astryx-theme]) {
   [data-astryx-media="dark"] {
     color-scheme: dark;

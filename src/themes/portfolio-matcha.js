@@ -410,7 +410,20 @@ export const portfolioMatchaTheme = {
       "xl": 1280,
       "2xl": 1536
     },
-    "rules": []
+    "rules": [
+      {
+        "when": {
+          "width": {
+            "below": "md"
+          }
+        },
+        "value": {
+          "tokens": {
+            "--text-display-2-size": "var(--font-size-3xl)"
+          }
+        }
+      }
+    ]
   },
   __axes: {
     "typography": {

@@ -12,4 +12,16 @@ export const portfolioTheme = defineTheme({
     '--font-display':
       '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   },
+  adaptations: {
+    rules: [
+      {
+        when: { width: { below: 'md' } },
+        value: {
+          tokens: {
+            '--text-display-2-size': 'var(--font-size-3xl)',
+          },
+        },
+      },
+    ],
+  },
 });
