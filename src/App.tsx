@@ -1,6 +1,8 @@
 import { Theme } from '@astryxdesign/core/theme';
 import { AppShell } from '@astryxdesign/core/AppShell';
-import { defaultThemeSlug, themes } from './astryx-themes';
+import { portfolioMatchaTheme } from './themes/portfolio-matcha';
+import '@astryxdesign/theme-matcha/fonts.css';
+import './themes/portfolio-matcha.css';
 import SiteNav from './components/SiteNav';
 import Hero from './components/Hero';
 import SectionHeader from './components/SectionHeader';
@@ -15,7 +17,7 @@ import { projects, skillGroups } from './data/portfolio';
 
 export default function App() {
   return (
-    <Theme theme={themes[defaultThemeSlug]} mode="dark">
+    <Theme theme={portfolioMatchaTheme} mode="dark">
       <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />}>
         <Hero />
 
