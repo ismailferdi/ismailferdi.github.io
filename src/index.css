@@ -141,24 +141,31 @@
     @apply text-accent-teal mt-1 flex-shrink-0;
   }
 
-  /* project flow diagrams: mint line-art on dark canvas (labels use code type) */
+  /* project flow diagrams: token-painted line art, readable in both themes */
+  .flow-diagram {
+    display: block;
+    width: 100%;
+    max-width: 30rem;
+    height: 2.25rem;
+  }
   .flow-node {
     fill: none;
-    stroke: rgba(127, 224, 169, 0.3);
+    stroke: var(--color-border-emphasized);
     stroke-width: 1.5;
+    rx: var(--radius-inner);
   }
   .flow-edge {
     fill: none;
-    stroke: rgba(127, 224, 169, 0.25);
+    stroke: var(--color-border-emphasized);
     stroke-width: 1.5;
   }
   .flow-head {
-    fill: rgba(127, 224, 169, 0.25);
+    fill: var(--color-icon-accent);
   }
   .flow-label {
-    fill: rgba(127, 224, 169, 0.5);
-    font-size: 11px;
-    font-family: var(--font-code);
+    fill: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-code);
   }
 
   /* button-primary: mint CTA, dark text, rounded-md, active press state */
