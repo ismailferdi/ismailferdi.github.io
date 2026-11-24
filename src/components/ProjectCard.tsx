@@ -10,6 +10,7 @@ import { List, ListItem } from '@astryxdesign/core/List';
 import { Text } from '@astryxdesign/core/Text';
 import { Token } from '@astryxdesign/core/Token';
 import { VStack } from '@astryxdesign/core/VStack';
+import { useMediaQuery } from '@astryxdesign/core';
 import type { Project } from '../data/portfolio';
 
 const ChurnOpsFlow = () => (
@@ -78,6 +79,7 @@ const ETLFlow = () => (
 );
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const isLaptop = useMediaQuery('(min-width: 1024px)', false);
   return (
     <VStack gap={6}>
       <Divider />
@@ -98,7 +100,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       {project.flow === 'ragnar' && <RAGFlow />}
       {project.flow === 'banks' && <ETLFlow />}
 
-      <Grid columns={{ minWidth: 320, max: 2 }} gap={8} align="start">
+      <Grid columns={isLaptop ? 2 : 1} gap={8} align="start">
         <VStack gap={2}>
           <Text type="label" weight="bold" color="secondary">
             Problem

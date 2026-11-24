@@ -42,6 +42,7 @@ a.astryx-link {
   width: 100%;
   max-width: 30rem;
   height: 3rem;
+  min-height: 3rem;
 }
 
 .flow-node {
