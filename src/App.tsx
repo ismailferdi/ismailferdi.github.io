@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Theme } from '@astryxdesign/core/theme';
 import { AppShell } from '@astryxdesign/core/AppShell';
 import { Layout } from '@astryxdesign/core/Layout';
@@ -21,6 +22,20 @@ import Footer from './components/Footer';
 import { projects, skillGroups } from './data/portfolio';
 
 export default function App() {
+  useEffect(() => {
+    const header = document.querySelector('header, [role="banner"]');
+    if (!header) return;
+    const sync = () =>
+      document.documentElement.style.setProperty(
+        '--app-header-height',
+        `${header.getBoundingClientRect().height}px`,
+      );
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
   const isMobile = useMediaQuery('(max-width: 767px)', true);
   const isTablet = useMediaQuery('(min-width: 640px) and (max-width: 1023px)', false);
   const isLaptop = useMediaQuery('(min-width: 1024px)', false);

@@ -85,7 +85,12 @@ export default function ProjectCard({ project }: { project: Project }) {
       <Divider />
 
       <VStack gap={3}>
-        <Heading level={3} textWrap="balance">
+        <Heading
+          level={3}
+          textWrap="balance"
+          id={project.flow === 'banks' ? 'banks-etl' : project.flow}
+          className="section-anchor"
+        >
           {project.title}
         </Heading>
         <HStack gap={3} align="center" wrap="wrap">
