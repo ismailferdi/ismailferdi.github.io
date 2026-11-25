@@ -147,7 +147,7 @@ export const portfolioMatchaTheme = {
     "--color-icon-primary": "light-dark(#3e481d, #c0cba9)",
     "--color-icon-secondary": "light-dark(#707e46, #94a468)",
     "--color-icon-disabled": "light-dark(#c0cba9, #5a6440)",
-    "--color-background-card": "light-dark(#1A2440, #1A2440)",
+    "--color-background-card": "light-dark(#121A2E, #121A2E)",
     "--color-background-popover": "light-dark(#ffffff, #1e2016)",
     "--color-background-inverted": "light-dark(#3e481d, #c0cba9)",
     "--color-success": "light-dark(#4d9900, #6dbf2a)",
