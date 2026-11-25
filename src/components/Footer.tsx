@@ -19,7 +19,7 @@ export default function Footer() {
           </Text>
         </VStack>
 
-        <Grid columns={{ minWidth: 320, max: 4 }} gap={6} align="start">
+        <Grid columns={{ minWidth: 240, max: 4 }} gap={6} align="start">
           {footerGroups.map((group) => (
             <VStack key={group.label} gap={2} align="start">
               <Text type="label" weight="bold" color="secondary">
