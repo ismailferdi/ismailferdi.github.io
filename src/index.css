@@ -95,8 +95,30 @@ a:focus-visible,
 .flow-diagram {
   display: block;
   width: 100%;
-  max-width: calc(var(--spacing-12) * 4 + var(--spacing-4) * 3);
   height: auto;
+}
+
+.flow-diagram--narrow {
+  max-width: calc(var(--spacing-12) * 4 + var(--spacing-4) * 2 + var(--spacing-1));
+}
+
+.flow-diagram--wide {
+  display: none;
+  max-width: calc(var(--spacing-12) * 8 + var(--spacing-4) * 2);
+}
+
+.flow-diagram--always {
+  max-width: calc(var(--spacing-12) * 4 + var(--spacing-4) * 2 + var(--spacing-1));
+}
+
+@media (min-width: 672px) {
+  .flow-diagram--narrow {
+    display: none;
+  }
+
+  .flow-diagram--wide {
+    display: block;
+  }
 }
 
 .flow-node {
@@ -107,7 +129,7 @@ a:focus-visible,
 }
 
 .flow-edge {
-  fill: var(--color-background-card);
+  fill: none;
   stroke: var(--color-border-emphasized);
   stroke-width: 1.5;
 }
