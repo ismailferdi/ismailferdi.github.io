@@ -37,6 +37,12 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  #contact .astryx-card {
+    padding: var(--spacing-4);
+  }
+}
+
 #footer a {
   display: inline-flex;
   align-items: center;

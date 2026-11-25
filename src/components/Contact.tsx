@@ -1,7 +1,6 @@
 import { Mail } from 'lucide-react';
 import { Button } from '@astryxdesign/core/Button';
 import { Card } from '@astryxdesign/core/Card';
-import { Divider } from '@astryxdesign/core/Divider';
 import { Grid } from '@astryxdesign/core/Grid';
 import { Heading } from '@astryxdesign/core/Heading';
 import { HStack } from '@astryxdesign/core/HStack';
@@ -17,16 +16,14 @@ function ContactLink({ icon, label, value, href }: (typeof contacts)[number]) {
 
   return (
     <Link href={href} color="inherit" display="block" {...(isExternal ? { isExternalLink: true } : {})}>
-      <HStack as="span" gap={3} align="center" paddingBlock={1.5}>
+      <HStack as="span" gap={3} align="center" paddingBlock={1}>
         <Icon icon={icon} size="md" />
-        <VStack as="span" gap={0} style={{ minWidth: 0 }}>
-          <Text type="label" weight="bold">
-            {label}
-          </Text>
-          <Text weight="medium" wordBreak="break-word">
-            {value}
-          </Text>
-        </VStack>
+        <Text type="label" weight="bold">
+          {label}
+        </Text>
+        <Text weight="medium" wordBreak="break-word">
+          {value}
+        </Text>
       </HStack>
     </Link>
   );
@@ -44,9 +41,9 @@ export default function Contact() {
       paddingInline={4}
       dividers={['top']}
     >
-      <Card variant="green" padding={6}>
-        <VStack gap={8}>
-          <VStack gap={3} maxWidth={760}>
+      <Card variant="green" padding={8}>
+        <Grid columns={{ minWidth: 320, max: 2 }} columnGap={8} rowGap={4} align="start">
+          <VStack gap={4}>
             <Heading id="contact-heading" level={2} type="display-3" textWrap="balance">
               Let's build something useful.
             </Heading>
@@ -62,16 +59,8 @@ export default function Contact() {
               for 2026–2027. If you're working on NLP, Computer Vision, or applied LLM systems, I'd
               love to hear from you.
             </Text>
-          </VStack>
 
-          <Grid columns={{ minWidth: 240, max: 2 }} gap={6}>
-            {contacts.map((contact) => (
-              <ContactLink key={contact.label} {...contact} />
-            ))}
-          </Grid>
-
-          {email && (
-            <HStack gap={3} wrap="wrap">
+            {email && (
               <Button
                 label="Email me"
                 variant="primary"
@@ -79,10 +68,14 @@ export default function Contact() {
                 href={email.href}
                 icon={<Icon icon={Mail} />}
               />
-            </HStack>
-          )}
+            )}
+          </VStack>
 
-          <Divider />
+          <VStack gap={3}>
+            {contacts.map((contact) => (
+              <ContactLink key={contact.label} {...contact} />
+            ))}
+          </VStack>
 
           <Text>
             <Text weight="bold" display="inline">
@@ -91,7 +84,7 @@ export default function Contact() {
             Internships, junior roles, freelance ML projects, open-source collaborations, research
             assistant positions.
           </Text>
-        </VStack>
+        </Grid>
       </Card>
     </Section>
   );
