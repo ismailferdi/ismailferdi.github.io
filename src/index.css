@@ -22,7 +22,7 @@ body {
 }
 
 [id] {
-  scroll-margin-top: calc(var(--app-header-height, var(--spacing-12)) + var(--font-size-base));
+  scroll-margin-top: calc(var(--app-header-height, var(--spacing-12)) + var(--spacing-4));
 }
 
 @media (min-width: 1280px) {
