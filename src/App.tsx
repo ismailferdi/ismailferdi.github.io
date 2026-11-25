@@ -42,13 +42,12 @@ export default function App() {
   const layoutPadding = isMobile ? 5 : 6;
   return (
     <Theme theme={portfolioMatchaTheme} mode="dark">
-      <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />} mobileNav={{ breakpoint: 'sm' }}>
-        <Layout height="auto" contentWidth={1320} padding={layoutPadding} footer={<Footer />}>
+      <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />} mobileNav={{ breakpoint: 'md' }}>
+        <Layout height="auto" contentWidth={1320} padding={layoutPadding}>
           <Hero />
 
           <Section
             id="projects"
-            aria-labelledby="projects-heading"
             paddingBlock={8}
             paddingInline={4}
             dividers={['top']}
@@ -65,7 +64,6 @@ export default function App() {
 
           <Section
             id="skills"
-            aria-labelledby="skills-heading"
             paddingBlock={8}
             paddingInline={4}
             dividers={['top']}
@@ -86,6 +84,7 @@ export default function App() {
           <Contact />
         </Layout>
       </AppShell>
+      <Layout height="auto" contentWidth={1320} padding={layoutPadding} footer={<Footer />} />
     </Theme>
   );
 }

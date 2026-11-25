@@ -3,6 +3,10 @@
 @import "@astryxdesign/core/reset.css";
 @import "@astryxdesign/core/astryx.css";
 
+:root {
+  color-scheme: dark;
+}
+
 body {
   background-color: var(--color-background-body);
   color: var(--color-text-primary);
@@ -56,12 +60,35 @@ body {
   #footer a {
     display: inline-flex;
     align-items: center;
+    min-inline-size: calc(var(--spacing-10) + var(--spacing-1));
   }
 }
 
 a.astryx-link {
   display: inline-flex;
   align-items: center;
+}
+
+a:focus-visible,
+.astryx-top-nav-heading a:focus-visible {
+  outline: 2px solid var(--focus-outline-color);
+  outline-offset: 2px;
+}
+
+/* Keep the tablet bar on one row; GitHub remains in the hero and footer. */
+@media (max-width: 1023px) {
+  [role="banner"] a[href="https://github.com/ismailferdi"] {
+    display: none;
+  }
+}
+
+/* The automatic drawer renders the top-nav row horizontally; stack it. */
+@media (max-width: 767px) {
+  .astryx-mobile-nav nav .astryx-stack {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
 }
 
 /* project flow diagrams: token-painted line art, readable in both themes */

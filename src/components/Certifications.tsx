@@ -9,7 +9,6 @@ export default function Certifications() {
   return (
     <Section
       id="certifications"
-      aria-labelledby="certifications-heading"
       paddingBlock={8}
       paddingInline={4}
       dividers={['top']}
