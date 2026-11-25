@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import { Avatar } from '@astryxdesign/core/Avatar';
 import { Badge } from '@astryxdesign/core/Badge';
 import { Button } from '@astryxdesign/core/Button';
-import { Grid } from '@astryxdesign/core/Grid';
+import { Grid, GridSpan } from '@astryxdesign/core/Grid';
 import { Heading } from '@astryxdesign/core/Heading';
 import { HStack } from '@astryxdesign/core/HStack';
 import { Icon } from '@astryxdesign/core/Icon';
@@ -29,11 +29,11 @@ const HIGHLIGHTS = [
 export default function Hero() {
   return (
     <Section id="hero" className="section-anchor" paddingBlockStart={8} paddingBlockEnd={10} paddingInline={4}>
-      <VStack gap={5}>
-        <Badge label="AI / ML ENGINEERING" variant="green" />
-
-        <Grid columns={{ minWidth: 320, max: 2 }} gap={8} align="start">
+      <Grid columns={{ minWidth: 240, max: 4 }} gap={2} align="start" justify="end">
+        <GridSpan columns={3} className="hero-text-col">
           <VStack gap={5}>
+            <Badge label="AI / ML ENGINEERING" variant="green" />
+
             <Heading level={1} type="display-2" textWrap="balance">
               AI/ML Engineer building production-oriented machine learning systems.
             </Heading>
@@ -101,8 +101,11 @@ export default function Hero() {
               ML systems.
             </Text>
           </VStack>
+        </GridSpan>
 
+        <GridSpan columns={1} className="hero-avatar-col">
           <Avatar
+            className="hero-avatar"
             src="/profile-removebg-preview.webp"
             fallbackSrc="/profile-removebg-preview.png"
             name="Ismail Ferdi"
@@ -111,8 +114,8 @@ export default function Hero() {
             shape="circle"
             tooltip={false}
           />
-        </Grid>
-      </VStack>
+        </GridSpan>
+      </Grid>
     </Section>
   );
 }
