@@ -23,7 +23,7 @@ const HIGHLIGHTS = [
   'End-to-end MLOps: FastAPI, scikit-learn, MLflow, Docker, GitHub Actions',
   'Data drift monitoring using statistical methods (PSI, Jensen-Shannon divergence)',
   'Structured logging, automated Slack alerts, and prediction logging for production observability',
-  'Clean, tested Python code with CI verification',
+  'Tested Python code with CI verification',
 ];
 
 export default function Hero() {

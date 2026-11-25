@@ -120,7 +120,7 @@ export const projects: Project[] = [
     positioning: 'Customer churn prediction and production-oriented MLOps.',
     badge: 'Shipped',
     problem:
-      'Churn models only create value if they survive production; training must be tracked, predictions served reliably, and data drift caught before decisions silently degrade.',
+      'A churn model has to keep working after deployment: track training, serve predictions reliably, and catch data drift before decisions degrade.',
     engineering: [
       'Train Random Forest and Logistic Regression on Telco churn data (80/20 stratified split)',
       'Track parameters and metrics per run in the churn-prediction MLflow experiment',
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     ],
     tags: ['Python', 'FastAPI', 'scikit-learn', 'MLflow', 'Docker', 'Streamlit', 'GitHub Actions'],
     summary:
-      'Production-oriented ML engineering: a trainable model, a containerized API, automated CI, and observability beyond accuracy metrics. Built from scratch with no boilerplate generators.',
+      'A trainable model, a containerized API, automated CI, and observability beyond accuracy metrics. Built from scratch without boilerplate generators.',
     flow: 'churnops',
     links: [
       { label: 'GitHub Repository', href: 'https://github.com/ismailferdi/ChurnOps', icon: 'github' },
@@ -154,7 +154,7 @@ export const projects: Project[] = [
     positioning: 'Document-based RAG / grounded question answering system.',
     badge: 'Shipped',
     problem:
-      'Generic chatbots guess; teams need answers grounded in their own documents, so uploads must become cited, verifiable responses instead of plausible-sounding text.',
+      'Teams need answers grounded in their own documents. Uploads should become cited, verifiable responses.',
     engineering: [
       'Ingest PDFs and text files with automatic chunking (POST /ingest)',
       'Embed chunks with OpenAI text-embedding-3-small into a persistent ChromaDB store',
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     ],
     tags: ['Python', 'FastAPI', 'ChromaDB', 'OpenAI', 'Streamlit', 'Docker', 'GitHub Actions'],
     summary:
-      'Full-stack RAG system for production-ready retrieval-augmented generation, from document ingestion to grounded, cited answers. Built with automated evaluation, Docker deployment, and CI/CD.',
+      'RAG system that ingests documents and returns cited answers, with automated evaluation, Docker deployment, and CI/CD.',
     flow: 'ragnar',
     links: [
       { label: 'GitHub Repository', href: 'https://github.com/ismailferdi/RAGNar', icon: 'github' },
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     positioning: 'Installable data pipeline for bank data processing.',
     badge: 'Shipped',
     problem:
-      'A coursework ETL only convinces when it ships like production software: installable, logged, tested, and containerized instead of a one-off script.',
+      'This coursework ETL ships like production software: installable, logged, tested, and containerized.',
     engineering: [
       'Extract: scrape the archived Wikipedia table of largest banks by market cap',
       'Transform: convert USD market cap to GBP/EUR/INR via a live rates API with CSV fallback',
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     ],
     tags: ['Python', 'pandas', 'BeautifulSoup', 'Requests', 'SQLite', 'pytest', 'Docker', 'GitHub Actions'],
     summary:
-      'Classic data-engineering fundamentals: reliable extraction, reproducible transforms, and tested loads, packaged the way production Python ships with CLI, CI, containers, and docs.',
+      'Reliable extraction, reproducible transforms, and tested loads, packaged with a CLI, CI, containers, and docs.',
     flow: 'banks',
     links: [
       { label: 'GitHub Repository', href: 'https://github.com/ismailferdi/banks-etl', icon: 'github' },
@@ -210,8 +210,8 @@ export const projects: Project[] = [
 ];
 
 export const experienceBullets: string[] = [
-  'Collaborated with engineering teams to document industrial electronics testing workflows and identify process inefficiencies',
-  'Applied systematic troubleshooting to hardware-software integration issues with a methodical approach to debugging complex systems',
+  'Worked with engineering teams to document industrial electronics testing workflows and find process inefficiencies',
+  'Troubleshot hardware-software integration issues and debugged complex systems',
   'Observed quality assurance protocols and cross-functional technical communication in a production environment',
 ];
 
