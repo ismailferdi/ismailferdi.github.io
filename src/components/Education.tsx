@@ -10,7 +10,6 @@ export default function Education() {
     <Section
       id="education"
       aria-labelledby="education-heading"
-
       paddingBlock={8}
       paddingInline={4}
       dividers={['top']}
