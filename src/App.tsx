@@ -59,7 +59,7 @@ export default function App() {
           >
             <VStack gap={8}>
               <SectionHeader id="skills-heading" title="Technical Skills" />
-              <Grid columns={isLaptop ? 3 : isTablet ? 2 : 1} gap={8} align="start">
+              <Grid columns={isLaptop || isTablet ? 2 : 1} gap={8} align="start">
                 {skillGroups.map((group) => (
                   <SkillGroup key={group.title} {...group} />
                 ))}
