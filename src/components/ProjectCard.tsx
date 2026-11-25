@@ -25,7 +25,7 @@ const ChurnOpsFlow = () => (
     <polygon points="205,23 199,19 199,27" className="flow-head" />
     <rect x="209" y="6" width="60" height="34" className="flow-node" />
     <text x="239" y="29" textAnchor="middle" className="flow-label">Model</text>
-    <path d="M275 23V44H125V50" className="flow-edge" />
+    <path d="M239 44H125V50" className="flow-edge" />
     <polygon points="125,50 119,44 131,44" className="flow-head" />
     <rect x="93" y="56" width="64" height="34" className="flow-node" />
     <text x="125" y="79" textAnchor="middle" className="flow-label">SQLite</text>
@@ -48,7 +48,7 @@ const RAGFlow = () => (
     <polygon points="202,23 196,19 196,27" className="flow-head" />
     <rect x="206" y="6" width="67" height="34" className="flow-node" />
     <text x="239.5" y="29" textAnchor="middle" className="flow-label">Embed</text>
-    <path d="M279 23V44H139V50" className="flow-edge" />
+    <path d="M239.5 44H139V50" className="flow-edge" />
     <polygon points="139,50 133,44 145,44" className="flow-head" />
     <rect x="92" y="56" width="94" height="34" className="flow-node" />
     <text x="139" y="79" textAnchor="middle" className="flow-label">ChromaDB</text>
