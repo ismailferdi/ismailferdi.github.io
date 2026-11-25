@@ -116,7 +116,7 @@ export const portfolioMatchaTheme = {
     "--color-syntax-removed-marker": "var(--color-syntax-punctuation)",
     "--color-accent": "light-dark(#5EEAD4, #5EEAD4)",
     "--color-accent-muted": "light-dark(#3e481d14, #c0cba920)",
-    "--color-neutral": "light-dark(#3e481d0f, #c0cba91a)",
+    "--color-neutral": "light-dark(#E6ECFF1A, #E6ECFF1A)",
     "--color-background-surface": "light-dark(#121A2E, #121A2E)",
     "--color-background-body": "light-dark(#0B1020, #0B1020)",
     "--color-overlay": "light-dark(#3e481d80, #3e481dcc)",

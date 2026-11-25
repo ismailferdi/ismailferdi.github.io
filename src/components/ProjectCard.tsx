@@ -137,7 +137,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <HStack gap={2} wrap="wrap">
         {project.tags.map((tag) => (
-          <Token key={tag} label={tag} size="sm" />
+          <Token key={tag} label={tag} size="md" />
         ))}
       </HStack>
 

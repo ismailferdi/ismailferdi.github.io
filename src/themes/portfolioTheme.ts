@@ -12,6 +12,7 @@ export const portfolioTheme = defineTheme({
     '--color-background-surface': ['#121A2E', '#121A2E'],
     '--color-background-card': ['#121A2E', '#121A2E'],
     '--color-border': ['#4E64A3', '#4E64A3'],
+    '--color-neutral': ['#E6ECFF1A', '#E6ECFF1A'],
     '--color-text-primary': ['#E6ECFF', '#E6ECFF'],
     '--color-text-secondary': ['#A9B6D6', '#A9B6D6'],
     '--color-accent': ['#5EEAD4', '#5EEAD4'],
