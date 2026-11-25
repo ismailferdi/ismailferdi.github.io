@@ -96,9 +96,9 @@ export default function ProjectCard({ project }: { project: Project }) {
         </HStack>
       </VStack>
 
-      {project.flow === 'churnops' && <ChurnOpsFlow />}
-      {project.flow === 'ragnar' && <RAGFlow />}
-      {project.flow === 'banks' && <ETLFlow />}
+      {project.flow === 'churnops' && <HStack isScrollable><ChurnOpsFlow /></HStack>}
+      {project.flow === 'ragnar' && <HStack isScrollable><RAGFlow /></HStack>}
+      {project.flow === 'banks' && <HStack isScrollable><ETLFlow /></HStack>}
 
       <Grid columns={isLaptop ? 2 : 1} gap={8} align="start">
         <VStack gap={2}>

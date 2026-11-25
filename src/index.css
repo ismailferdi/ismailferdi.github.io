@@ -68,9 +68,10 @@ a.astryx-link {
 .flow-diagram {
   display: block;
   width: 100%;
+  min-width: calc(var(--spacing-12) * 5 + var(--spacing-4) * 2);
   max-width: 30rem;
-  height: 3rem;
-  min-height: 3rem;
+  height: calc(var(--spacing-12) * 2);
+  min-height: calc(var(--spacing-12) * 2);
 }
 
 .flow-node {
@@ -92,6 +93,6 @@ a.astryx-link {
 
 .flow-label {
   fill: var(--color-text-secondary);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-lg);
   font-family: var(--font-family-code);
 }
