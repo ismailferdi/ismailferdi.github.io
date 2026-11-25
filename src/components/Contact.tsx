@@ -36,7 +36,7 @@ export default function Contact() {
     <Section
       id="contact"
       aria-labelledby="contact-heading"
-      className="section-anchor"
+
       paddingBlock={8}
       paddingInline={4}
       dividers={['top']}

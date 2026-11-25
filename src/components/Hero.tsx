@@ -28,9 +28,9 @@ const HIGHLIGHTS = [
 
 export default function Hero() {
   return (
-    <Section id="hero" className="section-anchor" paddingBlockStart={8} paddingBlockEnd={10} paddingInline={4}>
+    <Section id="hero" paddingBlockStart={8} paddingBlockEnd={10} paddingInline={4}>
       <Grid columns={{ minWidth: 240, max: 4 }} gap={2} align="start" justify="end">
-        <GridSpan columns={3} className="hero-text-col">
+        <GridSpan columns={3}>
           <VStack gap={5}>
             <Badge label="AI / ML ENGINEERING" variant="purple" />
 
@@ -103,9 +103,8 @@ export default function Hero() {
           </VStack>
         </GridSpan>
 
-        <GridSpan columns={1} className="hero-avatar-col">
+        <GridSpan columns={1}>
           <Avatar
-            className="hero-avatar"
             src="/profile-removebg-preview.webp"
             fallbackSrc="/profile-removebg-preview.png"
             name="Ismail Ferdi"

@@ -12,7 +12,7 @@ export default function Experience() {
     <Section
       id="experience"
       aria-labelledby="experience-heading"
-      className="section-anchor"
+
       paddingBlock={8}
       paddingInline={4}
       dividers={['top']}

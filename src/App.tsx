@@ -49,7 +49,7 @@ export default function App() {
           <Section
             id="projects"
             aria-labelledby="projects-heading"
-            className="section-anchor"
+
             paddingBlock={8}
             paddingInline={4}
             dividers={['top']}
@@ -67,7 +67,7 @@ export default function App() {
           <Section
             id="skills"
             aria-labelledby="skills-heading"
-            className="section-anchor"
+
             paddingBlock={8}
             paddingInline={4}
             dividers={['top']}
