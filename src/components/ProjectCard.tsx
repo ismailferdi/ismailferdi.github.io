@@ -118,7 +118,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           </Text>
           <List listStyle="disc" density="compact">
             {project.engineering.map((item) => (
-              <ListItem key={item} label={<Text type="supporting">{item}</Text>} />
+              <ListItem key={item} label={<Text type="supporting" size="base">{item}</Text>} />
             ))}
           </List>
         </VStack>

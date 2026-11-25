@@ -88,7 +88,7 @@ export default function Hero() {
               <Text weight="bold">What I bring:</Text>
               <List listStyle="disc" density="compact">
                 {HIGHLIGHTS.map((item) => (
-                  <ListItem key={item} label={<Text type="supporting">{item}</Text>} />
+                  <ListItem key={item} label={<Text type="supporting" size="base">{item}</Text>} />
                 ))}
               </List>
             </VStack>

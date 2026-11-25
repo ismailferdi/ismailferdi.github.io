@@ -34,7 +34,7 @@ export default function Experience() {
 
           <List listStyle="disc" density="compact">
             {experienceBullets.map((item) => (
-              <ListItem key={item} label={<Text type="supporting">{item}</Text>} />
+              <ListItem key={item} label={<Text type="supporting" size="base">{item}</Text>} />
             ))}
           </List>
         </VStack>
