@@ -22,13 +22,19 @@ body {
 }
 
 #footer a {
-  min-block-size: calc(var(--spacing-10) + var(--spacing-1));
   display: inline-flex;
   align-items: center;
 }
 
-a, button, [role="button"] {
-  min-block-size: calc(var(--spacing-10) + var(--spacing-1));
+@media (any-pointer: coarse) {
+  a, button, [role="button"] {
+    min-block-size: calc(var(--spacing-10) + var(--spacing-1));
+  }
+
+  #footer a {
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 a.astryx-link {

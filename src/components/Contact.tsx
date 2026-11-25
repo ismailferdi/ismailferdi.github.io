@@ -43,7 +43,7 @@ export default function Contact() {
       paddingBlock={8}
       paddingInline={4}
     >
-      <Card variant="green" padding={3}>
+      <Card variant="green" padding={0}>
         <Grid columns={{ minWidth: 384, max: 2 }} gap={6} align="start">
           <VStack gap={4} maxWidth={560}>
             <Heading id="contact-heading" level={2} type="display-3" textWrap="balance">
