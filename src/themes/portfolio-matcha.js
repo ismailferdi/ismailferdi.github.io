@@ -67,7 +67,7 @@ export const portfolioMatchaTheme = {
     "--text-display-1-size": "var(--font-size-5xl)",
     "--text-display-1-weight": "var(--font-weight-normal)",
     "--text-display-1-leading": "1.2459",
-    "--text-display-2-size": "var(--font-size-4xl)",
+    "--text-display-2-size": "var(--font-size-3xl)",
     "--text-display-2-weight": "var(--font-weight-normal)",
     "--text-display-2-leading": "1.2245",
     "--text-display-3-size": "var(--font-size-3xl)",
@@ -411,6 +411,19 @@ export const portfolioMatchaTheme = {
       "2xl": 1536
     },
     "rules": [
+      {
+        "when": {
+          "width": {
+            "below": "xl"
+          }
+        },
+        "value": {
+          "tokens": {
+            "--text-display-2-size": "var(--font-size-3xl)",
+            "--text-display-3-size": "var(--font-size-2xl)"
+          }
+        }
+      },
       {
         "when": {
           "width": {
