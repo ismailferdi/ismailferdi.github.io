@@ -15,7 +15,7 @@ export default function Footer() {
             Ismail Ferdi
           </Text>
           <Text type="supporting">
-            AI/ML engineering — production-oriented machine learning systems.
+            AI/ML engineering: production-oriented machine learning systems.
           </Text>
         </VStack>
 

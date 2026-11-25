@@ -21,7 +21,7 @@ export default function Education() {
         <VStack gap={3}>
           <HStack justify="between" align="start" gap={4} wrap="wrap">
             <Heading level={3} textWrap="balance">
-              Bachelor's in Computer Science — AI Specialization
+              Bachelor's in Computer Science, AI Specialization
             </Heading>
             <Text type="supporting">Sep 2022 – Jul 2027</Text>
           </HStack>

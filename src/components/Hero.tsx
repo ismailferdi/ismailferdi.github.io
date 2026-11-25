@@ -17,7 +17,7 @@ const SUMMARY =
   "I'm Ismail Ferdi, a 4th-year AI Engineering student at Université Djillali Liabès, Algeria.";
 
 const WHAT_I_BUILD =
-  'I build production-oriented machine learning systems — MLOps pipelines with FastAPI, scikit-learn, and MLflow, containerized backends with Docker and CI/CD, RAG document systems with ChromaDB, and tested ETL data pipelines in Python.';
+  'I build production-oriented machine learning systems: MLOps pipelines with FastAPI, scikit-learn, and MLflow, containerized backends with Docker and CI/CD, RAG document systems with ChromaDB, and tested ETL data pipelines in Python.';
 
 const HIGHLIGHTS = [
   'End-to-end MLOps: FastAPI, scikit-learn, MLflow, Docker, GitHub Actions',

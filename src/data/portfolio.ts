@@ -61,7 +61,7 @@ export const skillGroups: SkillGroupData[] = [
     title: 'Production ML',
     icon: BrainCircuit,
     summary:
-      'Training, tracking, and monitoring models in production — from experiments to drift detection and observability.',
+      'Training, tracking, and monitoring models in production, from experiments to drift detection and observability.',
     items: [
       'Python',
       'scikit-learn',
@@ -81,7 +81,7 @@ export const skillGroups: SkillGroupData[] = [
     title: 'LLM / RAG / AI Applications',
     icon: Sparkles,
     summary:
-      'Grounded language systems — retrieval, embeddings, and cited generation over your own documents.',
+      'Grounded language systems: retrieval, embeddings, and cited generation over your own documents.',
     items: [
       'RAG',
       'LLM Integration',
@@ -93,13 +93,13 @@ export const skillGroups: SkillGroupData[] = [
   {
     title: 'Data Engineering',
     icon: Database,
-    summary: 'Extraction, transformation, loading, and querying — from web scraping to SQLite.',
+    summary: 'Extraction, transformation, loading, and querying, from web scraping to SQLite.',
     items: ['ETL Pipeline Design', 'BeautifulSoup', 'Requests', 'pandas', 'NumPy', 'SQLite'],
   },
   {
     title: 'Engineering Infrastructure & Backend',
     icon: Wrench,
-    summary: 'The backend behind the models — APIs, containers, CI, testing, and dashboards.',
+    summary: 'The backend behind the models: APIs, containers, CI, testing, and dashboards.',
     items: [
       'FastAPI',
       'Pydantic',
@@ -120,11 +120,11 @@ export const projects: Project[] = [
     positioning: 'Customer churn prediction and production-oriented MLOps.',
     badge: 'Shipped',
     problem:
-      'Churn models only create value if they survive production — training must be tracked, predictions served reliably, and data drift caught before decisions silently degrade.',
+      'Churn models only create value if they survive production; training must be tracked, predictions served reliably, and data drift caught before decisions silently degrade.',
     engineering: [
       'Train Random Forest and Logistic Regression on Telco churn data (80/20 stratified split)',
       'Track parameters and metrics per run in the churn-prediction MLflow experiment',
-      'Register versioned artifacts — model, preprocessor, reference distributions — synced from Hugging Face Hub on startup',
+      'Register versioned model, preprocessor, and reference distribution artifacts, synced from Hugging Face Hub on startup',
       'Serve single and batch predictions through FastAPI: POST /predict, POST /predict_batch, GET /health, GET /metrics',
       'Monitor PSI and Jensen-Shannon drift over a sliding window (default 500) of recent predictions from the SQLite log',
     ],
@@ -138,7 +138,7 @@ export const projects: Project[] = [
     ],
     tags: ['Python', 'FastAPI', 'scikit-learn', 'MLflow', 'Docker', 'Streamlit', 'GitHub Actions'],
     summary:
-      'This project demonstrates production-oriented ML engineering: a trainable model, a containerized API, automated CI, and observability beyond accuracy metrics. Built from scratch with no boilerplate generators.',
+      'Production-oriented ML engineering: a trainable model, a containerized API, automated CI, and observability beyond accuracy metrics. Built from scratch with no boilerplate generators.',
     flow: 'churnops',
     links: [
       { label: 'GitHub Repository', href: 'https://github.com/ismailferdi/ChurnOps', icon: 'github' },
@@ -154,7 +154,7 @@ export const projects: Project[] = [
     positioning: 'Document-based RAG / grounded question answering system.',
     badge: 'Shipped',
     problem:
-      'Generic chatbots guess — teams need answers grounded in their own documents, so uploads must become cited, verifiable responses instead of plausible-sounding text.',
+      'Generic chatbots guess; teams need answers grounded in their own documents, so uploads must become cited, verifiable responses instead of plausible-sounding text.',
     engineering: [
       'Ingest PDFs and text files with automatic chunking (POST /ingest)',
       'Embed chunks with OpenAI text-embedding-3-small into a persistent ChromaDB store',
@@ -165,13 +165,13 @@ export const projects: Project[] = [
     evidence: [
       'Retrieval recall@5: 97.06% and grounding accuracy: 100.00% on the automated evaluation baseline',
       'Answer quality of 4.88 with 0 unparseable responses in the same baseline',
-      'Methodology in the eval/ suite — reproducible with make eval; see the evaluation baseline in the repository README',
+      'Methodology in the eval/ suite, reproducible with make eval; see the evaluation baseline in the repository README',
       'Streamlit UI for document upload and Q&A over a FastAPI + ChromaDB backend',
       'Docker Compose multi-service deployment with CI/CD via GitHub Actions',
     ],
     tags: ['Python', 'FastAPI', 'ChromaDB', 'OpenAI', 'Streamlit', 'Docker', 'GitHub Actions'],
     summary:
-      'Full-stack RAG system that demonstrates production-ready retrieval-augmented generation — from document ingestion to grounded, cited answers. Built with automated evaluation, Docker deployment, and CI/CD.',
+      'Full-stack RAG system for production-ready retrieval-augmented generation, from document ingestion to grounded, cited answers. Built with automated evaluation, Docker deployment, and CI/CD.',
     flow: 'ragnar',
     links: [
       { label: 'GitHub Repository', href: 'https://github.com/ismailferdi/RAGNar', icon: 'github' },
@@ -183,12 +183,12 @@ export const projects: Project[] = [
     positioning: 'Installable data pipeline for bank data processing.',
     badge: 'Shipped',
     problem:
-      'A coursework ETL only convinces when it ships like production software — installable, logged, tested, and containerized instead of a one-off script.',
+      'A coursework ETL only convinces when it ships like production software: installable, logged, tested, and containerized instead of a one-off script.',
     engineering: [
-      'Extract — scrape the archived Wikipedia table of largest banks by market cap',
-      'Transform — convert USD market cap to GBP/EUR/INR via a live rates API with CSV fallback',
-      'Load — write CSV and SQLite (Largest_banks table, replaced each run)',
-      'Query — three SQL queries answering London/GBP, Berlin/EUR, and New Delhi/INR rankings',
+      'Extract: scrape the archived Wikipedia table of largest banks by market cap',
+      'Transform: convert USD market cap to GBP/EUR/INR via a live rates API with CSV fallback',
+      'Load: write CSV and SQLite (Largest_banks table, replaced each run)',
+      'Query: three SQL queries answering London/GBP, Berlin/EUR, and New Delhi/INR rankings',
     ],
     evidence: [
       'Installable CLI: banks-etl full run plus banks-etl-cli run / query --city subcommands',
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     ],
     tags: ['Python', 'pandas', 'BeautifulSoup', 'Requests', 'SQLite', 'pytest', 'Docker', 'GitHub Actions'],
     summary:
-      'This project demonstrates classic data-engineering fundamentals — reliable extraction, reproducible transforms, and tested loads — packaged the way production Python ships: CLI, CI, containers, and docs.',
+      'Classic data-engineering fundamentals: reliable extraction, reproducible transforms, and tested loads, packaged the way production Python ships with CLI, CI, containers, and docs.',
     flow: 'banks',
     links: [
       { label: 'GitHub Repository', href: 'https://github.com/ismailferdi/banks-etl', icon: 'github' },
@@ -211,8 +211,8 @@ export const projects: Project[] = [
 
 export const experienceBullets: string[] = [
   'Collaborated with engineering teams to document industrial electronics testing workflows and identify process inefficiencies',
-  'Applied systematic troubleshooting to hardware-software integration issues, developing a methodical approach to debugging complex systems',
-  'Gained exposure to quality assurance protocols and cross-functional technical communication in a production environment',
+  'Applied systematic troubleshooting to hardware-software integration issues with a methodical approach to debugging complex systems',
+  'Observed quality assurance protocols and cross-functional technical communication in a production environment',
 ];
 
 export const featuredCertifications: Certification[] = [
@@ -231,7 +231,7 @@ export const featuredCertifications: Certification[] = [
 ];
 
 export const additionalCertifications =
-  'The AI Engineer Path — Scrimba (July 2025) · The Data Science Course: Complete Bootcamp 2025 — Careers 365 (February 2025)';
+  'The AI Engineer Path, Scrimba (July 2025) · The Data Science Course: Complete Bootcamp 2025, Careers 365 (February 2025)';
 
 export const contacts: ContactEntry[] = [
   {

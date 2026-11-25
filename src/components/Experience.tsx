@@ -24,7 +24,7 @@ export default function Experience() {
           <HStack justify="between" align="start" gap={4} wrap="wrap">
             <VStack gap={1}>
               <Heading level={3} textWrap="balance">
-                Intern — Industrial Systems
+                Intern, Industrial Systems
               </Heading>
               <Text weight="semibold">
                 ENIE (Entreprise Nationale des Industries Électroniques)
