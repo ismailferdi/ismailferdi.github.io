@@ -243,7 +243,7 @@ export const contacts: ContactEntry[] = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+213 775 85 33 51',
+    value: '+213\u00A0775\u00A085\u00A033\u00A051',
     href: 'tel:+213775853351',
   },
   {

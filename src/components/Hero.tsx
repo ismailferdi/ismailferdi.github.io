@@ -63,7 +63,7 @@ export default function Hero() {
               <Link href="tel:+213775853351" type="supporting">
                 <HStack as="span" gap={2} align="center">
                   <Icon icon={Phone} size="sm" />
-                  +213 775 85 33 51
+                  {'+213\u00A0775\u00A085\u00A033\u00A051'}
                 </HStack>
               </Link>
               <Link
