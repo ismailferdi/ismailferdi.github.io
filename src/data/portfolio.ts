@@ -120,7 +120,7 @@ export const projects: Project[] = [
     positioning: 'Customer churn prediction and production-oriented MLOps.',
     badge: 'Shipped',
     problem:
-      'A churn model has to keep working after deployment: track training, serve predictions reliably, and catch data drift before decisions degrade.',
+      'A churn model only creates value if it keeps working after deployment: training must be tracked, predictions served reliably, and data drift caught before decisions silently degrade.',
     engineering: [
       'Train Random Forest and Logistic Regression on Telco churn data (80/20 stratified split)',
       'Track parameters and metrics per run in the churn-prediction MLflow experiment',
@@ -154,7 +154,7 @@ export const projects: Project[] = [
     positioning: 'Document-based RAG / grounded question answering system.',
     badge: 'Shipped',
     problem:
-      'Teams need answers grounded in their own documents. Uploads should become cited, verifiable responses.',
+      'Generic chatbots guess, so teams need answers grounded in their own documents: uploads must become cited, verifiable responses instead of plausible-sounding text.',
     engineering: [
       'Ingest PDFs and text files with automatic chunking (POST /ingest)',
       'Embed chunks with OpenAI text-embedding-3-small into a persistent ChromaDB store',
