@@ -16,7 +16,7 @@ function ContactLink({ icon, label, value, href }: (typeof contacts)[number]) {
 
   return (
     <Link href={href} color="inherit" display="block" {...(isExternal ? { isExternalLink: true } : {})}>
-      <HStack as="span" gap={3} align="center" paddingBlock={1}>
+      <HStack as="span" gap={3} align="center" wrap="wrap" paddingBlock={1}>
         <Icon icon={icon} size="md" />
         <Text type="label" weight="bold">
           {label}
