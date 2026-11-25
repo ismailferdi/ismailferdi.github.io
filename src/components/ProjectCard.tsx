@@ -129,7 +129,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             <ListItem
               key={item}
               startContent={<Icon icon="check" size="sm" color="success" />}
-              label={<Text type="supporting">{item}</Text>}
+              label={<Text type="supporting" size="base">{item}</Text>}
             />
           ))}
         </List>

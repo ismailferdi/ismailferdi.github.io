@@ -24,13 +24,13 @@ export default function Certifications() {
               <ListItem
                 key={name}
                 label={<Text weight="semibold">{name}</Text>}
-                description={<Text type="supporting">{issuer}</Text>}
-                endContent={<Text type="supporting">{date}</Text>}
+                description={<Text type="supporting" size="base">{issuer}</Text>}
+                endContent={<Text type="supporting" size="base">{date}</Text>}
               />
             ))}
           </List>
 
-          <Text type="supporting">{additionalCertifications}</Text>
+          <Text type="supporting" size="base">{additionalCertifications}</Text>
         </VStack>
       </VStack>
     </Section>
