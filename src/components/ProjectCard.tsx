@@ -14,67 +14,67 @@ import { useMediaQuery } from '@astryxdesign/core';
 import type { Project } from '../data/portfolio';
 
 const ChurnOpsFlow = () => (
-  <svg viewBox="0 0 480 36" aria-hidden="true" className="flow-diagram" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="64" height="24" className="flow-node" />
-    <text x="36" y="22" textAnchor="middle" className="flow-label">User</text>
-    <path d="M72 18h10" className="flow-edge" />
-    <polygon points="84,18 78,14 78,22" className="flow-head" />
-    <rect x="88" y="6" width="80" height="24" className="flow-node" />
-    <text x="128" y="22" textAnchor="middle" className="flow-label">FastAPI</text>
-    <path d="M172 18h10" className="flow-edge" />
-    <polygon points="184,18 178,14 178,22" className="flow-head" />
-    <rect x="188" y="6" width="80" height="24" className="flow-node" />
-    <text x="228" y="22" textAnchor="middle" className="flow-label">Model</text>
-    <path d="M272 18h10" className="flow-edge" />
-    <polygon points="284,18 278,14 278,22" className="flow-head" />
-    <rect x="288" y="6" width="72" height="24" className="flow-node" />
-    <text x="324" y="22" textAnchor="middle" className="flow-label">SQLite</text>
-    <path d="M364 18h10" className="flow-edge" />
-    <polygon points="376,18 370,14 370,22" className="flow-head" />
-    <rect x="380" y="6" width="88" height="24" className="flow-node" />
-    <text x="424" y="22" textAnchor="middle" className="flow-label">Monitor</text>
+  <svg viewBox="0 0 336 96" aria-hidden="true" className="flow-diagram" xmlns="http://www.w3.org/2000/svg">
+    <rect x="66" y="6" width="47" height="34" className="flow-node" />
+    <text x="89.5" y="29" textAnchor="middle" className="flow-label">User</text>
+    <path d="M117 23h6" className="flow-edge" />
+    <polygon points="123,23 117,19 117,27" className="flow-head" />
+    <rect x="127" y="6" width="68" height="34" className="flow-node" />
+    <text x="161" y="29" textAnchor="middle" className="flow-label">FastAPI</text>
+    <path d="M199 23h6" className="flow-edge" />
+    <polygon points="205,23 199,19 199,27" className="flow-head" />
+    <rect x="209" y="6" width="60" height="34" className="flow-node" />
+    <text x="239" y="29" textAnchor="middle" className="flow-label">Model</text>
+    <path d="M275 23V44H125V50" className="flow-edge" />
+    <polygon points="125,50 119,44 131,44" className="flow-head" />
+    <rect x="93" y="56" width="64" height="34" className="flow-node" />
+    <text x="125" y="79" textAnchor="middle" className="flow-label">SQLite</text>
+    <path d="M161 73h6" className="flow-edge" />
+    <polygon points="167,73 161,69 161,77" className="flow-head" />
+    <rect x="171" y="56" width="72" height="34" className="flow-node" />
+    <text x="207" y="79" textAnchor="middle" className="flow-label">Monitor</text>
   </svg>
 );
 
 const RAGFlow = () => (
-  <svg viewBox="0 0 480 36" aria-hidden="true" className="flow-diagram" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="64" height="24" className="flow-node" />
-    <text x="36" y="22" textAnchor="middle" className="flow-label">Docs</text>
-    <path d="M72 18h10" className="flow-edge" />
-    <polygon points="84,18 78,14 78,22" className="flow-head" />
-    <rect x="88" y="6" width="80" height="24" className="flow-node" />
-    <text x="128" y="22" textAnchor="middle" className="flow-label">Chunk</text>
-    <path d="M172 18h10" className="flow-edge" />
-    <polygon points="184,18 178,14 178,22" className="flow-head" />
-    <rect x="188" y="6" width="80" height="24" className="flow-node" />
-    <text x="228" y="22" textAnchor="middle" className="flow-label">Embed</text>
-    <path d="M272 18h10" className="flow-edge" />
-    <polygon points="284,18 278,14 278,22" className="flow-head" />
-    <rect x="288" y="6" width="88" height="24" className="flow-node" />
-    <text x="332" y="22" textAnchor="middle" className="flow-label">ChromaDB</text>
-    <path d="M380 18h10" className="flow-edge" />
-    <polygon points="392,18 386,14 386,22" className="flow-head" />
-    <rect x="396" y="6" width="72" height="24" className="flow-node" />
-    <text x="432" y="22" textAnchor="middle" className="flow-label">LLM</text>
+  <svg viewBox="0 0 336 96" aria-hidden="true" className="flow-diagram" xmlns="http://www.w3.org/2000/svg">
+    <rect x="64" y="6" width="52" height="34" className="flow-node" />
+    <text x="90" y="29" textAnchor="middle" className="flow-label">Docs</text>
+    <path d="M120 23h6" className="flow-edge" />
+    <polygon points="126,23 120,19 120,27" className="flow-head" />
+    <rect x="130" y="6" width="62" height="34" className="flow-node" />
+    <text x="161" y="29" textAnchor="middle" className="flow-label">Chunk</text>
+    <path d="M196 23h6" className="flow-edge" />
+    <polygon points="202,23 196,19 196,27" className="flow-head" />
+    <rect x="206" y="6" width="67" height="34" className="flow-node" />
+    <text x="239.5" y="29" textAnchor="middle" className="flow-label">Embed</text>
+    <path d="M279 23V44H139V50" className="flow-edge" />
+    <polygon points="139,50 133,44 145,44" className="flow-head" />
+    <rect x="92" y="56" width="94" height="34" className="flow-node" />
+    <text x="139" y="79" textAnchor="middle" className="flow-label">ChromaDB</text>
+    <path d="M190 73h6" className="flow-edge" />
+    <polygon points="196,73 190,69 190,77" className="flow-head" />
+    <rect x="200" y="56" width="44" height="34" className="flow-node" />
+    <text x="222" y="79" textAnchor="middle" className="flow-label">LLM</text>
   </svg>
 );
 
 const ETLFlow = () => (
-  <svg viewBox="0 0 480 36" aria-hidden="true" className="flow-diagram" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="100" height="24" className="flow-node" />
-    <text x="54" y="22" textAnchor="middle" className="flow-label">Extract</text>
-    <path d="M108 18h10" className="flow-edge" />
-    <polygon points="122,18 116,14 116,22" className="flow-head" />
-    <rect x="126" y="6" width="124" height="24" className="flow-node" />
-    <text x="188" y="22" textAnchor="middle" className="flow-label">Transform</text>
-    <path d="M254 18h10" className="flow-edge" />
-    <polygon points="268,18 262,14 262,22" className="flow-head" />
-    <rect x="272" y="6" width="80" height="24" className="flow-node" />
-    <text x="312" y="22" textAnchor="middle" className="flow-label">Load</text>
-    <path d="M356 18h10" className="flow-edge" />
-    <polygon points="374,18 368,14 368,22" className="flow-head" />
-    <rect x="378" y="6" width="98" height="24" className="flow-node" />
-    <text x="427" y="22" textAnchor="middle" className="flow-label">Query</text>
+  <svg viewBox="0 0 336 46" aria-hidden="true" className="flow-diagram" xmlns="http://www.w3.org/2000/svg">
+    <rect x="15" y="6" width="67" height="34" className="flow-node" />
+    <text x="48.5" y="29" textAnchor="middle" className="flow-label">Extract</text>
+    <path d="M86 23h6" className="flow-edge" />
+    <polygon points="92,23 86,19 86,27" className="flow-head" />
+    <rect x="96" y="6" width="88" height="34" className="flow-node" />
+    <text x="140" y="29" textAnchor="middle" className="flow-label">Transform</text>
+    <path d="M188 23h6" className="flow-edge" />
+    <polygon points="194,23 188,19 188,27" className="flow-head" />
+    <rect x="198" y="6" width="51" height="34" className="flow-node" />
+    <text x="223.5" y="29" textAnchor="middle" className="flow-label">Load</text>
+    <path d="M253 23h6" className="flow-edge" />
+    <polygon points="259,23 253,19 253,27" className="flow-head" />
+    <rect x="263" y="6" width="59" height="34" className="flow-node" />
+    <text x="292.5" y="29" textAnchor="middle" className="flow-label">Query</text>
   </svg>
 );
 

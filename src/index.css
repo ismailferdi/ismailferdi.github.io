@@ -68,21 +68,19 @@ a.astryx-link {
 .flow-diagram {
   display: block;
   width: 100%;
-  min-width: calc(var(--spacing-12) * 5 + var(--spacing-4) * 2);
-  max-width: 30rem;
-  height: calc(var(--spacing-12) * 2);
-  min-height: calc(var(--spacing-12) * 2);
+  max-width: calc(var(--spacing-12) * 4 + var(--spacing-4) * 3);
+  height: auto;
 }
 
 .flow-node {
-  fill: none;
+  fill: var(--color-background-card);
   stroke: var(--color-border-emphasized);
   stroke-width: 1.5;
   rx: var(--radius-inner);
 }
 
 .flow-edge {
-  fill: none;
+  fill: var(--color-background-card);
   stroke: var(--color-border-emphasized);
   stroke-width: 1.5;
 }
@@ -93,6 +91,6 @@ a.astryx-link {
 
 .flow-label {
   fill: var(--color-text-secondary);
-  font-size: var(--font-size-lg);
-  font-family: var(--font-family-code);
+  font-size: var(--text-body-size);
+  font-family: var(--font-family-body);
 }
