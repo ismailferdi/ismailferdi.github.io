@@ -32,7 +32,7 @@ export default function Hero() {
       <Grid columns={{ minWidth: 240, max: 4 }} gap={2} align="start" justify="end">
         <GridSpan columns={3} className="hero-text-col">
           <VStack gap={5}>
-            <Badge label="AI / ML ENGINEERING" variant="green" />
+            <Badge label="AI / ML ENGINEERING" variant="purple" />
 
             <Heading level={1} type="display-2" textWrap="balance">
               AI/ML Engineer building production-oriented machine learning systems.

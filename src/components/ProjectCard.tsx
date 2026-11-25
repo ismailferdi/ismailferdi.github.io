@@ -89,7 +89,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.title}
         </Heading>
         <HStack gap={3} align="center" wrap="wrap">
-          <Badge label={project.badge} variant="green" />
+          <Badge label={project.badge} variant="purple" />
           <Text type="large" color="secondary">
             {project.positioning}
           </Text>
@@ -137,7 +137,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <HStack gap={2} wrap="wrap">
         {project.tags.map((tag) => (
-          <Token key={tag} label={tag} size="md" />
+          <Token key={tag} label={tag} size="md" color="purple" />
         ))}
       </HStack>
 

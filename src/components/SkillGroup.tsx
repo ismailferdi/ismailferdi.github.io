@@ -23,7 +23,7 @@ export default function SkillGroup({ title, icon, summary, items }: SkillGroupDa
 
         <HStack gap={2} wrap="wrap">
           {items.map((item) => (
-            <Token key={item} label={item} size="md" />
+            <Token key={item} label={item} size="md" color="purple" />
           ))}
         </HStack>
       </Grid>
