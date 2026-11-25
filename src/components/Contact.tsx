@@ -42,11 +42,10 @@ export default function Contact() {
       className="section-anchor"
       paddingBlock={8}
       paddingInline={4}
-      dividers={['top']}
     >
-      <Card variant="green" padding={6}>
-        <VStack gap={8}>
-          <VStack gap={3} maxWidth={760}>
+      <Card variant="green" padding={3}>
+        <Grid columns={{ minWidth: 384, max: 2 }} gap={6} align="start">
+          <VStack gap={4} maxWidth={560}>
             <Heading id="contact-heading" level={2} type="display-3" textWrap="balance">
               Let's build something useful.
             </Heading>
@@ -62,16 +61,8 @@ export default function Contact() {
               for 2026–2027. If you're working on NLP, Computer Vision, or applied LLM systems, I'd
               love to hear from you.
             </Text>
-          </VStack>
 
-          <Grid columns={{ minWidth: 240, max: 2 }} gap={6}>
-            {contacts.map((contact) => (
-              <ContactLink key={contact.label} {...contact} />
-            ))}
-          </Grid>
-
-          {email && (
-            <HStack gap={3} wrap="wrap">
+            {email && (
               <Button
                 label="Email me"
                 variant="primary"
@@ -79,19 +70,25 @@ export default function Contact() {
                 href={email.href}
                 icon={<Icon icon={Mail} />}
               />
-            </HStack>
-          )}
+            )}
+          </VStack>
 
-          <Divider />
+          <Grid columns={{ minWidth: 240, max: 2 }} gap={4} align="start">
+            {contacts.map((contact) => (
+              <ContactLink key={contact.label} {...contact} />
+            ))}
+          </Grid>
+        </Grid>
 
-          <Text>
-            <Text weight="bold" display="inline">
-              Open to:
-            </Text>{' '}
-            Internships, junior roles, freelance ML projects, open-source collaborations, research
-            assistant positions.
-          </Text>
-        </VStack>
+        <Divider />
+
+        <Text>
+          <Text weight="bold" display="inline">
+            Open to:
+          </Text>{' '}
+          Internships, junior roles, freelance ML projects, open-source collaborations, research
+          assistant positions.
+        </Text>
       </Card>
     </Section>
   );
