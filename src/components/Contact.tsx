@@ -41,6 +41,7 @@ export default function Contact() {
       aria-labelledby="contact-heading"
       className="section-anchor"
       paddingBlock={8}
+      paddingInline={4}
       dividers={['top']}
     >
       <Card variant="green" padding={6}>

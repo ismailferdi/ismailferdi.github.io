@@ -12,6 +12,7 @@ export default function Education() {
       aria-labelledby="education-heading"
       className="section-anchor"
       paddingBlock={8}
+      paddingInline={4}
       dividers={['top']}
     >
       <VStack gap={8}>

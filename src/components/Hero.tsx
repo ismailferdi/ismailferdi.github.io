@@ -28,7 +28,7 @@ const HIGHLIGHTS = [
 
 export default function Hero() {
   return (
-    <Section id="hero" className="section-anchor" paddingBlockStart={8} paddingBlockEnd={10}>
+    <Section id="hero" className="section-anchor" paddingBlockStart={8} paddingBlockEnd={10} paddingInline={4}>
       <VStack gap={5}>
         <Badge label="AI / ML ENGINEERING" variant="green" />
 
