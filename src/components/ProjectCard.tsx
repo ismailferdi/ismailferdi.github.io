@@ -157,7 +157,7 @@ const RAGNAR_NARROW: FlowSpec = {
 const BANKS_FLOW: FlowSpec = {
   viewBox: '0 0 342 46',
   nodes: [
-    { label: 'Extract', x: 8, y: 6, width: 62 },
+    { label: 'Extract', x: 4, y: 6, width: 66 },
     { label: 'Transform', x: 90, y: 6, width: 86 },
     { label: 'Load', x: 196, y: 6, width: 54 },
     { label: 'Query', x: 270, y: 6, width: 64 },
