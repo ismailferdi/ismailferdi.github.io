@@ -1,6 +1,6 @@
 {
-  "_client-D_FdGA_p.js": {
-    "file": "assets/client-D_FdGA_p.js",
+  "_client-2C3_0pcv.js": {
+    "file": "assets/client-2C3_0pcv.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,222 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-DzBSeBeK.js",
+    "file": "assets/app-1ffOuoPD.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-D_FdGA_p.js"
+      "_client-2C3_0pcv.js",
+      "node_modules/@astryxdesign/core/dist/Swipe/SwipeActionsLayer.js"
     ],
     "css": [
-      "assets/app-C57-mnQH.css"
+      "assets/app-B0ckn2Kv.css"
+    ],
+    "assets": [
+      "assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2",
+      "assets/inter-cyrillic-ext-600-normal-Bcila6Z-.woff",
+      "assets/inter-cyrillic-600-normal-CWCymEST.woff2",
+      "assets/inter-cyrillic-600-normal-4D_pXhcN.woff",
+      "assets/inter-greek-ext-600-normal-DRtmH8MT.woff2",
+      "assets/inter-greek-ext-600-normal-B8X0CLgF.woff",
+      "assets/inter-greek-600-normal-plRanbMR.woff2",
+      "assets/inter-greek-600-normal-BZpKdvQh.woff",
+      "assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2",
+      "assets/inter-vietnamese-600-normal-BuLX-rYi.woff",
+      "assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2",
+      "assets/inter-latin-ext-600-normal-CIVaiw4L.woff",
+      "assets/inter-latin-600-normal-LgqL8muc.woff2",
+      "assets/inter-latin-600-normal-CiBQ2DWP.woff",
+      "assets/dm-sans-latin-ext-400-normal-BtiwyxMk.woff2",
+      "assets/dm-sans-latin-400-normal-CW0RaeGs.woff2",
+      "assets/dm-sans-latin-ext-500-normal-BJfUCQsA.woff2",
+      "assets/dm-sans-latin-500-normal-B9HHJjqV.woff2",
+      "assets/dm-sans-latin-ext-600-normal-4vooXBpG.woff2",
+      "assets/dm-sans-latin-600-normal-Aqo67rzb.woff2",
+      "assets/dm-sans-latin-ext-700-normal-CJIcxD6K.woff2",
+      "assets/dm-sans-latin-700-normal-DvUfVpUG.woff2",
+      "assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2",
+      "assets/jetbrains-mono-greek-400-normal-C190GLew.woff2",
+      "assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2",
+      "assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+      "assets/jetbrains-mono-cyrillic-500-normal-DmUKJPL_.woff2",
+      "assets/jetbrains-mono-greek-500-normal-JpySY46c.woff2",
+      "assets/jetbrains-mono-latin-ext-500-normal-Cut-4mMH.woff2",
+      "assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
+      "assets/jetbrains-mono-cyrillic-600-normal-EVf6-Yzo.woff2",
+      "assets/jetbrains-mono-greek-600-normal-H7WoG9Et.woff2",
+      "assets/jetbrains-mono-latin-ext-600-normal-BfB_LPfz.woff2",
+      "assets/jetbrains-mono-latin-600-normal-C8RAYTDA.woff2",
+      "assets/jetbrains-mono-cyrillic-700-normal-BWTpRfYl.woff2",
+      "assets/jetbrains-mono-greek-700-normal-C6CZE3T8.woff2",
+      "assets/jetbrains-mono-latin-ext-700-normal-CZipNAKV.woff2",
+      "assets/jetbrains-mono-latin-700-normal-BYuf6tUa.woff2",
+      "assets/playwrite-us-trad-latin-400-normal-CJ8VfeJg.woff2"
     ]
+  },
+  "node_modules/@astryxdesign/core/dist/Swipe/SwipeActionsLayer.js": {
+    "file": "assets/SwipeActionsLayer-DmzJTjJp.js",
+    "name": "SwipeActionsLayer",
+    "src": "node_modules/@astryxdesign/core/dist/Swipe/SwipeActionsLayer.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.html"
+    ]
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-400-normal.woff2": {
+    "file": "assets/dm-sans-latin-400-normal-CW0RaeGs.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-400-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-500-normal.woff2": {
+    "file": "assets/dm-sans-latin-500-normal-B9HHJjqV.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-500-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-600-normal.woff2": {
+    "file": "assets/dm-sans-latin-600-normal-Aqo67rzb.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-600-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-700-normal.woff2": {
+    "file": "assets/dm-sans-latin-700-normal-DvUfVpUG.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-700-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-400-normal.woff2": {
+    "file": "assets/dm-sans-latin-ext-400-normal-BtiwyxMk.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-400-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-500-normal.woff2": {
+    "file": "assets/dm-sans-latin-ext-500-normal-BJfUCQsA.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-500-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-600-normal.woff2": {
+    "file": "assets/dm-sans-latin-ext-600-normal-4vooXBpG.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-600-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-700-normal.woff2": {
+    "file": "assets/dm-sans-latin-ext-700-normal-CJIcxD6K.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/dm-sans-latin-ext-700-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-400-normal.woff2": {
+    "file": "assets/jetbrains-mono-cyrillic-400-normal-BEIGL1Tu.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-400-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-500-normal.woff2": {
+    "file": "assets/jetbrains-mono-cyrillic-500-normal-DmUKJPL_.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-500-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-600-normal.woff2": {
+    "file": "assets/jetbrains-mono-cyrillic-600-normal-EVf6-Yzo.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-600-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-700-normal.woff2": {
+    "file": "assets/jetbrains-mono-cyrillic-700-normal-BWTpRfYl.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-cyrillic-700-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-400-normal.woff2": {
+    "file": "assets/jetbrains-mono-greek-400-normal-C190GLew.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-400-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-500-normal.woff2": {
+    "file": "assets/jetbrains-mono-greek-500-normal-JpySY46c.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-500-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-600-normal.woff2": {
+    "file": "assets/jetbrains-mono-greek-600-normal-H7WoG9Et.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-600-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-700-normal.woff2": {
+    "file": "assets/jetbrains-mono-greek-700-normal-C6CZE3T8.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-greek-700-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-400-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-400-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-500-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-500-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-600-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-600-normal-C8RAYTDA.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-600-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-700-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-700-normal-BYuf6tUa.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-700-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-400-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-ext-400-normal-Bc8Ftmh3.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-400-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-500-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-ext-500-normal-Cut-4mMH.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-500-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-600-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-ext-600-normal-BfB_LPfz.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-600-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-700-normal.woff2": {
+    "file": "assets/jetbrains-mono-latin-ext-700-normal-CZipNAKV.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/jetbrains-mono-latin-ext-700-normal.woff2"
+  },
+  "node_modules/@astryxdesign/theme-matcha/fonts/playwrite-us-trad-latin-400-normal.woff2": {
+    "file": "assets/playwrite-us-trad-latin-400-normal-CJ8VfeJg.woff2",
+    "src": "node_modules/@astryxdesign/theme-matcha/fonts/playwrite-us-trad-latin-400-normal.woff2"
+  },
+  "node_modules/@fontsource/inter/files/inter-cyrillic-600-normal.woff": {
+    "file": "assets/inter-cyrillic-600-normal-4D_pXhcN.woff",
+    "src": "node_modules/@fontsource/inter/files/inter-cyrillic-600-normal.woff"
+  },
+  "node_modules/@fontsource/inter/files/inter-cyrillic-600-normal.woff2": {
+    "file": "assets/inter-cyrillic-600-normal-CWCymEST.woff2",
+    "src": "node_modules/@fontsource/inter/files/inter-cyrillic-600-normal.woff2"
+  },
+  "node_modules/@fontsource/inter/files/inter-cyrillic-ext-600-normal.woff": {
+    "file": "assets/inter-cyrillic-ext-600-normal-Bcila6Z-.woff",
+    "src": "node_modules/@fontsource/inter/files/inter-cyrillic-ext-600-normal.woff"
+  },
+  "node_modules/@fontsource/inter/files/inter-cyrillic-ext-600-normal.woff2": {
+    "file": "assets/inter-cyrillic-ext-600-normal-Dfes3d0z.woff2",
+    "src": "node_modules/@fontsource/inter/files/inter-cyrillic-ext-600-normal.woff2"
+  },
+  "node_modules/@fontsource/inter/files/inter-greek-600-normal.woff": {
+    "file": "assets/inter-greek-600-normal-BZpKdvQh.woff",
+    "src": "node_modules/@fontsource/inter/files/inter-greek-600-normal.woff"
+  },
+  "node_modules/@fontsource/inter/files/inter-greek-600-normal.woff2": {
+    "file": "assets/inter-greek-600-normal-plRanbMR.woff2",
+    "src": "node_modules/@fontsource/inter/files/inter-greek-600-normal.woff2"
+  },
+  "node_modules/@fontsource/inter/files/inter-greek-ext-600-normal.woff": {
+    "file": "assets/inter-greek-ext-600-normal-B8X0CLgF.woff",
+    "src": "node_modules/@fontsource/inter/files/inter-greek-ext-600-normal.woff"
+  },
+  "node_modules/@fontsource/inter/files/inter-greek-ext-600-normal.woff2": {
+    "file": "assets/inter-greek-ext-600-normal-DRtmH8MT.woff2",
+    "src": "node_modules/@fontsource/inter/files/inter-greek-ext-600-normal.woff2"
+  },
+  "node_modules/@fontsource/inter/files/inter-latin-600-normal.woff": {
+    "file": "assets/inter-latin-600-normal-CiBQ2DWP.woff",
+    "src": "node_modules/@fontsource/inter/files/inter-latin-600-normal.woff"
+  },
+  "node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2": {
+    "file": "assets/inter-latin-600-normal-LgqL8muc.woff2",
+    "src": "node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2"
+  },
+  "node_modules/@fontsource/inter/files/inter-latin-ext-600-normal.woff": {
+    "file": "assets/inter-latin-ext-600-normal-CIVaiw4L.woff",
+    "src": "node_modules/@fontsource/inter/files/inter-latin-ext-600-normal.woff"
+  },
+  "node_modules/@fontsource/inter/files/inter-latin-ext-600-normal.woff2": {
+    "file": "assets/inter-latin-ext-600-normal-D2bJ5OIk.woff2",
+    "src": "node_modules/@fontsource/inter/files/inter-latin-ext-600-normal.woff2"
+  },
+  "node_modules/@fontsource/inter/files/inter-vietnamese-600-normal.woff": {
+    "file": "assets/inter-vietnamese-600-normal-BuLX-rYi.woff",
+    "src": "node_modules/@fontsource/inter/files/inter-vietnamese-600-normal.woff"
+  },
+  "node_modules/@fontsource/inter/files/inter-vietnamese-600-normal.woff2": {
+    "file": "assets/inter-vietnamese-600-normal-Cc8MFFhd.woff2",
+    "src": "node_modules/@fontsource/inter/files/inter-vietnamese-600-normal.woff2"
   }
 }
