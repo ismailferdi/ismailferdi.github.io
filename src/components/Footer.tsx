@@ -1,46 +1,51 @@
+import { Divider } from '@astryxdesign/core/Divider';
+import { Grid } from '@astryxdesign/core/Grid';
+import { LayoutFooter } from '@astryxdesign/core/Layout';
+import { Link } from '@astryxdesign/core/Link';
+import { Text } from '@astryxdesign/core/Text';
+import { VStack } from '@astryxdesign/core/VStack';
 import { footerGroups } from '../data/portfolio';
 
 export default function Footer() {
   return (
-    <footer id="footer" className="mt-24 bg-surface-dark-elevated">
-      <div className="layout-container py-16">
-        <div className="mb-12">
-          <p className="text-lg font-bold text-on-dark">Ismail Ferdi</p>
-          <p className="mt-2 text-sm text-on-dark">
-            AI/ML engineering — production-oriented machine learning systems.
-          </p>
-        </div>
-        <nav aria-label="Footer" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <LayoutFooter id="footer" role="contentinfo" hasDivider padding={4}>
+      <VStack gap={6}>
+        <VStack gap={2}>
+          <Text type="large" weight="bold">
+            Ismail Ferdi
+          </Text>
+          <Text type="supporting">
+            AI/ML engineering: production-oriented machine learning systems.
+          </Text>
+        </VStack>
+
+        <Grid columns={{ minWidth: 240, max: 4 }} gap={6} align="start">
           {footerGroups.map((group) => (
-            <div key={group.label}>
-              <p className="text-sm font-bold text-on-dark mb-4">{group.label}</p>
-              <ul className="space-y-1">
-                {group.links.map((link) => {
-                  const external = link.href.startsWith('http');
-                  return (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                        className="block py-2 text-sm text-on-dark underline-offset-4 transition-colors hover:underline"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+            <VStack key={group.label} gap={2} align="start">
+              <Text type="label" weight="bold" color="secondary">
+                {group.label}
+              </Text>
+              <VStack gap={0} align="start">
+                {group.links.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    color="inherit"
+                    hasUnderline={false}
+                    {...(link.href.startsWith('http') ? { isExternalLink: true } : {})}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </VStack>
+            </VStack>
           ))}
-        </nav>
-      </div>
-      <div className="bg-surface-dark-soft">
-        <div className="layout-container py-6">
-          <p className="text-xs text-on-dark">
-            &copy; {new Date().getFullYear()} Ismail Ferdi
-          </p>
-        </div>
-      </div>
-    </footer>
+        </Grid>
+
+        <Divider />
+
+        <Text type="supporting">© {new Date().getFullYear()} Ismail Ferdi</Text>
+      </VStack>
+    </LayoutFooter>
   );
 }

@@ -1,34 +1,71 @@
-# AGENTS.md — Ismail Ferdi Portfolio
+# Agent notes
 
 ## Commands
 
-| Action | Command | Notes |
-|--------|---------|-------|
-| Dev | `npm run dev` | Already sets `--port=3000 --host=0.0.0.0`; don't add flags |
-| Build | `npm run build` | Must be `vite-react-ssg build`, never plain `vite build` |
-| Typecheck | `npm run typecheck` | This is `tsc --noEmit` — no ESLint/Prettier exists |
-| Preview build | `npm run preview` | `vite preview`; alt: `npx serve dist` |
-| Clean | `npm run clean` | `rm -rf dist` |
-| Manual deploy | `npm run deploy` | `predeploy` auto-rebuilds; normally just push |
+- `npm run dev` — Vite dev server on port 3000, host `0.0.0.0`.
+- `npm run typecheck` — `tsc --noEmit`.
+- `npm run build` — `vite-react-ssg build`; must stay this way (SSG is the whole point of the project).
+- `npm run preview` — preview `dist/`.
+- There are **no test, lint or format scripts**. Verify with typecheck + build, then inspect `dist/index.html` — dev-server `curl` only returns the shell because hydration is client-side.
+- CI runs Node 20 + `npm ci` + `npm run build` on push to `main`/`master` and publishes `dist/` to `gh-pages`. Never push or deploy by hand.
 
-**CI** (`.github/workflows/deploy.yml`): push to `main`/`master` → Node 20, `npm ci` → `npm run build` → `peaceiris/actions-gh-pages` publishes `dist/`. CI does not run `typecheck`; run it yourself before pushing.
+## Stack (post-redesign)
 
-## Architecture
+- React 19 + Vite 6 + `vite-react-ssg/single-page`. `base: '/'` is correct for the user Pages site; the `DISABLE_HMR` toggle in `vite.config.ts` is marked "Do not modify".
+- Astryx design system (Meta, beta): `@astryxdesign/core`, `@astryxdesign/theme-matcha`, `@astryxdesign/cli` are all pinned to **exactly 0.7.17**. `@stylexjs/stylex` is the core peer dependency. Pin every `@astryxdesign/*` package to the same exact version.
+- Theme: **Matcha**, dark-first, customized locally. `src/themes/portfolioTheme.ts` extends Matcha and is built to `src/themes/portfolio-matcha.{ts,css,d.ts,js}`; `App.tsx` wraps the app in `<Theme theme={portfolioMatchaTheme} mode="dark">` and imports the built theme CSS and Matcha fonts.
+- `AppShell` is the outermost frame: it owns the skip link, banner landmark and `main` landmark. Do not add a second skip link, `<header>` or `<main>`.
+- `src/index.css` declares the cascade layer order before any import, then loads `@astryxdesign/core/reset.css` and `@astryxdesign/core/astryx.css`. It also contains token-based global rules: body background/text, reduced-motion, `.section-anchor` scroll offset, and project flow-diagram SVG styling. Keep `main.tsx` importing `./index.css` first; `App.tsx` imports theme CSS/fonts after.
+- Tailwind has been removed. Do not re-add Tailwind utilities or `@apply`; use Astryx components and `var(--color-*|--spacing-*|--radius-*|--font-*)` tokens.
+- SVG icons come from `lucide-react`; Astryx `Icon` accepts an SVG component directly. The three project flow SVGs are kept and must be painted with `var(--color-*)` tokens, never hardcoded colors.
 
-- **Single-page SSG, no routing.** Entry `src/main.tsx` → `ViteReactSSG(<App />)` from `vite-react-ssg/single-page`. `src/App.tsx` is composition only (section shells + grids); section content lives in `src/components/` (Hero, ProjectCard, SkillGroup, Experience, Education, Certifications, Contact, Footer, plus `SiteNav`, `SectionHeader`, `AnimatedBackground`); shared list content lives in typed `src/data/portfolio.ts`.
-- **Project cards pair with a flow SVG.** ChurnOps/RAGNar/Banks ETL diagrams live in `src/components/ProjectCard.tsx` and get all paint from `index.css` (`flow-node`/`flow-edge`/`flow-head`/`flow-label`) — a new card needs a new SVG reusing those classes, never inline `stroke`/`fill` literals. Cards have no entrance-animation classes (only the hero uses `animate-fade-in`).
-- **Tailwind v4, no config file.** Design tokens live in `src/index.css` via `@theme`, generated from `DESIGN-django.md` — that file is the source of truth for every color/spacing/radius decision; read it before any visual change. Key tokens: `--color-primary: #7FE0A9` (mint CTAs/badges, always with dark text, never white), `--color-accent-teal: #2CB77E` (teal — inline links only, keeps links distinct from buttons), `--color-canvas: #0C1116` (page background). Reusable classes: `glass-card` (= `feature-card`: surface-card + hairline border + `rounded-lg`), `pill-badge`, `badge-brand`, `text-link`, `btn-primary`, `btn-secondary`, `layout-container` (page measure), `card-title`/`card-label` (type roles), `meta-chip`, `bullet-dot`. Rounded/spacing scales override Tailwind defaults (`rounded-lg` is 12px, `rounded-xl` 16px; named spacing like `p-xl`, `py-section` exists). Fonts: Inter (`--font-sans`) for all UI/body; Copernicus/Tiempos stack with Cormorant Garamond fallback (`--font-display`) for display headings only — hero H1, section H2s, card H3s, CTA-band H2; JetBrains Mono (`--font-mono`/`--font-code`) for code/diagram labels only, served by system fallback (no Mono webfont — do not re-add one). Animations are pure CSS `@keyframes fade-in`; `prefers-reduced-motion` kill-switch already in `index.css`.
-- **SEO/meta lives in `index.html`** (OG tags incl. `og:image`, JSON-LD, Plausible analytics, font `preconnect`). Images in `public/` served from root; keep WebP + PNG fallback via `<picture>`, but preload only the WebP (never the PNG fallback). Keep the `theme-color` meta in sync with `--color-canvas`.
+## Content and metadata rules
 
-## Gotchas
+- All copy, links and facts live in `src/data/portfolio.ts`. Restructure for scannability but never rewrite copy or invent metrics.
+- `index.html` owns title, description, OG/Twitter cards, canonical, JSON-LD, Plausible and the preloaded WebP. Keep them intact. `theme-color` must match the active theme's dark body background (`#12140e` for Matcha dark).
+- Keep accessibility: skip link, one `h1`, visible focus, AA contrast, 44px touch targets, `prefers-reduced-motion`. Prefer Astryx `Dialog`/`BottomSheet` over hand-rolled focus traps.
+- Astryx CLI: `npx --no-install @astryxdesign/cli …` (scoped package; an unscoped `npx astryx` is not this project's CLI). Useful: `component <Name>`, `docs <topic>`, `theme list`, `doctor [--built dist]`, `search`.
 
-- `base: '/'` in `vite.config.ts` is correct for user site `ismailferdi.github.io` — do not change to a repo-name subpath.
-- `@/*` alias maps to repo root (`./*`), not `src/*`.
-- **Pale-mint `bg-surface-cream-strong` appears exactly once** (the contact CTA band) — never add a second light surface; the spec reserves it as a rare interruption.
-- **Footer uses `text-on-dark`, not the spec's `on-dark-soft`.** Deliberate: `on-dark-soft` on the elevated-green footer is 2.95:1 and fails AA; `on-dark` passes at 6.07:1.
-- Dead code — do not use or "fix": `GEMINI_API_KEY` define in `vite.config.ts` is unread anywhere in `src/`; `scripts/inline-css.js` is unreferenced by any npm script (build does not inline CSS); `tsx` is an unused devDependency.
-- `CODEBASE.md` is stale (claims `vite build`, lists removed deps `motion`/`express`/`dotenv`). Trust `package.json` + `vite.config.ts` instead.
-- No tests, no test runner. Only verification is `npm run typecheck` + `npm run build`.
-- **`node_modules/` was removed from git tracking but the removal is staged, not committed** — HEAD still contains the files until someone commits. Never `git add -A`. Stage only intended files (`git add src/App.tsx …`) and drop optimizer churn with `git checkout -- node_modules`.
-- **Hollow installs happen.** If `typecheck`/`build` fail with `TS2307` / `ERR_MODULE_NOT_FOUND` while the package dir exists, its payload never extracted — `rm -rf node_modules/<pkg>` + `npm install` again (npm wrongly reports "up to date"). The `esbuild postinstall blocked` warnings are benign.
-- **Verify render via `dist/`, not dev `curl`.** In dev mode the page hydrates client-side, so `curl localhost:3000` returns only the shell — grep `dist/index.html` after `npm run build` to confirm new content actually rendered.
+## Config quirks and gotchas
+
+- `@/*` maps to the repo **root**, not `src/`; all source imports are relative.
+- `process.env.GEMINI_API_KEY`, `scripts/inline-css.js`, `theme.template.ts` and the `tsx` devDependency are leftover scaffold — leave them alone.
+- `node_modules/` was removed from git tracking but the removal is staged, not committed. **Never `git add -A`**; stage only intended files by explicit path.
+- Hollow installs happen: if typecheck/build fail with `TS2307` / `ERR_MODULE_NOT_FOUND` while the package directory exists, `rm -rf node_modules/<pkg>` then `npm install` again. The esbuild postinstall warnings are benign.
+
+## Deploy
+
+Push to `main`/`master` triggers `.github/workflows/deploy.yml`: `npm ci` → `npm run build` → `peaceiris/actions-gh-pages` publishes `dist/` to `gh-pages`.
+
+<!-- ASTRYX:START -->
+Astryx v0.7.17 · 174 components
+CLI: run every command as `npx astryx <cmd>` (shown below as `astryx ...`).
+
+SETUP (once, in app entry e.g. main.tsx) — without these, components render unstyled:
+  import "@astryxdesign/core/reset.css";
+  import "@astryxdesign/core/astryx.css";
+
+WORKFLOW — start every page from a template, never from scratch:
+1. `astryx build "<idea>"` — names the template to scaffold from and the parts it lacks.
+2. `astryx template <name> <path>` — scaffold it; keep its frame, gap and padding; replace the content.
+3. `astryx component <Name>` to read props before using one; `astryx template <Block>` prints a block example to read for a part it lacks. Astryx names differ from other libraries: buttons, badges, tokens and tabs take their text in `label` (Text, Heading and Link take children), booleans start with `is` or `has` (`isOpen`, `isDisabled`), and every input takes `value` and `onChange`.
+Changing an existing page? Keep it: skip step 2 and add components inside its sections; read a block example when it helps.
+Before you deliver a build, run `astryx doctor --built <dir>`; don't deliver it if it fails.
+
+RULES:
+- No <div> — components handle all layout and spacing.
+- Read `astryx docs layout` before changing a template's frame.
+- Dense data = rows (Table, List/Item), not Card-wrapped lists. Badge = counts only.
+- Style with component props first, then Tailwind utilities backed by tokens. No raw hex/px.
+- THEMES: palettes and custom colors go through the theme, never :root overrides; so does a denser or roomier app (`editor set <name> spacing tight`), never gap and padding changes page by page. A change to one kind of part (the sidebar, its selected item, the gaps in a form) is a theme change too, not props on one page: `editor how "<ask>"` names the `set … --on <part>` line. No app yet: `astryx experimental theme preview app <dir>` makes a starter app that shows the theme. To make or change a theme (colors, fonts, corners, spacing, a look from a picture), prefer the experimental theme editor over hand-written theme files: `astryx experimental theme editor new <name> --like neutral`, then `editor set <name> <thing> <value>` or `editor how "<what you want>"`; wire it with `astryx theme add <name>`; after each change look at it with `astryx experimental theme editor show <name> --png` (takes pictures of real components) and open the PNGs it writes; a theme change is not done until you have looked at the pictures. In code, extend an imported theme to customize it; `theme eject <slug>` only forks source. See `astryx docs theme`.
+- SELF-CHECK: re-read the file; replace any style={{…}}, raw <div>/<span>, imported .css/@apply, or hardcoded/arbitrary value (bg-[#fff], p-[13px]) with the component or a token-backed utility.
+
+`astryx help` lists every command. Key ones beyond the workflow:
+  search "<query>"   find any component / hook / doc / template
+  discover <words>   integrations you could add
+  docs <topic>       getting-started, principles, tokens, theme … (`astryx docs` lists all)
+  docs cli           commands and API reference
+  docs authoring     build an integration package, and every field it holds
+  upgrade --from <old version> --apply   run after a dependency bump
+To remove this block, run `astryx init --remove-agents`, which removes it from the agent files at the project root and in the folder you run it in; from any other file it leaves, delete everything from ASTRYX:START to ASTRYX:END.
+<!-- ASTRYX:END -->

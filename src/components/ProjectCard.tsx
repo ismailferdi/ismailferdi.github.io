@@ -1,148 +1,275 @@
 import { Github, Sparkles } from 'lucide-react';
+import { Badge } from '@astryxdesign/core/Badge';
+import { Divider } from '@astryxdesign/core/Divider';
+import { Grid } from '@astryxdesign/core/Grid';
+import { Heading } from '@astryxdesign/core/Heading';
+import { HStack } from '@astryxdesign/core/HStack';
+import { Icon } from '@astryxdesign/core/Icon';
+import { Link } from '@astryxdesign/core/Link';
+import { List, ListItem } from '@astryxdesign/core/List';
+import { Text } from '@astryxdesign/core/Text';
+import { Token } from '@astryxdesign/core/Token';
+import { VStack } from '@astryxdesign/core/VStack';
+import { useMediaQuery } from '@astryxdesign/core';
 import type { Project } from '../data/portfolio';
 
-const ChurnOpsFlow = () => (
-  <svg viewBox="0 0 480 36" aria-hidden="true" className="w-full max-w-md h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="64" height="24" rx="6" className="flow-node" />
-    <text x="36" y="22" textAnchor="middle" className="flow-label">User</text>
-    <path d="M72 18h10" className="flow-edge" />
-    <polygon points="84,18 78,14 78,22" className="flow-head" />
-    <rect x="88" y="6" width="80" height="24" rx="6" className="flow-node" />
-    <text x="128" y="22" textAnchor="middle" className="flow-label">FastAPI</text>
-    <path d="M172 18h10" className="flow-edge" />
-    <polygon points="184,18 178,14 178,22" className="flow-head" />
-    <rect x="188" y="6" width="80" height="24" rx="6" className="flow-node" />
-    <text x="228" y="22" textAnchor="middle" className="flow-label">Model</text>
-    <path d="M272 18h10" className="flow-edge" />
-    <polygon points="284,18 278,14 278,22" className="flow-head" />
-    <rect x="288" y="6" width="72" height="24" rx="6" className="flow-node" />
-    <text x="324" y="22" textAnchor="middle" className="flow-label">SQLite</text>
-    <path d="M364 18h10" className="flow-edge" />
-    <polygon points="376,18 370,14 370,22" className="flow-head" />
-    <rect x="380" y="6" width="88" height="24" rx="6" className="flow-node" />
-    <text x="424" y="22" textAnchor="middle" className="flow-label">Monitor</text>
-  </svg>
-);
+type FlowNode = { label: string; x: number; y: number; width: number };
 
-const RAGFlow = () => (
-  <svg viewBox="0 0 480 36" aria-hidden="true" className="w-full max-w-md h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="64" height="24" rx="6" className="flow-node" />
-    <text x="36" y="22" textAnchor="middle" className="flow-label">Docs</text>
-    <path d="M72 18h10" className="flow-edge" />
-    <polygon points="84,18 78,14 78,22" className="flow-head" />
-    <rect x="88" y="6" width="80" height="24" rx="6" className="flow-node" />
-    <text x="128" y="22" textAnchor="middle" className="flow-label">Chunk</text>
-    <path d="M172 18h10" className="flow-edge" />
-    <polygon points="184,18 178,14 178,22" className="flow-head" />
-    <rect x="188" y="6" width="80" height="24" rx="6" className="flow-node" />
-    <text x="228" y="22" textAnchor="middle" className="flow-label">Embed</text>
-    <path d="M272 18h10" className="flow-edge" />
-    <polygon points="284,18 278,14 278,22" className="flow-head" />
-    <rect x="288" y="6" width="88" height="24" rx="6" className="flow-node" />
-    <text x="332" y="22" textAnchor="middle" className="flow-label">ChromaDB</text>
-    <path d="M380 18h10" className="flow-edge" />
-    <polygon points="392,18 386,14 386,22" className="flow-head" />
-    <rect x="396" y="6" width="72" height="24" rx="6" className="flow-node" />
-    <text x="432" y="22" textAnchor="middle" className="flow-label">LLM</text>
-  </svg>
-);
+type FlowArrow =
+  | { direction: 'horizontal'; from: number; to: number; y: number }
+  | { direction: 'vertical'; x: number; from: number; to: number };
 
-const ETLFlow = () => (
-  <svg viewBox="0 0 480 36" aria-hidden="true" className="w-full max-w-md h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="100" height="24" rx="6" className="flow-node" />
-    <text x="54" y="22" textAnchor="middle" className="flow-label">Extract</text>
-    <path d="M108 18h10" className="flow-edge" />
-    <polygon points="122,18 116,14 116,22" className="flow-head" />
-    <rect x="126" y="6" width="124" height="24" rx="6" className="flow-node" />
-    <text x="188" y="22" textAnchor="middle" className="flow-label">Transform</text>
-    <path d="M254 18h10" className="flow-edge" />
-    <polygon points="268,18 262,14 262,22" className="flow-head" />
-    <rect x="272" y="6" width="80" height="24" rx="6" className="flow-node" />
-    <text x="312" y="22" textAnchor="middle" className="flow-label">Load</text>
-    <path d="M356 18h10" className="flow-edge" />
-    <polygon points="374,18 368,14 368,22" className="flow-head" />
-    <rect x="378" y="6" width="98" height="24" rx="6" className="flow-node" />
-    <text x="427" y="22" textAnchor="middle" className="flow-label">Query</text>
-  </svg>
-);
+type FlowSpec = { viewBox: string; nodes: FlowNode[]; arrows: FlowArrow[] };
+
+const NODE_HEIGHT = 34;
+const HEAD_LENGTH = 8;
+const HEAD_HALF_WIDTH = 5;
+
+function FlowDiagram({ spec, variant }: { spec: FlowSpec; variant: 'wide' | 'narrow' | 'always' }) {
+  return (
+    <svg
+      viewBox={spec.viewBox}
+      aria-hidden="true"
+      className={`flow-diagram flow-diagram--${variant}`}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {spec.nodes.map((node) => (
+        <g key={node.label}>
+          <rect
+            x={node.x}
+            y={node.y}
+            width={node.width}
+            height={NODE_HEIGHT}
+            className="flow-node"
+          />
+          <text
+            x={node.x + node.width / 2}
+            y={node.y + 23}
+            textAnchor="middle"
+            className="flow-label"
+          >
+            {node.label}
+          </text>
+        </g>
+      ))}
+      {spec.arrows.map((arrow, index) =>
+        arrow.direction === 'horizontal' ? (
+          <g key={`horizontal-${index}`}>
+            <path
+              d={`M${arrow.from} ${arrow.y}h${arrow.to - arrow.from - HEAD_LENGTH}`}
+              className="flow-edge"
+            />
+            <polygon
+              points={`${arrow.to},${arrow.y} ${arrow.to - HEAD_LENGTH},${arrow.y - HEAD_HALF_WIDTH} ${arrow.to - HEAD_LENGTH},${arrow.y + HEAD_HALF_WIDTH}`}
+              className="flow-head"
+            />
+          </g>
+        ) : (
+          <g key={`vertical-${index}`}>
+            <path
+              d={`M${arrow.x} ${arrow.from}v${arrow.to - arrow.from - HEAD_LENGTH}`}
+              className="flow-edge"
+            />
+            <polygon
+              points={`${arrow.x},${arrow.to} ${arrow.x - HEAD_HALF_WIDTH},${arrow.to - HEAD_LENGTH} ${arrow.x + HEAD_HALF_WIDTH},${arrow.to - HEAD_LENGTH}`}
+              className="flow-head"
+            />
+          </g>
+        ),
+      )}
+    </svg>
+  );
+}
+
+/*
+ * Wide: five stages on one line from 672px up. Narrow: three stages, then the
+ * remaining two directly under the last stage, so the wrap connector is a
+ * single vertical arrow with no line running beneath the first row.
+ */
+const CHURNOPS_WIDE: FlowSpec = {
+  viewBox: '0 0 624 46',
+  nodes: [
+    { label: 'User', x: 8, y: 6, width: 60 },
+    { label: 'FastAPI', x: 120, y: 6, width: 92 },
+    { label: 'Model', x: 264, y: 6, width: 78 },
+    { label: 'SQLite', x: 394, y: 6, width: 78 },
+    { label: 'Monitor', x: 524, y: 6, width: 92 },
+  ],
+  arrows: [
+    { direction: 'horizontal', from: 80, to: 108, y: 23 },
+    { direction: 'horizontal', from: 224, to: 252, y: 23 },
+    { direction: 'horizontal', from: 354, to: 382, y: 23 },
+    { direction: 'horizontal', from: 484, to: 512, y: 23 },
+  ],
+};
+
+const CHURNOPS_NARROW: FlowSpec = {
+  viewBox: '0 0 342 100',
+  nodes: [
+    { label: 'User', x: 10, y: 6, width: 58 },
+    { label: 'FastAPI', x: 88, y: 6, width: 80 },
+    { label: 'Model', x: 188, y: 6, width: 60 },
+    { label: 'SQLite', x: 188, y: 60, width: 60 },
+    { label: 'Monitor', x: 270, y: 60, width: 68 },
+  ],
+  arrows: [
+    { direction: 'horizontal', from: 73, to: 83, y: 23 },
+    { direction: 'horizontal', from: 173, to: 183, y: 23 },
+    { direction: 'vertical', x: 218, from: 40, to: 55 },
+    { direction: 'horizontal', from: 253, to: 265, y: 77 },
+  ],
+};
+
+const RAGNAR_WIDE: FlowSpec = {
+  viewBox: '0 0 624 46',
+  nodes: [
+    { label: 'Docs', x: 8, y: 6, width: 60 },
+    { label: 'Chunk', x: 121, y: 6, width: 78 },
+    { label: 'Embed', x: 252, y: 6, width: 94 },
+    { label: 'ChromaDB', x: 399, y: 6, width: 112 },
+    { label: 'LLM', x: 564, y: 6, width: 52 },
+  ],
+  arrows: [
+    { direction: 'horizontal', from: 80, to: 109, y: 23 },
+    { direction: 'horizontal', from: 211, to: 240, y: 23 },
+    { direction: 'horizontal', from: 358, to: 387, y: 23 },
+    { direction: 'horizontal', from: 523, to: 552, y: 23 },
+  ],
+};
+
+const RAGNAR_NARROW: FlowSpec = {
+  viewBox: '0 0 342 100',
+  nodes: [
+    { label: 'Docs', x: 10, y: 6, width: 58 },
+    { label: 'Chunk', x: 88, y: 6, width: 72 },
+    { label: 'Embed', x: 180, y: 6, width: 92 },
+    { label: 'ChromaDB', x: 180, y: 60, width: 92 },
+    { label: 'LLM', x: 294, y: 60, width: 44 },
+  ],
+  arrows: [
+    { direction: 'horizontal', from: 73, to: 83, y: 23 },
+    { direction: 'horizontal', from: 165, to: 175, y: 23 },
+    { direction: 'vertical', x: 226, from: 40, to: 55 },
+    { direction: 'horizontal', from: 277, to: 289, y: 77 },
+  ],
+};
+
+const BANKS_FLOW: FlowSpec = {
+  viewBox: '0 0 342 46',
+  nodes: [
+    { label: 'Extract', x: 4, y: 6, width: 66 },
+    { label: 'Transform', x: 90, y: 6, width: 86 },
+    { label: 'Load', x: 196, y: 6, width: 54 },
+    { label: 'Query', x: 270, y: 6, width: 64 },
+  ],
+  arrows: [
+    { direction: 'horizontal', from: 75, to: 85, y: 23 },
+    { direction: 'horizontal', from: 181, to: 191, y: 23 },
+    { direction: 'horizontal', from: 255, to: 265, y: 23 },
+  ],
+};
+
+const FLOW_SPECS: Record<'churnops' | 'ragnar', { wide: FlowSpec; narrow: FlowSpec }> = {
+  churnops: { wide: CHURNOPS_WIDE, narrow: CHURNOPS_NARROW },
+  ragnar: { wide: RAGNAR_WIDE, narrow: RAGNAR_NARROW },
+};
+
+function FlowDiagrams({ flows }: { flows: { wide: FlowSpec; narrow: FlowSpec } }) {
+  return (
+    <HStack isScrollable>
+      <FlowDiagram spec={flows.narrow} variant="narrow" />
+      <FlowDiagram spec={flows.wide} variant="wide" />
+    </HStack>
+  );
+}
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const isLaptop = useMediaQuery('(min-width: 1024px)', false);
   return (
-    <div className="glass-card p-8 space-y-6">
-      <div>
-        <h3 className="card-title">
+    <VStack gap={6}>
+      <Divider />
+
+      <VStack gap={3}>
+        <Heading
+          level={3}
+          textWrap="balance"
+          id={project.flow === 'banks' ? 'banks-etl' : project.flow}
+        >
           {project.title}
-        </h3>
-        <div className="mt-3 flex items-center justify-between gap-4 flex-wrap">
-          <p className="text-sm text-on-dark-soft">{project.positioning}</p>
-          <span className="badge-brand flex-shrink-0">{project.badge}</span>
-        </div>
-      </div>
-      {project.flow === 'churnops' && <ChurnOpsFlow />}
-      {project.flow === 'ragnar' && <RAGFlow />}
-      {project.flow === 'banks' && <ETLFlow />}
+        </Heading>
+        <HStack gap={3} align="center" wrap="wrap">
+          <Badge label={project.badge} variant="purple" />
+          <Text type="large" color="secondary">
+            {project.positioning}
+          </Text>
+        </HStack>
+      </VStack>
 
-      <div>
-        <h4 className="card-label">Problem</h4>
-        <p className="text-body leading-relaxed text-sm">{project.problem}</p>
-      </div>
+      {project.flow === 'churnops' && <FlowDiagrams flows={FLOW_SPECS.churnops} />}
+      {project.flow === 'ragnar' && <FlowDiagrams flows={FLOW_SPECS.ragnar} />}
+      {project.flow === 'banks' && (
+        <HStack isScrollable>
+          <FlowDiagram spec={BANKS_FLOW} variant="always" />
+        </HStack>
+      )}
 
-      <div>
-        <h4 className="card-label">Engineering</h4>
-        <ul className="space-y-2 text-sm text-body">
-          {project.engineering.map((item) => (
-            <li key={item} className="flex gap-3">
-              <span className="bullet-dot">•</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Grid columns={isLaptop ? 2 : 1} gap={8} align="start">
+        <VStack gap={2}>
+          <Text type="label" weight="bold" color="secondary">
+            Problem
+          </Text>
+          <Text>{project.problem}</Text>
+        </VStack>
 
-      <div>
-        <h4 className="card-label">Evidence</h4>
-        <ul className="space-y-2 text-sm text-body">
+        <VStack gap={2}>
+          <Text type="label" weight="bold" color="secondary">
+            Engineering
+          </Text>
+          <List listStyle="disc" density="compact">
+            {project.engineering.map((item) => (
+              <ListItem key={item} label={<Text type="supporting" size="base">{item}</Text>} />
+            ))}
+          </List>
+        </VStack>
+      </Grid>
+
+      <VStack gap={2}>
+        <Text type="label" weight="bold" color="secondary">
+          Evidence
+        </Text>
+        <List hasDividers density="compact">
           {project.evidence.map((item) => (
-            <li key={item} className="flex gap-3">
-              <span className="bullet-dot">•</span>
-              <span>{item}</span>
-            </li>
+            <ListItem
+              key={item}
+              startContent={<Icon icon="check" size="sm" color="success" />}
+              label={<Text type="supporting" size="base">{item}</Text>}
+            />
           ))}
-        </ul>
-      </div>
+        </List>
+      </VStack>
 
-      <ul className="flex flex-wrap gap-2">
-        {project.tags.map((t) => (
-          <li
-            key={t}
-            className="meta-chip"
-          >
-            {t}
-          </li>
+      <HStack gap={2} wrap="wrap">
+        {project.tags.map((tag) => (
+          <Token key={tag} label={tag} size="md" color="purple" />
         ))}
-      </ul>
+      </HStack>
 
-      <p className="text-sm text-on-dark-soft italic border-l-2 border-accent-teal/30 pl-4 leading-relaxed">
+      <Text type="body" color="secondary">
         {project.summary}
-      </p>
-      <div className="pt-4 border-t border-hairline-soft flex flex-wrap gap-6">
+      </Text>
+
+      <Divider />
+
+      <HStack gap={6} wrap="wrap">
         {project.links.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs text-accent-teal hover:text-primary transition-colors py-3"
-          >
-            {link.icon === 'github' ? (
-              <Github size={12} aria-hidden="true" />
-            ) : (
-              <Sparkles size={12} aria-hidden="true" />
-            )}
-            <span>{link.label}</span>
-          </a>
+          <Link key={link.href} href={link.href} isExternalLink type="supporting">
+            <HStack as="span" gap={2} align="center">
+              <Icon icon={link.icon === 'github' ? Github : Sparkles} size="sm" />
+              {link.label}
+            </HStack>
+          </Link>
         ))}
-      </div>
-    </div>
+      </HStack>
+    </VStack>
   );
 }

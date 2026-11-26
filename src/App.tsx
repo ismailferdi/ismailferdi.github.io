@@ -1,4 +1,14 @@
-import AnimatedBackground from './components/AnimatedBackground';
+import { useEffect } from 'react';
+import { Theme } from '@astryxdesign/core/theme';
+import { AppShell } from '@astryxdesign/core/AppShell';
+import { Layout } from '@astryxdesign/core/Layout';
+import { Section } from '@astryxdesign/core/Section';
+import { Grid } from '@astryxdesign/core/Grid';
+import { VStack } from '@astryxdesign/core/VStack';
+import { useMediaQuery } from '@astryxdesign/core';
+import { portfolioMatchaTheme } from './themes/portfolio-matcha';
+import '@astryxdesign/theme-matcha/fonts.css';
+import './themes/portfolio-matcha.css';
 import SiteNav from './components/SiteNav';
 import Hero from './components/Hero';
 import SectionHeader from './components/SectionHeader';
@@ -12,50 +22,69 @@ import Footer from './components/Footer';
 import { projects, skillGroups } from './data/portfolio';
 
 export default function App() {
+  useEffect(() => {
+    const header = document.querySelector('header, [role="banner"]');
+    if (!header) return;
+    const sync = () =>
+      document.documentElement.style.setProperty(
+        '--app-header-height',
+        `${header.getBoundingClientRect().height}px`,
+      );
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
+  const isMobile = useMediaQuery('(max-width: 767px)', true);
+  const isTablet = useMediaQuery('(min-width: 640px) and (max-width: 1023px)', false);
+  const isLaptop = useMediaQuery('(min-width: 1024px)', false);
+  const layoutPadding = isMobile ? 5 : 6;
   return (
-    <div className="min-h-screen selection:bg-primary/30 selection:text-primary">
-      <AnimatedBackground />
-      <header>
-        <SiteNav />
-      </header>
-      {/* Hero Section */}
-      <Hero />
+    <Theme theme={portfolioMatchaTheme} mode="dark">
+      <AppShell height="auto" variant="surface" contentPadding={0} topNav={<SiteNav />} mobileNav={{ breakpoint: 'md' }}>
+        <Layout height="auto" contentWidth={1320} padding={layoutPadding}>
+          <Hero />
 
-      <main id="main-content" tabIndex={-1} className="layout-container pb-24 space-y-24">
-        {/* Selected Projects / Work */}
-        <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-20">
-          <SectionHeader id="projects-heading" title="Selected Projects" />
-          <div className="grid grid-cols-1 gap-8">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
-        </section>
+          <Section
+            id="projects"
+            paddingBlock={8}
+            paddingInline={4}
+            dividers={['top']}
+          >
+            <VStack gap={8}>
+              <SectionHeader id="projects-heading" title="Selected Projects" />
+              <VStack gap={10}>
+                {projects.map((project) => (
+                  <ProjectCard key={project.title} project={project} />
+                ))}
+              </VStack>
+            </VStack>
+          </Section>
 
-        {/* Engineering Capabilities / Skills */}
-        <section id="skills" aria-labelledby="skills-heading" className="scroll-mt-20">
-          <SectionHeader id="skills-heading" title="Technical Skills" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillGroups.map((group) => (
-              <SkillGroup key={group.title} {...group} />
-            ))}
-          </div>
-        </section>
+          <Section
+            id="skills"
+            paddingBlock={8}
+            paddingInline={4}
+            dividers={['top']}
+          >
+            <VStack gap={8}>
+              <SectionHeader id="skills-heading" title="Technical Skills" />
+              <Grid columns={isLaptop || isTablet ? 2 : 1} gap={8} align="start">
+                {skillGroups.map((group) => (
+                  <SkillGroup key={group.title} {...group} />
+                ))}
+              </Grid>
+            </VStack>
+          </Section>
 
-        {/* Experience */}
-        <Experience />
-
-        {/* Education */}
-        <Education />
-
-        {/* Certifications */}
-        <Certifications />
-
-        {/* Contact CTA */}
-        <Contact />
-      </main>
-
-      <Footer />
-    </div>
+          <Experience />
+          <Education />
+          <Certifications />
+          <Contact />
+        </Layout>
+      </AppShell>
+      <Layout height="auto" contentWidth={1320} padding={layoutPadding} footer={<Footer />} />
+    </Theme>
   );
 }
